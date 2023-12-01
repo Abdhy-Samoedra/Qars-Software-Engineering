@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('drivers', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->string('name')->nullable();
-            
+        Schema::table('drivers', function (Blueprint $table) {
+            $table->string('gender')->nullable();
         });
     }
 
@@ -24,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('drivers');
+        Schema::table('drivers', function (Blueprint $table) {
+            $table->dropColumn('gender');
+        });
     }
 };
