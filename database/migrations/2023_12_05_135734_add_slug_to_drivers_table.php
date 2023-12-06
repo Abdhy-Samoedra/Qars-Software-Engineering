@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('lostandfounds', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->text('description')->nullable();
+        Schema::table('drivers', function (Blueprint $table) {
+            $table->integer('age')->after('picture')->nullable();
+            $table->string('slug')->after('age')->unique();
         });
     }
 
@@ -23,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('lostandfounds');
+        Schema::table('drivers', function (Blueprint $table) {
+            $table->dropColumn('slug');
+        });
     }
 };

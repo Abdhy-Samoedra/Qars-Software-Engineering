@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Admin\DriverController as AdminDriverController;
+use App\Http\Controllers\Admin\LostAndFoundController as AdminLostAndFoundController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,14 +18,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('front.index');
 
-Route::middleware([
+Route::prefix('admin')->name('admin.')->middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+    Route::resource('drivers', AdminDriverController::class);
+    Route::resource('lostAndFounds', AdminLostAndFoundController::class);
 });
