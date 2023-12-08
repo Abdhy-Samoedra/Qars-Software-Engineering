@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\DriverController as AdminDriverController;
 use App\Http\Controllers\Admin\LostAndFoundController as AdminLostAndFoundController;
+use App\Http\Controllers\Admin\VehicleController;
+use App\Http\Controllers\Admin\VoucherCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +30,6 @@ Route::prefix('admin')->name('admin.')->middleware([
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::resource('drivers', AdminDriverController::class);
     Route::resource('lostAndFounds', AdminLostAndFoundController::class);
+    Route::resource('vehicles', VehicleController::class);
+    Route::resource('voucherCategories', VoucherCategoryController::class);
 });

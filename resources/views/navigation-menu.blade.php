@@ -18,6 +18,12 @@
                     <x-nav-link href="{{ route('admin.drivers.index') }}" :active="request()->routeIs('admin.drivers.index')">
                         {{ __('Drivers') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('admin.vehicles.index') }}" :active="request()->routeIs('admin.vehicles.index')">
+                        {{ __('Vehicles') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('admin.voucherCategories.index') }}" :active="request()->routeIs('admin.voucherCategories.index')">
+                        {{ __('Voucher Categories') }}
+                    </x-nav-link>
                 </div>
             </div>
 
