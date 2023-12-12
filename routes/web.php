@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DriverController as AdminDriverController;
 use App\Http\Controllers\Admin\LostAndFoundController as AdminLostAndFoundController;
 use App\Http\Controllers\Admin\VehicleController;
 use App\Http\Controllers\Admin\VoucherCategoryController;
+use App\Http\Controllers\Admin\RatingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,4 +33,5 @@ Route::prefix('admin')->name('admin.')->middleware([
     Route::resource('lostAndFounds', AdminLostAndFoundController::class);
     Route::resource('vehicles', VehicleController::class);
     Route::resource('voucherCategories', VoucherCategoryController::class);
+    Route::resource('ratings', RatingController::class);
 });
