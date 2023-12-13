@@ -2,7 +2,7 @@
     <x-slot name="title">Admin</x-slot>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ __('Driver') }}
+            {{ __('Vehicle Category') }}
         </h2>
     </x-slot>
 
@@ -20,8 +20,8 @@
                     url: '//cdn.datatables.net/plug-ins/1.12.1/i18n/id.json'
                 },
                 columns: [{
-                        data: 'name',
-                        name: 'name',
+                        data: 'vehicle_category_name',
+                        name: 'vehicle_category_name',
                         class: 'text-center',
                     }, {
                         data: 'thumbnail',
@@ -30,18 +30,13 @@
                         searchable: false,
                     },
                     {
-                        data: 'gender',
-                        name: 'gender',
+                        data: 'vehicle_category_capacity',
+                        name: 'vehicle_category_capacity',
                         class: 'text-center',
                     },
                     {
-                        data: 'phone',
-                        name: 'phone',
-                        class: 'text-center',
-                    },
-                    {
-                        data: 'age',
-                        name: 'age',
+                        data: 'vehicle_category_description',
+                        name: 'vehicle_category_description',
                         class: 'text-center',
                     },
                     {
@@ -64,9 +59,9 @@
     <div class="py-12">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="mb-10">
-                <a href="{{ route('admin.drivers.create') }}"
+                <a href="{{ route('admin.vehicleCategories.create') }}"
                     class="px-4 py-2 font-bold text-white bg-green-500 rounded shadow-lg hover:bg-green-700">
-                    + Buat Driver
+                    + Buat Kategori Kendaraan
                 </a>
             </div>
             <div class="overflow-hidden shadow sm:rounded-md">
@@ -74,11 +69,10 @@
                     <table id="dataTable">
                         <thead>
                             <tr>
-                                <th>Name</th>
+                                <th>Vehicle Category Name</th>
                                 <th>Photo</th>
-                                <th>Gender</th>
-                                <th>Phone</th>
-                                <th>Age</th>
+                                <th>Capacity</th>
+                                <th>Description</th>
                                 <th>Slug</th>
                                 <th>Actions</th>
                             </tr>

@@ -11,9 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('vehiclecategories', function (Blueprint $table) {
+        Schema::create('vehicle_categories', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('vehicle_category_name');
+            $table->integer('vehicle_category_capacity');
+            $table->text('vehicle_category_description')->nullable();
+            $table->text('vehicle_category_picture')->nullable();
+            $table->string('slug')->unique();
         });
     }
 
@@ -22,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('vehiclecategories');
+        Schema::dropIfExists('vehicle_categories');
     }
 };

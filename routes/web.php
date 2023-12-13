@@ -4,9 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\DriverController as AdminDriverController;
 use App\Http\Controllers\Admin\LostAndFoundController as AdminLostAndFoundController;
-use App\Http\Controllers\Admin\VehicleController;
-use App\Http\Controllers\Admin\VoucherCategoryController;
-use App\Http\Controllers\Admin\RatingController;
+use App\Http\Controllers\Admin\VehicleController as AdminVehicleController;
+use App\Http\Controllers\Admin\VoucherCategoryController as AdminVoucherCategoryController;
+use App\Http\Controllers\Admin\VehicleCategoryController as AdminVehicleCategoryController;
+use App\Http\Controllers\Admin\RatingController as AdminRatingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +32,8 @@ Route::prefix('admin')->name('admin.')->middleware([
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::resource('drivers', AdminDriverController::class);
     Route::resource('lostAndFounds', AdminLostAndFoundController::class);
-    Route::resource('vehicles', VehicleController::class);
-    Route::resource('voucherCategories', VoucherCategoryController::class);
-    Route::resource('ratings', RatingController::class);
+    Route::resource('vehicles', AdminVehicleController::class);
+    Route::resource('voucherCategories', AdminVoucherCategoryController::class);
+    Route::resource('vehicleCategories', AdminVehicleCategoryController::class);
+    Route::resource('ratings', AdminRatingController::class);
 });

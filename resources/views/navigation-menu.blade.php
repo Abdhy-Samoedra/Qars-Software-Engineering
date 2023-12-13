@@ -24,6 +24,9 @@
                     <x-nav-link href="{{ route('admin.voucherCategories.index') }}" :active="request()->routeIs('admin.voucherCategories.index')">
                         {{ __('Voucher Categories') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('admin.vehicleCategories.index') }}" :active="request()->routeIs('admin.vehicleCategories.index')">
+                        {{ __('Vehicle Categories') }}
+                    </x-nav-link>
                     <x-nav-link href="{{ route('admin.ratings.index') }}" :active="request()->routeIs('admin.ratings.index')">
                         {{ __('Ratings') }}
                     </x-nav-link>
@@ -173,6 +176,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link href="{{ route('admin.voucherCategories.index') }}" :active="request()->routeIs('admin.voucherCategories.index')">
                 {{ __('Voucher Categories') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('admin.vehicleCategories.index') }}" :active="request()->routeIs('admin.vehicleCategories.index')">
+                {{ __('Vehicle Categories') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link href="{{ route('admin.ratings.index') }}" :active="request()->routeIs('admin.ratings.index')">
                 {{ __('Ratings') }}
