@@ -27,4 +27,8 @@ class VehicleCategory extends Model
 
         return 'https://via.placeholder.com/800x600';
     }
+
+    public function vehicles(){
+        return $this->hasMany(Vehicle::class);
+    }
 }

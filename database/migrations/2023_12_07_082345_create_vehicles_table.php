@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('vehicles', function (Blueprint $table) {
             $table->string('license_plate')->primary();
             $table->timestamps();
-            // $table->foreign('vehicle_category_id')->references('vehicle_category_id')->on('vehicle_categories')->onDelete('cascade');
+            $table->unsignedBigInteger('vehicle_category_id');
             $table->string('color');
             $table->string('merk');
             $table->string('type');
@@ -22,8 +22,8 @@ return new class extends Migration
             $table->string('fuel');
             $table->integer('rental_price');
             $table->longText('car_description');
-            $table->integer('status');
-            $table->text('car_picture');
+            $table->integer('status')->default('0');
+            $table->text('car_picture')->nullable();
             $table->string('slug')->unique();
         });
     }
