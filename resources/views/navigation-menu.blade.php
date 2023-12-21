@@ -30,6 +30,9 @@
                     <x-nav-link href="{{ route('admin.ratings.index') }}" :active="request()->routeIs('admin.ratings.index')">
                         {{ __('Ratings') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('admin.lostAndFounds.index') }}" :active="request()->routeIs('admin.lostAndFounds.index')">
+                        {{ __('Lost And Found') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -182,6 +185,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link href="{{ route('admin.ratings.index') }}" :active="request()->routeIs('admin.ratings.index')">
                 {{ __('Ratings') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('admin.lostAndFounds.index') }}" :active="request()->routeIs('admin.lostAndFounds.index')">
+                {{ __('Lost And Found') }}
             </x-responsive-nav-link>
         </div>
 
