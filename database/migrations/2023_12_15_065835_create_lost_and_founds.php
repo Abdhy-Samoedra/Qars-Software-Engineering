@@ -11,9 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('lostandfounds', function (Blueprint $table) {
+        Schema::create('lost_and_founds', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->date('found_date');
+            $table->boolean('taken_status')->default(false);
+            $table->text('lost_and_found_picture')->nullable();
+            $table->text('description')->nullable();
+            $table->string('slug')->unique();
+
         });
     }
 
@@ -22,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('lostandfounds');
+        Schema::dropIfExists('lost_and_founds');
     }
 };
