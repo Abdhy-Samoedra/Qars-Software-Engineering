@@ -76,15 +76,15 @@ class VehicleController extends Controller
         // dd($request);
         if ($request->hasFile('car_picture')) {
             $car_picture = [];
-            
+
             foreach ($request->file('car_picture') as $picture) {
                 $vehiclePicturePath = $picture->store('assets/item', 'public');
-                
+
                 //push to array
                 array_push($car_picture, $vehiclePicturePath);
             }
 
-            
+
             $data['car_picture'] = json_encode($car_picture);
         }
 
@@ -113,7 +113,7 @@ class VehicleController extends Controller
     {
         $vehicle = Vehicle::where('slug', $slug)->firstOrFail();
         $vehicleCategory = VehicleCategory::all();
-        
+
         return view('admin.vehicles.edit', [
             'vehicle' => $vehicle,
             'vehicleCategory' => $vehicleCategory
