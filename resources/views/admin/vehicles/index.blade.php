@@ -20,11 +20,11 @@
                     url: '//cdn.datatables.net/plug-ins/1.12.1/i18n/id.json'
                 },
                 columns: [{
-                        data: 'license_plate',
-                        name: 'license_plate',
+                        data: 'id',
+                        name: 'id',
                         class: 'text-center'
-                        
-                    }, 
+
+                    },
                     {
                         data: 'thumbnail',
                         name: 'thumbnail',

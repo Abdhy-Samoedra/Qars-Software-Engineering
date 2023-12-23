@@ -1,7 +1,7 @@
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
+        <div class="flex justify-between h-20">
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex items-center shrink-0">
@@ -14,6 +14,9 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link href="{{ route('admin.dashboard') }}" :active="request()->routeIs('admin.dashboard')">
                         {{ __('Dashboard') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('admin.transactions.index') }}" :active="request()->routeIs('admin.transactions.index')">
+                        {{ __('Transactions') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('admin.drivers.index') }}" :active="request()->routeIs('admin.drivers.index')">
                         {{ __('Drivers') }}
@@ -29,9 +32,6 @@
                     </x-nav-link>
                     <x-nav-link href="{{ route('admin.ratings.index') }}" :active="request()->routeIs('admin.ratings.index')">
                         {{ __('Ratings') }}
-                    </x-nav-link>
-                    <x-nav-link href="{{ route('admin.lostAndFounds.index') }}" :active="request()->routeIs('admin.lostAndFounds.index')">
-                        {{ __('Lost And Found') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -171,6 +171,9 @@
             <x-responsive-nav-link href="{{ route('admin.dashboard') }}" :active="request()->routeIs('admin.dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('admin.transactions.index') }}" :active="request()->routeIs('admin.transactions.index')">
+                {{ __('Transactions') }}
+            </x-responsive-nav-link>
             <x-responsive-nav-link href="{{ route('admin.drivers.index') }}" :active="request()->routeIs('admin.drivers.index')">
                 {{ __('Drivers') }}
             </x-responsive-nav-link>
@@ -185,9 +188,6 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link href="{{ route('admin.ratings.index') }}" :active="request()->routeIs('admin.ratings.index')">
                 {{ __('Ratings') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link href="{{ route('admin.lostAndFounds.index') }}" :active="request()->routeIs('admin.lostAndFounds.index')">
-                {{ __('Lost And Found') }}
             </x-responsive-nav-link>
         </div>
 

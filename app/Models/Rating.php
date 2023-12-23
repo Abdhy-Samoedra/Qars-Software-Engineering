@@ -15,4 +15,9 @@ class Rating extends Model
         'review',
         'rating',
     ];
+
+    public function transactions()
+    {
+        return $this->hasOne(Transaction::class,'rating_id');
+    }
 }
