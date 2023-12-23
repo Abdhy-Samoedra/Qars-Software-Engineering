@@ -5,7 +5,7 @@
             <a href="#!" onclick="window.history.go(-1); return false;">
                 ←
             </a>
-            {!! __('Vehicle &raquo; Details &raquo; ') . $vehicle->license_plate !!}
+            {!! __('Vehicle &raquo; Details &raquo; ') . $vehicle->id !!}
         </h2>
     </x-slot>
 
@@ -37,9 +37,9 @@
 
                     {{-- {{$pictures = explode(',' ,str_replace('"', '', $vehicle->car_picture))}} --}}
 
-                    <div class="flex justify-around flex-wrap w-1/2 container mx-auto">
-                        @foreach(json_decode($vehicle->car_picture) as $picture)
-                            <img src="{{ Storage::url($picture) }}" alt="" class="mx-auto rounded-md w-64 mb-5">
+                    <div class="container flex flex-wrap justify-around w-1/2 mx-auto">
+                        @foreach (json_decode($vehicle->car_picture) as $picture)
+                            <img src="{{ Storage::url($picture) }}" alt="" class="w-64 mx-auto mb-5 rounded-md">
                         @endforeach
                     </div>
 
@@ -49,7 +49,7 @@
                                 for="grid-last-name">
                                 Vehicle's License Plate *
                             </label>
-                            <input value="{{ old('license_plate') ?? $vehicle->license_plate }}" name="license_plate"
+                            <input value="{{ old('id') ?? $vehicle->id }}" name="id"
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name" type="text" placeholder="Vehicle Name" required disabled>
                         </div>
@@ -61,9 +61,11 @@
                                 for="grid-last-name">
                                 Vehicle's Category ID *
                             </label>
-                            <input value="{{ old('vehicle_category_id') ?? $vehicle->vehicle_category_id }}" name="vehicle_category_id"
+                            <input value="{{ old('vehicle_category_id') ?? $vehicle->vehicle_category_id }}"
+                                name="vehicle_category_id"
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
-                                id="grid-last-name" type="text" placeholder="Vehicle's Category ID" required disabled>
+                                id="grid-last-name" type="text" placeholder="Vehicle's Category ID" required
+                                disabled>
                         </div>
                     </div>
 
@@ -78,7 +80,7 @@
                                 id="grid-last-name" type="text" placeholder="Vehicle's Color" required disabled>
                         </div>
                     </div>
-                    
+
                     <div class="flex flex-wrap px-3 mt-4 mb-6 -mx-3">
                         <div class="w-full">
                             <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase"
@@ -109,9 +111,11 @@
                                 for="grid-last-name">
                                 Vehicle's Year Of Release *
                             </label>
-                            <input value="{{ old('year_of_release') ?? $vehicle->year_of_release }}" name="year_of_release"
+                            <input value="{{ old('year_of_release') ?? $vehicle->year_of_release }}"
+                                name="year_of_release"
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
-                                id="grid-last-name" type="text" placeholder="Vehicle's Year Of Release" required disabled>
+                                id="grid-last-name" type="text" placeholder="Vehicle's Year Of Release" required
+                                disabled>
                         </div>
                     </div>
 
@@ -123,7 +127,8 @@
                             </label>
                             <input value="{{ old('rental_price') ?? $vehicle->rental_price }}" name="rental_price"
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
-                                id="grid-last-name" type="text" placeholder="Vehicle's Year Of Release" required disabled>
+                                id="grid-last-name" type="text" placeholder="Vehicle's Year Of Release" required
+                                disabled>
                         </div>
                     </div>
 
@@ -133,9 +138,11 @@
                                 for="grid-last-name">
                                 Vehicle's Description *
                             </label>
-                            <input value="{{ old('car_description') ?? $vehicle->car_description }}" name="car_description"
+                            <input value="{{ old('car_description') ?? $vehicle->car_description }}"
+                                name="car_description"
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
-                                id="grid-last-name" type="text" placeholder="Vehicle's Year Of Release" required disabled>
+                                id="grid-last-name" type="text" placeholder="Vehicle's Year Of Release" required
+                                disabled>
                         </div>
                     </div>
 

@@ -29,4 +29,10 @@ class VoucherCategory extends Model
 
         return 'https://via.placeholder.com/800x600';
     }
+
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
 }

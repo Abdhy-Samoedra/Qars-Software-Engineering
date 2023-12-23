@@ -37,11 +37,12 @@
                                 for="grid-last-name">
                                 Vehicle's License Plate *
                             </label>
-                            <input value="{{ old('license_plate') }}" name="license_plate"
+                            <input value="{{ old('id') }}" name="id"
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name" type="text" placeholder="Vehicle License Plate" required>
                             <div class="mt-2 text-sm text-gray-500">
-                                Vehicle License Plate. Example: Vehicle Category 1, Vehicle Category 2, Vehicle Category 3, dsb. Required. Max 255
+                                Vehicle License Plate. Example: Vehicle Category 1, Vehicle Category 2, Vehicle Category
+                                3, dsb. Required. Max 255
                                 characters.
                             </div>
                         </div>
@@ -109,7 +110,8 @@
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name" type="text" placeholder="Vehicle Brand" required>
                             <div class="mt-2 text-sm text-gray-500">
-                                Vehicle Category Dascription. Example: A very good choice for offroad, Minimalistic car to carry the entire family, dsb. Required. Max 255
+                                Vehicle Category Dascription. Example: A very good choice for offroad, Minimalistic car
+                                to carry the entire family, dsb. Required. Max 255
                                 characters.
                             </div>
                         </div>
@@ -124,7 +126,8 @@
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name" type="text" placeholder="Vehicle's Type" required>
                             <div class="mt-2 text-sm text-gray-500">
-                                Vehicle Category Dascription. Example: A very good choice for offroad, Minimalistic car to carry the entire family, dsb. Required. Max 255
+                                Vehicle Category Dascription. Example: A very good choice for offroad, Minimalistic car
+                                to carry the entire family, dsb. Required. Max 255
                                 characters.
                             </div>
                         </div>
@@ -140,7 +143,8 @@
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name" type="number" placeholder="Vehicle's Year Of Release" required>
                             <div class="mt-2 text-sm text-gray-500">
-                                Vehicle's Dascription. Example: A very good choice for offroad, Minimalistic car to carry the entire family, dsb. Required. Max 255
+                                Vehicle's Dascription. Example: A very good choice for offroad, Minimalistic car to
+                                carry the entire family, dsb. Required. Max 255
                                 characters.
                             </div>
                         </div>
@@ -156,7 +160,8 @@
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name" type="text" placeholder="Vehicle's Fuel" required>
                             <div class="mt-2 text-sm text-gray-500">
-                                Vehicle Category Dascription. Example: A very good choice for offroad, Minimalistic car to carry the entire family, dsb. Required. Max 255
+                                Vehicle Category Dascription. Example: A very good choice for offroad, Minimalistic car
+                                to carry the entire family, dsb. Required. Max 255
                                 characters.
                             </div>
                         </div>
@@ -172,7 +177,8 @@
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name" type="number" placeholder="Vehicle Category Description" required>
                             <div class="mt-2 text-sm text-gray-500">
-                                Vehicle Category Dascription. Example: A very good choice for offroad, Minimalistic car to carry the entire family, dsb. Required. Max 255
+                                Vehicle Category Dascription. Example: A very good choice for offroad, Minimalistic car
+                                to carry the entire family, dsb. Required. Max 255
                                 characters.
                             </div>
                         </div>
@@ -188,7 +194,8 @@
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name" type="text" placeholder="Vehicle's Description" required>
                             <div class="mt-2 text-sm text-gray-500">
-                                Vehicle's Dascription. Example: A very good choice for offroad, Minimalistic car to carry the entire family, dsb. Required. Max 255
+                                Vehicle's Dascription. Example: A very good choice for offroad, Minimalistic car to
+                                carry the entire family, dsb. Required. Max 255
                                 characters.
                             </div>
                         </div>
