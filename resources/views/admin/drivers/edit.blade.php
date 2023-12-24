@@ -116,7 +116,7 @@
                     <div class="flex flex-wrap mb-6 -mx-3">
                         <div class="w-full px-3 text-right">
                             <button type="submit"
-                                class="px-4 py-2 font-bold text-white bg-green-500 rounded shadow-lg hover:bg-green-700">
+                                class="px-6 py-3 mb-2 text-sm font-bold text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 me-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                                 Simpan Driver
                             </button>
                         </div>

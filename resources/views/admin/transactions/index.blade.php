@@ -14,41 +14,41 @@
                     url: '//cdn.datatables.net/plug-ins/1.12.1/i18n/en.json'
                 },
                 columns: [{
-                        data: 'name',
-                        name: 'name',
-                        class: 'text-center',
-                    }, {
-                        data: 'thumbnail',
-                        name: 'thumbnail',
-                        orderable: false,
-                        searchable: false,
+                        //memanggil nama dari tabel user
+                        data: 'user.name',
+                        name: 'user.name',
                     },
                     {
-                        data: 'gender',
-                        name: 'gender',
-                        class: 'text-center',
+                        data: 'start_date',
+                        name: 'start_date',
                     },
                     {
-                        data: 'phone',
-                        name: 'phone',
-                        class: 'text-center',
+                        data: 'end_date',
+                        name: 'end_date',
                     },
                     {
-                        data: 'age',
-                        name: 'age',
-                        class: 'text-center',
+                        data: 'vehicle.id',
+                        name: 'vehicle.id',
                     },
                     {
-                        data: 'slug',
-                        name: 'slug',
-                        class: 'text-center',
+                        data: 'status',
+                        name: 'status',
                     },
                     {
+                        data: 'payment_status',
+                        name: 'payment_status',
+                    },
+                    {
+                        data: 'total_price',
+                        name: 'total_price',
+                    },
+                    {
+                        //kolom button action
                         data: 'action',
                         name: 'action',
                         orderable: false,
                         searchable: false,
-                        width: '15%'
+                        width: '20%'
                     },
                 ],
             });
@@ -59,13 +59,7 @@
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="flex justify-between mb-5 ">
                 <div class="text-3xl font-medium text-blue-950">
-                    {{ __('Drivers') }}
-                </div>
-                <div class="mb-0">
-                    <a href="{{ route('admin.drivers.create') }}"
-                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                        {{ __('+ Add Driver') }}
-                    </a>
+                    {{ __('Transactions') }}
                 </div>
             </div>
             <div class="overflow-hidden shadow sm:rounded-md">
@@ -73,12 +67,13 @@
                     <table id="dataTable" class="hover stripe">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Photo</th>
-                                <th>Gender</th>
-                                <th>Phone</th>
-                                <th>Age</th>
-                                <th>Slug</th>
+                                <th>User</th>
+                                <th>Start</th>
+                                <th>End</th>
+                                <th>Car</th>
+                                <th>Status</th>
+                                <th>Payment Status</th>
+                                <th>Total</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>

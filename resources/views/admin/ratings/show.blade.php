@@ -37,7 +37,7 @@
                                 for="grid-last-name">
                                 Transaction ID
                             </label>
-                            <input value="{{ old('transactionid') ?? $rating->transactionid }}" name="license_plate"
+                            <input value="{{ old('transactionid') ?? $rating->transactionid }}" name="id"
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name" type="text" placeholder="Review" required disabled>
                         </div>
@@ -49,7 +49,7 @@
                                 for="grid-last-name">
                                 License Plate
                             </label>
-                            <input value="{{ old('licenseplate') ?? $rating->licenseplate }}" name="license_plate"
+                            <input value="{{ old('licenseplate') ?? $rating->licenseplate }}" name="id"
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name" type="text" placeholder="License Plate" required disabled>
                         </div>

@@ -35,7 +35,7 @@ class VehicleController extends Controller
                         href="' . route('admin.vehicles.edit', $vehicle->slug) . '">
                         edit
                     </a>
-                    <form class="block w-full" onsubmit="return confirm(\'Apakah anda yakin?\');" -block" action="' . route('admin.vehicles.destroy', $vehicle->license_plate) . '" method="POST">
+                    <form class="block w-full" onsubmit="return confirm(\'Apakah anda yakin?\');" -block" action="' . route('admin.vehicles.destroy', $vehicle->id) . '" method="POST">
                     <button class="w-full px-2 py-1 mx-1 text-xs text-white transition duration-500 bg-red-500 border border-red-500 rounded-md select-none ease hover:bg-red-600 focus:outline-none focus:shadow-outline" >
                         delete
                     </button>
@@ -70,7 +70,7 @@ class VehicleController extends Controller
         $data = $request->all();
         // return dd($data);
 
-        $data['slug'] = Str::slug($data['license_plate']) . '-' . Str::lower(Str::random(5));
+        $data['slug'] = Str::slug($data['id']) . '-' . Str::lower(Str::random(5));
 
         // upload multiple pictures
         // dd($request);
@@ -88,7 +88,7 @@ class VehicleController extends Controller
             $data['car_picture'] = json_encode($car_picture);
         }
 
-
+        // return dd($data);
         Vehicle::create($data);
 
         return redirect()->route('admin.vehicles.index');

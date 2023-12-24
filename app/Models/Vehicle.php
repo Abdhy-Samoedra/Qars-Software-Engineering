@@ -10,11 +10,11 @@ class Vehicle extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'license_plate';
+    protected $primaryKey = 'id';
     public $incrementing = false;
 
     protected $fillable = [
-        'license_plate',
+        'id',
         'vehicle_category_id',
         'color',
         'merk',
@@ -42,16 +42,18 @@ class Vehicle extends Model
         return 'https://via.placeholder.com/800x600';
     }
 
-    public function vehicleCategories(){
+    public function vehicleCategories()
+    {
         return $this->belongsTo(VehicleCategory::class);
     }
 
-    public function lostAndFounds(){
+    public function lostAndFounds()
+    {
         return $this->hasMany(LostAndFound::class);
     }
 
-    // public function transactions(){
-    //     return $this->hasMany(Transaction::class);
-    // }
-
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
 }
