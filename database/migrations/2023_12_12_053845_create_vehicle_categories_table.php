@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('vehicle_category_name');
             $table->integer('vehicle_category_capacity');
             $table->text('vehicle_category_description')->nullable();
-            $table->text('vehicle_category_picture')->nullable();
             $table->string('slug')->unique();
         });
     }

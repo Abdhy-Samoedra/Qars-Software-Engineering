@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Jetstream\Jetstream;
+use Illuminate\Support\Str;
 
 class CreateNewUser implements CreatesNewUsers
 {
@@ -28,8 +29,12 @@ class CreateNewUser implements CreatesNewUsers
 
         return User::create([
             'name' => $input['name'],
+            'gender' => $input['gender'],
+            'phone' => $input['phone'],
             'email' => $input['email'],
+            'age' => $input['age'],
             'password' => Hash::make($input['password']),
+            'slug' => Str::slug($input['name']) . '-' . Str::lower(Str::random(5)),
         ]);
     }
 }

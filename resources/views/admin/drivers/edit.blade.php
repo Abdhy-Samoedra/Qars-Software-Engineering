@@ -5,7 +5,7 @@
             <a href="#!" onclick="window.history.go(-1); return false;">
                 ←
             </a>
-            {!! __('Driver &raquo; Sunting &raquo; '). $driver->name !!}
+            {!! __('Driver &raquo; Edit &raquo; '). $driver->name !!}
         </h2>
     </x-slot>
 
@@ -15,7 +15,7 @@
                 @if ($errors->any())
                     <div class="mb-5" role="alert">
                         <div class="px-4 py-2 font-bold text-white bg-red-500 rounded-t">
-                            Ada kesalahan!
+                            Error!
                         </div>
                         <div class="px-4 py-3 text-red-700 bg-red-100 border border-t-0 border-red-400 rounded-b">
                             <p>
@@ -74,7 +74,7 @@
                             </label>
                             <input value="{{ old('phone') ?? $driver->phone}}" name="phone"
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
-                                id="grid-last-name" type="text" placeholder="Phone" required>
+                                id="grid-last-name" type="number" placeholder="Phone" required>
                             <div class="mt-2 text-sm text-gray-500">
                                 Nama drivers. Contoh: Driver 1, Driver 2, Driver 3, dsb. Wajib diisi. Maksimal 255
                                 karakter.
@@ -90,7 +90,7 @@
                             </label>
                             <input value="{{ old('age') ?? $driver->age}}" name="age"
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
-                                id="grid-last-name" type="text" placeholder="Age" required>
+                                id="grid-last-name" type="number" placeholder="Age" required>
                             <div class="mt-2 text-sm text-gray-500">
                                 Nama drivers. Contoh: Driver 1, Driver 2, Driver 3, dsb. Wajib diisi. Maksimal 255
                                 karakter.

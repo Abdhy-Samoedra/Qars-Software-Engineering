@@ -15,8 +15,27 @@
             </div>
 
             <div class="mt-4">
+                <x-label for="gender" value="{{ __('Gender') }}" />
+                <select id="gender" class="block mt-1 w-full border-gray-300 rounded-md" type="gender" name="gender" :value="old('gender')" required autocomplete="gender">
+                    <option value="">Choose Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+
+            <div class="mt-4">
+                <x-label for="phone" value="{{ __('Phone') }}" />
+                <x-input id="phone" class="block mt-1 w-full" type="number" name="phone" :value="old('phone')" required autocomplete="phone" />
+            </div>
+
+            <div class="mt-4">
                 <x-label for="email" value="{{ __('Email') }}" />
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+            </div>
+
+            <div class="mt-4">
+                <x-label for="age" value="{{ __('Age') }}" />
+                <x-input id="age" class="block mt-1 w-full" type="number" name="age" :value="old('age')" required autocomplete="age" />
             </div>
 
             <div class="mt-4">

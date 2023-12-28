@@ -15,23 +15,29 @@
                     <x-nav-link href="{{ route('admin.dashboard') }}" :active="request()->routeIs('admin.dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ route('admin.transactions.index') }}" :active="request()->routeIs('admin.transactions.index')">
-                        {{ __('Transactions') }}
+                    <x-nav-link href="{{ route('admin.users.index') }}" :active="request()->routeIs('admin.users.index')">
+                        {{ __('Users') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('admin.drivers.index') }}" :active="request()->routeIs('admin.drivers.index')">
                         {{ __('Drivers') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ route('admin.vehicles.index') }}" :active="request()->routeIs('admin.vehicles.index')">
-                        {{ __('Vehicles') }}
-                    </x-nav-link>
-                    <x-nav-link href="{{ route('admin.voucherCategories.index') }}" :active="request()->routeIs('admin.voucherCategories.index')">
-                        {{ __('Voucher Categories') }}
-                    </x-nav-link>
                     <x-nav-link href="{{ route('admin.vehicleCategories.index') }}" :active="request()->routeIs('admin.vehicleCategories.index')">
                         {{ __('Vehicle Categories') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('admin.vehicles.index') }}" :active="request()->routeIs('admin.vehicles.index')">
+                        {{ __('Vehicles') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('admin.transactions.index') }}" :active="request()->routeIs('admin.transactions.index')">
+                        {{ __('Transactions') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('admin.lostAndFounds.index') }}" :active="request()->routeIs('admin.lostAndFounds.index')">
+                        {{ __('Lost And Found') }}
+                    </x-nav-link>
                     <x-nav-link href="{{ route('admin.ratings.index') }}" :active="request()->routeIs('admin.ratings.index')">
                         {{ __('Ratings') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('admin.voucherCategories.index') }}" :active="request()->routeIs('admin.voucherCategories.index')">
+                        {{ __('Voucher Categories') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -171,23 +177,29 @@
             <x-responsive-nav-link href="{{ route('admin.dashboard') }}" :active="request()->routeIs('admin.dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link href="{{ route('admin.transactions.index') }}" :active="request()->routeIs('admin.transactions.index')">
-                {{ __('Transactions') }}
+            <x-responsive-nav-link href="{{ route('admin.users.index') }}" :active="request()->routeIs('admin.users.index')">
+                {{ __('Users') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link href="{{ route('admin.drivers.index') }}" :active="request()->routeIs('admin.drivers.index')">
                 {{ __('Drivers') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link href="{{ route('admin.vehicles.index') }}" :active="request()->routeIs('admin.vehicles.index')">
-                {{ __('Vehicles') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link href="{{ route('admin.voucherCategories.index') }}" :active="request()->routeIs('admin.voucherCategories.index')">
-                {{ __('Voucher Categories') }}
-            </x-responsive-nav-link>
             <x-responsive-nav-link href="{{ route('admin.vehicleCategories.index') }}" :active="request()->routeIs('admin.vehicleCategories.index')">
                 {{ __('Vehicle Categories') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('admin.vehicles.index') }}" :active="request()->routeIs('admin.vehicles.index')">
+                {{ __('Vehicles') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('admin.transactions.index') }}" :active="request()->routeIs('admin.transactions.index')">
+                {{ __('Transactions') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('admin.lostAndFounds.index') }}" :active="request()->routeIs('admin.lostAndFounds.index')">
+                {{ __('Lost And Found') }}
+            </x-responsive-nav-link>
             <x-responsive-nav-link href="{{ route('admin.ratings.index') }}" :active="request()->routeIs('admin.ratings.index')">
                 {{ __('Ratings') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('admin.voucherCategories.index') }}" :active="request()->routeIs('admin.voucherCategories.index')">
+                {{ __('Voucher Categories') }}
             </x-responsive-nav-link>
         </div>
 
