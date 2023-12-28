@@ -73,7 +73,7 @@
                             </label>
                             <input value="{{ old('phone') ?? $driver->phone }}" name="phone"
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
-                                id="grid-last-name" type="text" placeholder="Phone" required disabled>
+                                id="grid-last-name" type="number" placeholder="Phone" required disabled>
 
                         </div>
                     </div>
@@ -86,7 +86,7 @@
                             </label>
                             <input value="{{ old('age') ?? $driver->age }}" name="age"
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
-                                id="grid-last-name" type="text" placeholder="Age" required disabled>
+                                id="grid-last-name" type="number" placeholder="Age" required disabled>
 
                         </div>
                     </div>

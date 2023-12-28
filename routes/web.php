@@ -2,13 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Admin\UserController as AdminUsersController;
 use App\Http\Controllers\Admin\DriverController as AdminDriverController;
-use App\Http\Controllers\Admin\LostAndFoundController as AdminLostAndFoundController;
-use App\Http\Controllers\Admin\VehicleController as AdminVehicleController;
-use App\Http\Controllers\Admin\VoucherCategoryController as AdminVoucherCategoryController;
 use App\Http\Controllers\Admin\VehicleCategoryController as AdminVehicleCategoryController;
-use App\Http\Controllers\Admin\RatingController as AdminRatingController;
+use App\Http\Controllers\Admin\VehicleController as AdminVehicleController;
 use App\Http\Controllers\Admin\TransactionController as AdminTransactionController;
+use App\Http\Controllers\Admin\LostAndFoundController as AdminLostAndFoundController;
+use App\Http\Controllers\Admin\RatingController as AdminRatingController;
+use App\Http\Controllers\Admin\VoucherCategoryController as AdminVoucherCategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,11 +32,12 @@ Route::prefix('admin')->name('admin.')->middleware([
 
 ])->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+    Route::resource('users', AdminUsersController::class);
     Route::resource('drivers', AdminDriverController::class);
-    Route::resource('lostAndFounds', AdminLostAndFoundController::class);
-    Route::resource('vehicles', AdminVehicleController::class);
-    Route::resource('voucherCategories', AdminVoucherCategoryController::class);
-    Route::resource('vehicleCategories', AdminVehicleCategoryController::class);
-    Route::resource('ratings', AdminRatingController::class);
     Route::resource('transactions', AdminTransactionController::class);
+    Route::resource('lostAndFounds', AdminLostAndFoundController::class);
+    Route::resource('vehicleCategories', AdminVehicleCategoryController::class);
+    Route::resource('vehicles', AdminVehicleController::class);
+    Route::resource('ratings', AdminRatingController::class);
+    Route::resource('voucherCategories', AdminVoucherCategoryController::class);
 });

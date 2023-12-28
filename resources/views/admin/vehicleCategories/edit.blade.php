@@ -5,7 +5,7 @@
             <a href="#!" onclick="window.history.go(-1); return false;">
                 ←
             </a>
-            {!! __('Vehicle Category &raquo; Sunting &raquo; '). $vehicleCategory->vehicle_category_name !!}
+            {!! __('Vehicle Category &raquo; Edit &raquo; '). $vehicleCategory->vehicle_category_name !!}
         </h2>
     </x-slot>
 
@@ -77,21 +77,6 @@
                             <div class="mt-2 text-sm text-gray-500">
                                 Vehicle Category Dascription. Example: A very good choice for offroad, Minimalistic car to carry the entire family, dsb. Required. Max 255
                                 characters.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-wrap px-3 mt-4 mb-6 -mx-3">
-                        <div class="w-full">
-                            <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase"
-                                for="grid-last-name">
-                                Foto *
-                            </label>
-                            <input name="vehicle_category_picture"
-                                class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
-                                accept="image/png,image/jpg,image/jpeg" id="grid-last-name" type="file">
-                            <div class="mt-2 text-sm text-gray-500">
-                                Upload 1 picture only
                             </div>
                         </div>
                     </div>

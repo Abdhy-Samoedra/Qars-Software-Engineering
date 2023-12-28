@@ -9,6 +9,8 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class User extends Authenticatable
 {
@@ -25,8 +27,17 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'gender',
+        'phone',
         'email',
+        'driving_license_path',
+        'driving_license_status',
+        'age',
+        'role',
+        'profile_photo_path',
+        'experience_point',
         'password',
+        'slug',
     ];
 
     /**
@@ -40,6 +51,16 @@ class User extends Authenticatable
         'two_factor_recovery_codes',
         'two_factor_secret',
     ];
+
+    // mendapatkan foto pertama untuk thumbnail
+    public function getThumbnailAttribute()
+    {
+        if ($this->vehicle_category_picture) {
+            return Storage::url(json_decode($this->profile_photo_path));
+        }
+
+        return 'https://via.placeholder.com/800x600';
+    }
 
     /**
      * The attributes that should be cast.
