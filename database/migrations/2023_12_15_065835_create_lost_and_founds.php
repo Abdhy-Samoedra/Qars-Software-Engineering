@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->date('found_date');
-            $table->boolean('taken_status')->default(false);
+            $table->string('taken_status')->default('Not Taken');
             $table->text('lost_and_found_picture')->nullable();
             $table->text('description')->nullable();
             $table->string('slug')->unique();
