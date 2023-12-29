@@ -87,15 +87,19 @@
                                 for="grid-last-name">
                                 Taken Status *
                             </label>
-                            <select name="taken_status" class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded
-                            appearance-none focus:outline-none focus:bg-white focus:border-gray-500">
-                                <option value="0" {{$lostAndFound->taken_status == '0' ? 'selected' : ''}}>0</option>
-                                <option value="1" {{$lostAndFound->taken_status == '1' ? 'selected' : ''}}>1</option>
-                            </select>
-                            <div class="mt-2 text-sm text-gray-500">
-                                Description. Example: A very good choice for offroad, Minimalistic car to carry the entire family, dsb. Required. Max 255
-                                characters.
-                            </div>
+                            <select name="taken_status" required
+                            class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500">
+                            <option value="">--choose status--</option>
+                            <option value="Not Taken"
+                                {{ (old('taken_status') ?? $lostAndFound->taken_status) === 'Not Taken' ? 'selected' : '' }}>
+                                Not Taken</option>
+                            <option value="Taken"
+                                {{ (old('driving_license_status') ?? $lostAndFound->taken_status) === 'Taken' ? 'selected' : '' }}>
+                                Taken</option>
+                        </select>
+                        <div class="mt-2 text-sm text-gray-500">
+                            Select one. Required.
+                        </div>
                         </div>
                     </div>
 
