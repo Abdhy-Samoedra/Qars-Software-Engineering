@@ -5,7 +5,7 @@
             <a href="#!" onclick="window.history.go(-1); return false;">
                 ←
             </a>
-            {!! __('Lost and Found &raquo; Sunting &raquo; '). $lostAndFound->found_date !!}
+            {!! __('Lost and Found &raquo; Edit Announcement &raquo; '). $lostAndFound->found_date !!}
         </h2>
     </x-slot>
 
