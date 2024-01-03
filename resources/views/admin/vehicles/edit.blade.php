@@ -5,7 +5,7 @@
             <a href="#!" onclick="window.history.go(-1); return false;">
                 ←
             </a>
-            {!! __('Vehicle &raquo; Sunting &raquo; ') . $vehicle->id !!}
+            {!! __('Vehicle &raquo; Edit &raquo; ') . $vehicle->id !!}
         </h2>
     </x-slot>
 
@@ -44,8 +44,7 @@
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name" type="text" placeholder="Vehicle License Plate" required>
                             <div class="mt-2 text-sm text-gray-500">
-                                Vehicle License Plate. Example: Vehicle Category 1, Vehicle Category 2, Vehicle Category
-                                3, dsb. Required. Max 255
+                                Vehicle License Plate. Example: B 3429 AYD, D 4425 HGF, H 3 RE, etc. Required. Max 255
                                 characters.
                             </div>
                         </div>
@@ -68,7 +67,7 @@
                                 @endforeach
                             </select>
                             <div class="mt-2 text-sm text-gray-500">
-                                Nama type. Contoh: Item 1, Item 2, Item 3, dsb. Wajib diisi. Maksimal 255 karakter.
+                                Vehicle Category ID. Choose the correct Vehicle Category ID for the vehicle. Required.
                             </div>
                         </div>
                     </div>
@@ -83,7 +82,7 @@
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name" type="number" placeholder="Vehicle's Category ID" required>
                             <div class="mt-2 text-sm text-gray-500">
-                                Vehicle Category Dascription. Example: A very good choice for offroad, Minimalistic car to carry the entire family, dsb. Required. Max 255
+                                Vehicle Dascription. Example: A very good choice for offroad, Minimalistic car to carry the entire family, etc. Required. Max 255
                                 characters.
                             </div>
                         </div>
@@ -99,7 +98,7 @@
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name" type="text" placeholder="Vehicle Color" required>
                             <div class="mt-2 text-sm text-gray-500">
-                                Vehicle Color. Example: 2, 4, 6, 8, dsb. Required.
+                                Vehicle Color. Example: Red, Green, Olive, Silver, etc. Required.
                             </div>
                         </div>
                     </div>
@@ -108,14 +107,13 @@
                         <div class="w-full">
                             <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase"
                                 for="grid-last-name">
-                                Vehicle Brand *
+                                Vehicle's Brand *
                             </label>
-                            <input value="{{ old('merk') ?? $vehicle->merk }}" name="merk"
+                            <input value="{{ old('brand') ?? $vehicle->brand }}" name="brand"
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name" type="text" placeholder="Vehicle Brand" required>
                             <div class="mt-2 text-sm text-gray-500">
-                                Vehicle Category Dascription. Example: A very good choice for offroad, Minimalistic car
-                                to carry the entire family, dsb. Required. Max 255
+                                Vehicle's Brand. Example: Mitshubishi, Daihatsu, Honda, etc. Required. Max 255
                                 characters.
                             </div>
                         </div>
@@ -130,8 +128,7 @@
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name" type="text" placeholder="Vehicle's Type" required>
                             <div class="mt-2 text-sm text-gray-500">
-                                Vehicle Category Dascription. Example: A very good choice for offroad, Minimalistic car
-                                to carry the entire family, dsb. Required. Max 255
+                                Vehicle Type. Example: Honda Elverson 2, Pajero Sport, CV-342, etc. Required. Max 255
                                 characters.
                             </div>
                         </div>
@@ -148,9 +145,7 @@
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name" type="number" placeholder="Vehicle's Year Of Release" required>
                             <div class="mt-2 text-sm text-gray-500">
-                                Vehicle's Dascription. Example: A very good choice for offroad, Minimalistic car to
-                                carry the entire family, dsb. Required. Max 255
-                                characters.
+                                Vehicle's Year Of Release. Example: 2004, 2016, 1996, etc. Required.
                             </div>
                         </div>
                     </div>
@@ -165,8 +160,7 @@
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name" type="text" placeholder="Vehicle's Fuel" required>
                             <div class="mt-2 text-sm text-gray-500">
-                                Vehicle Category Dascription. Example: A very good choice for offroad, Minimalistic car
-                                to carry the entire family, dsb. Required. Max 255
+                                Vehicle's Fuel. Example: Solar, Avtur, Pertamax Dex, etc. Required. Max 255
                                 characters.
                             </div>
                         </div>
@@ -180,11 +174,9 @@
                             </label>
                             <input value="{{ old('rental_price') ?? $vehicle->rental_price }}" name="rental_price"
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
-                                id="grid-last-name" type="number" placeholder="Vehicle Category Description" required>
+                                id="grid-last-name" type="number" placeholder="Vehicle Description" required>
                             <div class="mt-2 text-sm text-gray-500">
-                                Vehicle Category Dascription. Example: A very good choice for offroad, Minimalistic car
-                                to carry the entire family, dsb. Required. Max 255
-                                characters.
+                                Vehicle's Rental Price per day. Example: 23000, 40000, 100000, etc. Required.
                             </div>
                         </div>
                     </div>
@@ -200,8 +192,8 @@
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name" type="text" placeholder="Vehicle's Description" required>
                             <div class="mt-2 text-sm text-gray-500">
-                                Vehicle's Dascription. Example: A very good choice for offroad, Minimalistic car to
-                                carry the entire family, dsb. Required. Max 255
+                                Vehicle's Description. Example: A very good choice for offroad, Minimalistic car to
+                                carry the entire family, etc. Required. Max 255
                                 characters.
                             </div>
                         </div>

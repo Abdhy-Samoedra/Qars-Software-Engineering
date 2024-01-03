@@ -17,7 +17,7 @@ class Vehicle extends Model
         'id',
         'vehicle_category_id',
         'color',
-        'merk',
+        'brand',
         'type',
         'year_of_release',
         'fuel',
