@@ -38,9 +38,11 @@
                     {{-- {{$pictures = explode(',' ,str_replace('"', '', $vehicle->car_picture))}} --}}
 
                     <div class="container flex flex-wrap justify-around w-1/2 mx-auto">
-                        @foreach (json_decode($vehicle->car_picture) as $picture)
-                            <img src="{{ Storage::url($picture) }}" alt="" class="w-64 mx-auto mb-5 rounded-md">
-                        @endforeach
+                        @if ($vehicle->car_picture)
+                            @foreach (json_decode($vehicle->car_picture) as $picture)
+                                <img src="{{ Storage::url($picture) }}" alt="" class="w-64 mx-auto mb-5 rounded-md">
+                            @endforeach
+                        @endif
                     </div>
 
                     <div class="flex flex-wrap px-3 mt-4 mb-6 -mx-3">
@@ -99,7 +101,7 @@
                                 for="grid-last-name">
                                 Vehicle's Brand *
                             </label>
-                            <input value="{{ old('merk') ?? $vehicle->merk }}" name="merk"
+                            <input value="{{ old('brand') ?? $vehicle->brand }}" name="brand"
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name" type="text" placeholder="Vehicle's Brand" required disabled>
                         </div>

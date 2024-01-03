@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('extend')->nullable();
             $table->integer('penalty')->nullable();
             $table->integer('exp_reward')->nullable();
+            $table->string('vehicle_id');
 
             // payment status (pending,success,failed)
             $table->string('status')->default('pending');
@@ -27,7 +28,7 @@ return new class extends Migration
 
             $table->integer('total_price')->nullable();
 
-            $table->foreignId('vehicle_id')->constrained();
+            $table->foreign('vehicle_id')->references('id')->on('vehicles')->onDelete('cascade')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('driver_id')->nullable()->constrained();
             $table->foreignId('voucher_category_id')->nullable()->constrained();

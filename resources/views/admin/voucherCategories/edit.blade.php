@@ -5,7 +5,7 @@
             <a href="#!" onclick="window.history.go(-1); return false;">
                 ←
             </a>
-            {!! __('Voucher Category &raquo; Sunting &raquo; '). $voucherCategory->voucher_name !!}
+            {!! __('Voucher Category &raquo; Edit &raquo; '). $voucherCategory->voucher_name !!}
         </h2>
     </x-slot>
 
@@ -44,7 +44,7 @@
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name" type="text" placeholder="Voucher Name" required>
                             <div class="mt-2 text-sm text-gray-500">
-                                Voucher Name. Example: Voucher 1, Voucher 2, Voucher 3, dsb. Required. Max 255
+                                Voucher Name. Example: Voucher 1, Voucher Christamast, Voucher Autumn, etc. Required. Max 255
                                 characters.
                             </div>
                         </div>
@@ -74,7 +74,7 @@
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name" type="text" placeholder="Voucher Price" required>
                             <div class="mt-2 text-sm text-gray-500">
-                                Price for the voucher. Example: 30000, 1000000, 1000, etc. Required.
+                                Price to buy the voucher. Example: 30000, 1000000, 1000, etc. Required.
                             </div>
                         </div>
                     </div>
@@ -128,7 +128,7 @@
                         <div class="w-full px-3 text-right">
                             <button type="submit"
                                 class="px-4 py-2 font-bold text-white bg-green-500 rounded shadow-lg hover:bg-green-700">
-                                Update VoucherCategory
+                                Update Voucher Category
                             </button>
                         </div>
                     </div>
