@@ -51,11 +51,11 @@
                         <div class="w-full">
                             <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase"
                                 for="grid-last-name">
-                                Foto *
+                                Photo *
                             </label>
                             <input name="lost_and_found_picture"
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
-                                accept="image/png,image/jpg,image/jpeg" id="grid-last-name" type="file">
+                                accept="image/png,image/jpg,image/jpeg" id="grid-last-name" type="file" required>
                             <div class="mt-2 text-sm text-gray-500">
                                 Upload 1 picture only
                             </div>
