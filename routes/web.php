@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\TransactionController as AdminTransactionControll
 use App\Http\Controllers\Admin\LostAndFoundController as AdminLostAndFoundController;
 use App\Http\Controllers\Admin\RatingController as AdminRatingController;
 use App\Http\Controllers\Admin\VoucherCategoryController as AdminVoucherCategoryController;
+use App\Http\Controllers\Admin\VoucherController as AdminVoucherController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +30,7 @@ Route::prefix('admin')->name('admin.')->middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
+    'admin',
 
 ])->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
@@ -40,4 +42,8 @@ Route::prefix('admin')->name('admin.')->middleware([
     Route::resource('vehicles', AdminVehicleController::class);
     Route::resource('ratings', AdminRatingController::class);
     Route::resource('voucherCategories', AdminVoucherCategoryController::class);
+    Route::resource('vehicleCategories', AdminVehicleCategoryController::class);
+    Route::resource('ratings', AdminRatingController::class);
+    Route::resource('transactions', AdminTransactionController::class);
+    Route::resource('voucher', AdminVoucherController::class);
 });

@@ -11,7 +11,7 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                <div class="hidden space-x-6 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link href="{{ route('admin.dashboard') }}" :active="request()->routeIs('admin.dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
@@ -22,7 +22,7 @@
                         {{ __('Drivers') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('admin.vehicleCategories.index') }}" :active="request()->routeIs('admin.vehicleCategories.index')">
-                        {{ __('Vehicle Categories') }}
+                        {{ __('Vehicle Cat') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('admin.vehicles.index') }}" :active="request()->routeIs('admin.vehicles.index')">
                         {{ __('Vehicles') }}
@@ -31,13 +31,16 @@
                         {{ __('Transactions') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('admin.lostAndFounds.index') }}" :active="request()->routeIs('admin.lostAndFounds.index')">
-                        {{ __('Lost And Found') }}
+                        {{ __('Lost & Found') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('admin.ratings.index') }}" :active="request()->routeIs('admin.ratings.index')">
                         {{ __('Ratings') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('admin.voucherCategories.index') }}" :active="request()->routeIs('admin.voucherCategories.index')">
-                        {{ __('Voucher Categories') }}
+                        {{ __('Voucher Cat') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('admin.voucher.index') }}" :active="request()->routeIs('admin.voucher.index')">
+                        {{ __('Voucher Tr ') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -200,6 +203,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link href="{{ route('admin.voucherCategories.index') }}" :active="request()->routeIs('admin.voucherCategories.index')">
                 {{ __('Voucher Categories') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('admin.voucher.index') }}" :active="request()->routeIs('admin.voucher.index')">
+                {{ __('Voucher Tr') }}
             </x-responsive-nav-link>
         </div>
 

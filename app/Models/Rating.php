@@ -10,14 +10,13 @@ class Rating extends Model
     use HasFactory;
 
     protected $fillable = [
-        'transactionid',
-        'licenseplate',
+        'transactions_id',
         'review',
         'rating',
     ];
 
     public function transactions()
     {
-        return $this->hasOne(Transaction::class,'rating_id');
+        return $this->hasOne(Transaction::class, 'rating_id');
     }
 }
