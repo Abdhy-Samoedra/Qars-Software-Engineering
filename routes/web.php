@@ -28,6 +28,8 @@ Route::name('front.')->group(function () {
     Route::get('/', [LandingController::class, 'index'])->name('index');
 });
 
+
+
 Route::prefix('admin')->name('admin.')->middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
