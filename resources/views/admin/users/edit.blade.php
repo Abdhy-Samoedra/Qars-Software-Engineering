@@ -107,15 +107,17 @@
                         </div>
                     </div>
 
-                    {{-- <div class="flex flex-wrap px-3 mt-4 mb-6 -mx-3">
-                        <div class="w-full">
-                            <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase"
-                                for="grid-last-name">
-                                Driving License Picture
-                            </label>
-                            <img src="{{ str_replace('"', '',Storage::url($user->driving_license_path)) }}" alt="" class="mx-auto rounded-md w-28">
+                    @if(!empty($user->driving_license_path))
+                        <div class="flex flex-wrap px-3 mt-4 mb-6 -mx-3">
+                            <div class="w-full">
+                                <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase"
+                                    for="grid-last-name">
+                                    Driving License Picture
+                                </label>
+                                <img src="{{ str_replace('"', '',Storage::url($user->driving_license_path)) }}" alt="" class="rounded-md w-80">
+                            </div>
                         </div>
-                    </div> --}}
+                    @endif
 
                     <div class="flex flex-wrap px-3 mt-4 mb-6 -mx-3">
                         <div class="w-full">

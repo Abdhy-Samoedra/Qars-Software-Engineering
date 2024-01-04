@@ -14,21 +14,10 @@ class VehicleCategory extends Model
         'vehicle_category_name',
         'vehicle_category_capacity',
         'vehicle_category_description',
-        'vehicle_category_picture',
         'slug',
     ];
 
-    // mendapatkan foto pertama untuk thumbnail
-    public function getThumbnailAttribute()
-    {
-        if ($this->vehicle_category_picture) {
-            return Storage::url(json_decode($this->vehicle_category_picture));
-        }
-
-        return 'https://via.placeholder.com/800x600';
-    }
-
-    public function vehicles(){
+        public function vehicles(){
         return $this->hasMany(Vehicle::class);
     }
 }

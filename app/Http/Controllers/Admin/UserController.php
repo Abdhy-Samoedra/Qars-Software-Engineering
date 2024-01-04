@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\DriverRequest;
+use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
@@ -56,6 +58,10 @@ class UserController extends Controller
     {
         $user = User::where('slug', $slug)->firstOrFail();
 
+        $user['profile_photo_path'] = json_decode($user->profile_photo_path);
+
+        $user['driving_license_path'] = json_decode($user->driving_license_path);
+
         return view('admin.users.show', [
             'user' => $user,
         ]);
@@ -68,6 +74,10 @@ class UserController extends Controller
     {
         $user = User::where('slug', $slug)->firstOrFail();
 
+        $user['profile_photo_path'] = json_decode($user->profile_photo_path);
+
+        $user['driving_license_path'] = json_decode($user->driving_license_path);
+
         return view('admin.users.edit', [
             'user' => $user,
         ]);
@@ -76,7 +86,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(UserRequest $request, User $user)
     {
         $data = $request->all();
 
@@ -86,6 +96,13 @@ class UserController extends Controller
             $data['profile_photo_path'] = json_encode($profilePhotoPath);
         }else {
             $data['profile_photo_path'] = $user->profile_photo_path;
+        }
+
+        if ($request->hasFile('driving_license_path')) {
+            $drivingLicensePath = $request->file('driving_license_path')->store('assets/item', 'public');
+            $data['driving_license_path'] = json_encode($drivingLicensePath);
+        }else {
+            $data['driving_license_path'] = $user->driving_license_path;
         }
 
         $user->update($data);
