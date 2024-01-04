@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class TransactionRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class TransactionRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -22,7 +23,15 @@ class TransactionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'user_id' => 'required|integer|exists:users,id',
+            'driver_id' => 'required|integer|exists:drivers,id',
+            'vehicle_id' => 'required|integer|exists:vehicles,id',
+            'voucher_category_id' => 'nullable|integer|exists:voucher_categories,id',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date',
+            'total_price' => 'required|integer',
+            'status' => 'required|string',
+            'rating_id' => 'nullable|integer|exists:ratings,id',
         ];
     }
 }

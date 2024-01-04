@@ -25,7 +25,7 @@ class TransactionController extends Controller
                     return '
                     <div class="flex justify-between">
                     <a class="block w-full px-2 py-1 mx-1 mb-1 text-xs text-center text-white transition duration-500 bg-blue-500 rounded-md select-none borde ease focus:outline-none focus:shadow-outline hover:bg-blue-800"
-                        href="' . route('admin.transactions.edit', $transaction->id) . '">
+                        href="' . route('admin.transactions.show', $transaction->id) . '">
                         details
                     </a>
                     <a class="block w-full px-2 py-1 mx-1 mb-1 text-xs text-center text-white transition duration-500 bg-gray-700 border border-gray-700 rounded-md select-none ease hover:bg-gray-800 focus:outline-none focus:shadow-outline"
@@ -68,9 +68,13 @@ class TransactionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $transaction = Transaction::where('id', $id)->firstOrFail();
+
+        return view('admin.transactions.show', [
+            'transaction' => $transaction,
+        ]);
     }
 
     /**

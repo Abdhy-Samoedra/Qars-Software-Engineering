@@ -77,7 +77,7 @@
                                 </label>
                                 <input value="{{ old('penalty') ?? $transaction->penalty }}" name="penalty"
                                     class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
-                                    id="grid-last-name" type="number" placeholder="penalty" required>
+                                    id="grid-last-name" type="number" placeholder="penalty">
                                 <div class="mt-2 text-sm text-gray-500">
                                     Nama items. Contoh: Item 1, Item 2, Item 3, dsb. Wajib diisi. Maksimal 255 karakter.
                                 </div>
@@ -88,14 +88,14 @@
                                 for="grid-last-name">
                                 Status transaction
                             </label>
-                            <select name="status"
+                            <select name="status" required
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500">
-                                <option value="PENDING" {{ $transaction->status == 'PENDING' ? 'selected' : '' }}>
-                                    PENDING
+                                <option value="Pending" {{ $transaction->status === 'Pending' ? 'selected' : '' }}>
+                                    Pending
                                 </option>
-                                <option value="CONFIRMED" {{ $transaction->status == 'CONFIRMED' ? 'selected' : '' }}>
-                                    CONFIRMED</option>
-                                <option value="DONE" {{ $transaction->status == 'DONE' ? 'selected' : '' }}>DONE
+                                <option value="Confirmed" {{ $transaction->status === 'Confirmed' ? 'selected' : '' }}>
+                                    Confirmed</option>
+                                <option value="Done" {{ $transaction->status === 'Done' ? 'selected' : '' }}>Done
                                 </option>
                             </select>
                             <div class="mt-2 text-sm text-gray-500">
@@ -107,19 +107,19 @@
                                 for="grid-last-name">
                                 Payment status
                             </label>
-                            <select name="payment_status"
+                            <select name="payment_status" required
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500">
-                                <option value="pending"
-                                    {{ $transaction->payment_status == 'pending' ? 'selected' : '' }}>
+                                <option value="Pending"
+                                    {{ $transaction->payment_status === 'Pending' ? 'selected' : '' }}>
                                     Pending</option>
-                                <option value="success"
-                                    {{ $transaction->payment_status == 'success' ? 'selected' : '' }}>
+                                <option value="Success"
+                                    {{ $transaction->payment_status === 'Success' ? 'selected' : '' }}>
                                     Success</option>
-                                <option value="failed"
-                                    {{ $transaction->payment_status == 'failed' ? 'selected' : '' }}>
+                                <option value="Failed"
+                                    {{ $transaction->payment_status === 'Failed' ? 'selected' : '' }}>
                                     Failed</option>
-                                <option value="expired"
-                                    {{ $transaction->payment_status == 'expired' ? 'selected' : '' }}>
+                                <option value="Expired"
+                                    {{ $transaction->payment_status === 'Expired' ? 'selected' : '' }}>
                                     Expired</option>
                             </select>
                             <div class="mt-2 text-sm text-gray-500">
@@ -146,7 +146,7 @@
                                 </label>
                                 <input value="{{ old('exp_reward') ?? $transaction->exp_reward }}" name="exp_reward"
                                     class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
-                                    id="grid-last-name" type="number" placeholder="exp_reward ">
+                                    id="grid-last-name" type="number" placeholder="exp_reward " required>
                                 <div class="mt-2 text-sm text-gray-500">
                                     Nama items. Contoh: Item 1, Item 2, Item 3, dsb. Wajib diisi. Maksimal 255 karakter.
                                 </div>
