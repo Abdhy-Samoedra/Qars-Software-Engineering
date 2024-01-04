@@ -39,7 +39,7 @@
                     <x-nav-link href="{{ route('admin.voucherCategories.index') }}" :active="request()->routeIs('admin.voucherCategories.index')">
                         {{ __('Voucher Cat') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ route('admin.voucher.index') }}" :active="request()->routeIs('admin.voucher.index')">
+                    <x-nav-link href="{{ route('admin.vouchers.index') }}" :active="request()->routeIs('admin.voucher.index')">
                         {{ __('Voucher Tr ') }}
                     </x-nav-link>
                 </div>
@@ -204,7 +204,7 @@
             <x-responsive-nav-link href="{{ route('admin.voucherCategories.index') }}" :active="request()->routeIs('admin.voucherCategories.index')">
                 {{ __('Voucher Categories') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link href="{{ route('admin.voucher.index') }}" :active="request()->routeIs('admin.voucher.index')">
+            <x-responsive-nav-link href="{{ route('admin.vouchers.index') }}" :active="request()->routeIs('admin.voucher.index')">
                 {{ __('Voucher Tr') }}
             </x-responsive-nav-link>
         </div>
