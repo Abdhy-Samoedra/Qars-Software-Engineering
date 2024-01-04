@@ -45,5 +45,5 @@ Route::prefix('admin')->name('admin.')->middleware([
     Route::resource('vehicleCategories', AdminVehicleCategoryController::class);
     Route::resource('ratings', AdminRatingController::class);
     Route::resource('transactions', AdminTransactionController::class);
-    Route::resource('voucher', AdminVoucherController::class);
+    Route::resource('vouchers', AdminVoucherController::class);
 });

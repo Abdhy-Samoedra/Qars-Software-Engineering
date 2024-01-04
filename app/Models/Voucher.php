@@ -2,12 +2,18 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Thiagoprz\CompositeKey\HasCompositeKey;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Voucher extends Model
 {
-    use HasFactory;
+    use HasCompositeKey, HasFactory;
+
+    protected $primaryKey = [
+        'voucher_category_id',
+        'user_id',
+    ];
 
     protected $fillable = [
         'voucher_category_id',
@@ -24,5 +30,4 @@ class Voucher extends Model
     {
         return $this->belongsTo(VoucherCategory::class);
     }
-
 }

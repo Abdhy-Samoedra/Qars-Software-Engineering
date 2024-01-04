@@ -92,8 +92,8 @@
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name" type="number" placeholder="Age" required>
                             <div class="mt-2 text-sm text-gray-500">
-                                Nama drivers. Contoh: Driver 1, Driver 2, Driver 3, dsb. Wajib diisi. Maksimal 255
-                                karakter.
+                                Nama drivers. Example: Driver 1, Driver 2, Driver 3, etc. Required. Max 255
+                                characters.
                             </div>
                         </div>
                     </div>
@@ -108,7 +108,7 @@
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                 accept="image/png,image/jpg,image/jpeg" id="grid-last-name" type="file">
                             <div class="mt-2 text-sm text-gray-500">
-                                Nama items. Contoh: Item 1, Item 2, Item 3, dsb. Wajib diisi. Maksimal 255 karakter.
+                                Nama items. Example: Item 1, Item 2, Item 3, dsb. Wajib diisi. Maksimal 255 karakter.
                             </div>
                         </div>
                     </div>
@@ -117,7 +117,7 @@
                         <div class="w-full px-3 text-right">
                             <button type="submit"
                                 class="px-6 py-3 mb-2 text-sm font-bold text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 me-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                                Simpan Driver
+                                Update Driver
                             </button>
                         </div>
                     </div>

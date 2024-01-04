@@ -1,10 +1,5 @@
 <x-app-layout>
     <x-slot name="title">Admin</x-slot>
-    {{-- <x-slot name="header">
-        <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ __('Voucher Category') }}
-        </h2>
-    </x-slot> --}}
 
     <x-slot name="script">
         <script>
