@@ -21,8 +21,8 @@ return new class extends Migration
             $table->integer('exp_reward')->nullable();
 
             // payment status (pending,success,failed)
-            $table->string('status')->default('pending');
-            $table->string('payment_status')->default('pending');
+            $table->string('status')->default('Pending');
+            $table->string('payment_status')->default('Pending');
             $table->string('payment_url')->nullable();
 
             $table->integer('total_price')->nullable();
