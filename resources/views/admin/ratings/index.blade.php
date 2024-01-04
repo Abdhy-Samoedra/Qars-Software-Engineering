@@ -20,12 +20,8 @@
                     url: '//cdn.datatables.net/plug-ins/1.12.1/i18n/id.json'
                 },
                 columns: [{
-                        data: 'transactionid',
-                        name: 'transactionid'
-                    },
-                    {
-                        data: 'licenseplate',
-                        name: 'licenseplate'
+                        data: 'transactions_id',
+                        name: 'transactions_id'
                     },
                     {
                         data: 'review',
@@ -55,7 +51,6 @@
                         <thead>
                             <tr>
                                 <th>Transaction ID</th>
-                                <th>License Plate</th>
                                 <th>Review</th>
                                 <th>Rating</th>
                                 <th>Actions</th>

@@ -35,4 +35,8 @@ class VoucherCategory extends Model
     {
         return $this->hasMany(Transaction::class);
     }
+    public function vouchers()
+    {
+        return $this->hasMany(Voucher::class);
+    }
 }
