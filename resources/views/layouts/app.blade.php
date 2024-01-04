@@ -137,6 +137,12 @@
       /*border border-transparent*/
     }
 
+    #dataTable_previous:hover,
+    #dataTable_next:hover
+    {
+      color: #fff !important;
+    }
+
     /*Add padding to bottom border */
     table.dataTable.no-footer {
       border-bottom: 1px solid #e2e8f0;
