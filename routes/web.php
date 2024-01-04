@@ -11,6 +11,8 @@ use App\Http\Controllers\Admin\LostAndFoundController as AdminLostAndFoundContro
 use App\Http\Controllers\Admin\RatingController as AdminRatingController;
 use App\Http\Controllers\Admin\VoucherCategoryController as AdminVoucherCategoryController;
 use App\Http\Controllers\Admin\VoucherController as AdminVoucherController;
+use App\Http\Controllers\Front\LandingController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,9 +24,9 @@ use App\Http\Controllers\Admin\VoucherController as AdminVoucherController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('front.index');
+Route::name('front.')->group(function () {
+    Route::get('/', [LandingController::class, 'index'])->name('index');
+});
 
 Route::prefix('admin')->name('admin.')->middleware([
     'auth:sanctum',
