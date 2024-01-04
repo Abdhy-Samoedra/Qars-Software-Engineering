@@ -14,8 +14,7 @@ return new class extends Migration
         Schema::create('ratings', function (Blueprint $table) {
             $table->id();
 
-            $table->string('transactionid');
-            $table->string('licenseplate');
+            $table->foreignId('transactions_id')->constrained();
             $table->text('review')->nullable();
             $table->double('rating');
 
