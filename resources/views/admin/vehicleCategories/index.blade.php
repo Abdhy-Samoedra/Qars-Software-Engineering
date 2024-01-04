@@ -27,6 +27,12 @@
                         data: 'vehicle_category_description',
                         name: 'vehicle_category_description',
                         class: 'text-center',
+
+                        render: function(data, type, full, meta){
+                            return "<div class='truncate w-96'>" +
+                                data + "</div>";
+                        },
+                        target: 2
                     },
                     {
                         data: 'slug',
