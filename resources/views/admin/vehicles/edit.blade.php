@@ -34,6 +34,14 @@
                     @csrf
                     @method('put')
 
+                    <div class="container flex flex-wrap justify-around w-0.5 mx-auto">
+                        @if ($vehicle->car_picture)
+                            @foreach (json_decode($vehicle->car_picture) as $picture)
+                                <img src="{{ Storage::url($picture) }}" alt="" class="w-64 mx-auto mb-5 rounded-md">
+                            @endforeach
+                        @endif
+                    </div>
+
                     <div class="flex flex-wrap px-3 mt-4 mb-6 -mx-3">
                         <div class="w-full">
                             <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase"
