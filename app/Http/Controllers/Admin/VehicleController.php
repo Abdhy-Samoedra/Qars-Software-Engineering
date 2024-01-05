@@ -129,7 +129,17 @@ class VehicleController extends Controller
         // dd($data);
 
         if ($request->hasFile('car_picture')) {
-            $car_picture = $request->file('car_picture')->store('assets/item', 'public');
+
+            $car_picture = [];
+
+            foreach ($request->file('car_picture') as $picture) {
+                $vehiclePicturePath = $picture->store('assets/item', 'public');
+
+                //push to array
+                array_push($car_picture, $vehiclePicturePath);
+            }
+
+            // $car_picture = $request->file('car_picture')->store('assets/item', 'public');
             $data['car_picture'] = json_encode($car_picture);
         } else {
             $data['car_picture'] = $vehicle->car_picture;
