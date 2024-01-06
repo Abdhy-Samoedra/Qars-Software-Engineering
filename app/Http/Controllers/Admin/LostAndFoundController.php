@@ -7,6 +7,7 @@ use App\Models\LostAndFound;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Str;
+use App\Models\Vehicle;
 
 
 class LostAndFoundController extends Controller
@@ -58,7 +59,8 @@ class LostAndFoundController extends Controller
      */
     public function create()
     {
-        return view('admin.lostAndFounds.create');
+        $vehicles = Vehicle::all();
+        return view('admin.lostAndFounds.create', compact('vehicles'));
     }
 
     /**
@@ -66,8 +68,8 @@ class LostAndFoundController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $data = $request->all();
-        // return dd($data);
 
         $data['slug'] = Str::slug($data['lost_and_found_picture']) . '-' . Str::lower(Str::random(5));
 
@@ -77,7 +79,7 @@ class LostAndFoundController extends Controller
             $data['lost_and_found_picture'] = json_encode($LostAndFoundPicture);
         }
 
-        // return dd($data);
+        // dd($data);
 
         LostAndFound::create($data);
 
@@ -102,10 +104,13 @@ class LostAndFoundController extends Controller
     public function edit($slug)
     {
         $lostAndFound = LostAndFound::where('slug', $slug)->firstOrFail();
+        $vehicles = Vehicle::all();
 
         return view('admin.lostAndFounds.edit', [
             'lostAndFound' => $lostAndFound,
+            'vehicles' => $vehicles
         ]);
+
     }
 
     /**

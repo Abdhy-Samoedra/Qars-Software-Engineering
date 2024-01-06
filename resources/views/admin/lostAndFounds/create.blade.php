@@ -35,6 +35,24 @@
                         <div class="w-full">
                             <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase"
                                 for="grid-last-name">
+                                License Plate *
+                            </label>
+                            <select name="vehicles_id" required
+                                class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500">
+                                <option value="">Choose License Plate</option>
+                                @foreach ($vehicles as $i)
+                                <option value="{{ $i->id }}">
+                                    {{ $i->id }}
+                                </option>
+                            @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap px-3 mt-4 mb-6 -mx-3">
+                        <div class="w-full">
+                            <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase"
+                                for="grid-last-name">
                                 Found Date *
                             </label>
                             <input value="{{ old('found_date') }}" name="found_date"

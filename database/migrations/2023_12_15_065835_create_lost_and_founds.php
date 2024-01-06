@@ -15,10 +15,14 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->date('found_date');
+            // $table->string('license_plate')->nullable();
             $table->string('taken_status')->default('Not Taken');
+            $table->date('taken_date')->nullable();
             $table->text('lost_and_found_picture')->nullable();
             $table->text('description')->nullable();
             $table->string('slug')->unique();
+            $table->string('vehicle_id')->nullable();
+            $table->foreign('vehicle_id')->references('id')->on('vehicles')->onDelete('cascade');
 
         });
     }
