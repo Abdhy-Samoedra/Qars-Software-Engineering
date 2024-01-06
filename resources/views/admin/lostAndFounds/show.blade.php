@@ -34,6 +34,8 @@
                     @csrf
                     @method('put')
 
+                    <img src="{{ str_replace('"', '',Storage::url($lostAndFound->lost_and_found_picture)) }}" alt="" class="mx-auto rounded-md w-28">
+
                     <div class="flex flex-wrap px-3 mt-4 mb-6 -mx-3">
                         <div class="w-full">
                             <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase"
@@ -45,9 +47,6 @@
                                 id="grid-last-name" type="date" placeholder="Found Date" required disabled>
                         </div>
                     </div>
-
-
-                    <img src="{{ str_replace('"', '',Storage::url($lostAndFound->lost_and_found_picture)) }}" alt="" class="mx-auto rounded-md w-28">
 
                     <div class="flex flex-wrap px-3 mt-4 mb-6 -mx-3">
                         <div class="w-full">

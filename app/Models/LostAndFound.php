@@ -13,9 +13,11 @@ class LostAndFound extends Model
     protected $fillable = [
         'found_date',
         'taken_status',
+        'taken_date',
         'lost_and_found_picture',
         'description',
         'slug',
+        'vehicle_id',
     ];
 
     // mendapatkan foto pertama untuk thumbnail-

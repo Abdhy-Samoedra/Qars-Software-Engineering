@@ -15,6 +15,10 @@
                     url: '//cdn.datatables.net/plug-ins/1.12.1/i18n/en.json'
                 },
                 columns: [{
+                        data: 'vehicle_id',
+                        name: 'vehicle_id',
+                        class: 'text-center',
+                    },{
                         data: 'found_date',
                         name: 'found_date',
                         class: 'text-center',
@@ -36,6 +40,10 @@
                     },{
                         data: 'taken_status',
                         name: 'taken_status',
+                        class: 'text-center',
+                    },{
+                        data: 'taken_date',
+                        name: 'taken_date',
                         class: 'text-center',
                     },{
                         data: 'slug',
@@ -73,10 +81,12 @@
                     <table id="dataTable" class="hover stripe">
                         <thead>
                             <tr>
+                                <th>License Plate</th>
                                 <th>Found Date</th>
                                 <th>Picture</th>
                                 <th>Description</th>
                                 <th>Taken Status</th>
+                                <th>Taken Date</th>
                                 <th>Slug</th>
                                 <th>Actions</th>
                             </tr>
