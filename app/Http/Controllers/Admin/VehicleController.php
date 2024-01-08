@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\VehicleRequest;
 use App\Models\VehicleCategory;
 
 class VehicleController extends Controller
@@ -65,7 +66,7 @@ class VehicleController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(VehicleRequest $request)
     {
         $data = $request->all();
         // return dd($data);
@@ -123,7 +124,7 @@ class VehicleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Vehicle $vehicle)
+    public function update(VehicleRequest $request, Vehicle $vehicle)
     {
         $data = $request->all();
         // dd($data);

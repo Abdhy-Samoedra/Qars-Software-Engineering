@@ -115,7 +115,7 @@
       /*font-bold*/
       border-radius: .25rem;
       /*rounded*/
-      background: #008652 !important;
+      background: #0C3256 !important;
       /*bg-indigo-500*/
       border: 1px solid transparent;
       /*border border-transparent*/
@@ -131,7 +131,7 @@
       /*font-bold*/
       border-radius: .25rem;
       /*rounded*/
-      background: #008652 !important;
+      background: #0C3256 !important;
       /*bg-indigo-500*/
       border: 1px solid transparent;
       /*border border-transparent*/
@@ -141,6 +141,10 @@
     #dataTable_next:hover
     {
       color: #fff !important;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+      color: #555555 !important;
     }
 
     /*Add padding to bottom border */

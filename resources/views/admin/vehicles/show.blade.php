@@ -61,7 +61,7 @@
                         <div class="w-full">
                             <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase"
                                 for="grid-last-name">
-                                Vehicle's Category ID *
+                                Vehicle's Category*
                             </label>
                             <input value="{{ old('vehicle_category_id') ?? $vehicle->vehicle_category_id }}"
                                 name="vehicle_category_id"

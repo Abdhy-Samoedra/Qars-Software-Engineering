@@ -40,7 +40,7 @@
                             </label>
                             <input value="{{ old('start_date') ?? $transaction->start_date }}" name="start_date"
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
-                                id="grid-last-name" type="text" placeholder="Expired Date" required>
+                                id="grid-last-name" type="date" placeholder="Expired Date" required>
                             <div class="mt-2 text-sm text-gray-500">
                                 Nama transactions. Contoh: Transaction 1, Transaction 2, Transaction 3, dsb.
                             </div>
@@ -52,7 +52,7 @@
                             </label>
                             <input value="{{ old('end_date') ?? $transaction->end_date }}" name="end_date"
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
-                                id="grid-last-name" type="text" placeholder="Expired Date" required>
+                                id="grid-last-name" type="date" placeholder="Expired Date" required>
                             <div class="mt-2 text-sm text-gray-500">
                                 Nama transactions. Contoh: Transaction 1, Transaction 2, Transaction 3, dsb.
                             </div>
@@ -195,7 +195,7 @@
                             </label>
                             <input value="{{ old('driver_id') ?? $transaction->driver->id }}" name="driver_id"
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
-                                id="grid-last-name" type="text" placeholder="driver_id" required>
+                                id="grid-last-name" type="text" placeholder="Driver">
                             <div class="mt-2 text-sm text-gray-500">
                                 Nama transactions. Contoh: Transaction 1, Transaction 2, Transaction 3, dsb.
                             </div>
@@ -207,7 +207,7 @@
                             </label>
                             <input value="{{ old('voucher_id') ?? $transaction->voucher_category->id }}" name="voucher_id"
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
-                                id="grid-last-name" type="text" placeholder="voucher_id" required>
+                                id="grid-last-name" type="text" placeholder="Voucher ID">
                             <div class="mt-2 text-sm text-gray-500">
                                 Nama transactions. Contoh: Transaction 1, Transaction 2, Transaction 3, dsb.
                             </div>

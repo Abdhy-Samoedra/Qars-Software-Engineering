@@ -2,17 +2,16 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
-class VehicleCategoryRequest extends FormRequest
+class VoucherRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return Auth::check();
+        return false;
     }
 
     /**
@@ -23,9 +22,7 @@ class VehicleCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'vehicle_category_name' => 'required|string|max:255',
-            'vehicle_category_capacity' => 'required|integer|min:1|max:60',
-            'vehicle_category_description' => 'required|string|max:255',
+            //
         ];
     }
 }

@@ -13,8 +13,11 @@
                 language: {
                     url: '//cdn.datatables.net/plug-ins/1.12.1/i18n/en.json'
                 },
-                columns: [{
-                        //memanggil nama dari tabel user
+                columns: [
+                    {
+                        data: 'id',
+                        name: 'id',
+                    },{
                         data: 'user.name',
                         name: 'user.name',
                     },
@@ -67,6 +70,7 @@
                     <table id="dataTable" class="hover stripe">
                         <thead>
                             <tr>
+                                <th>id</th>
                                 <th>User</th>
                                 <th>Start</th>
                                 <th>End</th>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
 class VoucherCategoryRequest extends FormRequest
@@ -11,7 +12,7 @@ class VoucherCategoryRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -22,7 +23,13 @@ class VoucherCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'voucher_name' => 'required|string|max:255',
+            'voucher_nominal' => 'required|numeric|min:1|max:10000000',
+            'voucher_price' => 'required|numeric|min:1|max:1000',
+            'expired_date' => 'required|date',
+            'minimum_spending' => 'required|numeric|min:1|max:10000000',
+            'voucher_picture' => 'nullable',
+            'voucher_picture.*' => 'nullable | image | mimes : jpg ,jpeg,png |max:2048',
         ];
     }
 }
