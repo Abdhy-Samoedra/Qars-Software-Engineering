@@ -23,7 +23,6 @@ class Transaction extends Model
         'user_id',
         'driver_id',
         'voucher_category_id',
-        'rating_id'
     ];
 
     protected $cast = [

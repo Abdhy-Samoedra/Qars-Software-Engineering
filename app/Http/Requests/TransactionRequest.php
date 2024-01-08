@@ -24,14 +24,11 @@ class TransactionRequest extends FormRequest
     {
         return [
             'user_id' => 'required|integer|exists:users,id',
-            'driver_id' => 'required|integer|exists:drivers,id',
-            'vehicle_id' => 'required|integer|exists:vehicles,id',
+            'driver_id' => 'nullable|integer|exists:drivers,id',
+            'vehicle_id' => 'required|string|exists:vehicles,id',
             'voucher_category_id' => 'nullable|integer|exists:voucher_categories,id',
             'start_date' => 'required|date',
             'end_date' => 'required|date',
-            'total_price' => 'required|integer',
-            'status' => 'required|string',
-            'rating_id' => 'nullable|integer|exists:ratings,id',
         ];
     }
 }

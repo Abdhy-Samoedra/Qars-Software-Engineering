@@ -23,6 +23,8 @@ class DriverRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
+            'phone' => 'required|string|regex:/(08)[0-9]*/|min:10|max:13',
+            'age' => 'required|integer|min:1|max:200',
             'picture' => 'nullable',
             'picture.*' => 'nullable | image | mimes : jpg ,jpeg,png |max:2048',
         ];

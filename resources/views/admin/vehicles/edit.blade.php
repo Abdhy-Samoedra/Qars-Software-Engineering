@@ -62,15 +62,15 @@
                         <div class="w-full">
                             <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase"
                                 for="grid-last-name">
-                                Vehicle Category ID*
+                                Vehicle Category*
                             </label>
                             <select name="vehicle_category_id" required
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500">
-                                <option value="">Choose Vehicle Category ID</option>
+                                <option value="">Choose Vehicle Category</option>
                                 @foreach ($vehicleCategory as $i)
                                     <option value="{{ $i->id }}"
                                         {{ $vehicle->vehicle_category_id == $i->id ? 'selected' : '' }}>
-                                        {{ $i->id }}
+                                        {{ $i->vehicle_category_name }}
                                     </option>
                                 @endforeach
                             </select>

@@ -10,7 +10,7 @@
             <div class="grid grid-cols-4 gap-4 px-3 mt-4 mb-6 -mx-3">
                 <div class="block p-6 bg-white rounded-lg">
                     <h5 class="mt-4 mb-8 text-6xl font-bold leading-tight text-center text-blue-950">
-                        {{$totalVehicle[0]->total}}
+                        {{ $totalVehicle[0]->total }}
                     </h5>
                     <p class="mb-2 text-base font-medium text-center text-neutral-600">
                         Total Vehicle
@@ -18,7 +18,7 @@
                 </div>
                 <div class="block p-6 bg-white rounded-lg">
                     <h5 class="mt-4 mb-8 text-6xl font-bold leading-tight text-center text-blue-950">
-                        {{$totalDriver[0]->total}}
+                        {{ $totalDriver[0]->total }}
                     </h5>
                     <p class="mb-4 text-base font-medium text-center text-neutral-600">
                         Total Driver
@@ -26,7 +26,7 @@
                 </div>
                 <div class="block p-6 bg-white rounded-lg">
                     <h5 class="mt-4 mb-8 text-6xl font-bold leading-tight text-center text-blue-950">
-                        {{$totalUser[0]->total}}
+                        {{ $totalUser[0]->total }}
                     </h5>
                     <p class="mb-4 text-base font-medium text-center text-neutral-600">
                         Total User
@@ -34,15 +34,15 @@
                 </div>
                 <div class="block p-6 bg-white rounded-lg">
                     <h5 class="mt-4 mb-8 text-6xl font-bold leading-tight text-center text-blue-950">
-                        {{$totalTransaction[0]->total}}
+                        {{ $totalTransaction[0]->total }}
                     </h5>
                     <p class="mb-4 text-base font-medium text-center text-neutral-600">
                         Total Transaction
                     </p>
                 </div>
             </div>
-            {{------------------------------------ License Request' Table ------------------------------------------------}}
-            
+            {{-- ---------------------------------- License Request' Table ---------------------------------------------- --}}
+
 
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                 <table class="w-full text-blue-900 table-auto">
@@ -63,87 +63,26 @@
                         @foreach ($query as $item)
                             <tr class="odd:bg-white even:bg-gray-100">
                                 <th scope="row" class="px-6 py-4 font-medium text-blue-900 whitespace-nowrap">
-                                    {{$item->id}}
+                                    {{ $item->id }}
                                 </th>
                                 <th class="px-6 py-4 font-normal" scope="row">
-                                    {{$item->name}}
+                                    {{ $item->name }}
                                 </th>
                                 <th class="px-6 py-4">
-                                    <a href="{{route('admin.users.edit', $item->slug)}}" class="solid font-normal bg-blue-900 text-white rounded-md p-2">
+                                    <a href="{{ route('admin.users.edit', $item->slug) }}"
+                                        class="solid font-normal bg-blue-900 text-white rounded-md p-2">
                                         Check
                                     </a>
                                 </th>
                             </tr>
                         @endforeach
-                        
-                        {{-- <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                            <th scope="row" class="px-6 py-4 font-medium text-blue-900 whitespace-nowrap">
-                                Microsoft Surface Pro
-                            </th>
-                            <td class="px-6 py-4">
-                                White
-                            </td>
-                            <td class="px-6 py-4">
-                                Laptop PC
-                            </td>
-                            <td class="px-6 py-4">
-                                $1999
-                            </td>
-                            <td class="px-6 py-4">
-                                <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                            </td>
-                        </tr>
-                        <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                            <th scope="row" class="px-6 py-4 font-medium text-blue-900 whitespace-nowrap">
-                                Magic Mouse 2
-                            </th>
-                            <td class="px-6 py-4">
-                                Black
-                            </td>
-                            <td class="px-6 py-4">
-                                Accessories
-                            </td>
-                            <td class="px-6 py-4">
-                                $99
-                            </td>
-                            <td class="px-6 py-4">
-                                <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                            </td>
-                        </tr>
-                        <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                            <th scope="row" class="px-6 py-4 font-medium text-blue-900 whitespace-nowrap">
-                                Google Pixel Phone
-                            </th>
-                            <td class="px-6 py-4">
-                                Gray
-                            </td>
-                            <td class="px-6 py-4">
-                                Phone
-                            </td>
-                            <td class="px-6 py-4">
-                                $799
-                            </td>
-                            <td class="px-6 py-4">
-                                <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row" class="px-6 py-4 font-medium text-blue-900 whitespace-nowrap">
-                                Apple Watch 5
-                            </th>
-                            <td class="px-6 py-4">
-                                Red
-                            </td>
-                            <td class="px-6 py-4">
-                                Wearables
-                            </td>
-                            <td class="px-6 py-4">
-                                $999
-                            </td>
-                            <td class="px-6 py-4">
-                                <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                            </td>
-                        </tr> --}}
+                        @if (empty($query))
+                            <tr>
+                                <th colspan="5"
+                                    class="px-6 py-4 font-medium text-black whitespace-nowrap text-center ">Nothing to
+                                    verify.</th>
+                            </tr>
+                        @endif
                     </tbody>
                 </table>
             </div>

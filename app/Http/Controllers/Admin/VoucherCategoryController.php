@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\VoucherCategory;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\VoucherCategoryRequest;
 
 class VoucherCategoryController extends Controller
 {
@@ -45,7 +46,7 @@ class VoucherCategoryController extends Controller
                 })
 
                 ->rawColumns(['action', 'thumbnail'])  //untuk munculin column yang dibuat diatas terender dengan baik
-                ->make(); 
+                ->make();
         }
 
         // script untuk return view
@@ -63,13 +64,13 @@ class VoucherCategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(VoucherCategoryRequest $request)
     {
         $data = $request->all();
         // return dd($data);
 
         $data['slug'] = Str::slug($data['voucher_name']) . '-' . Str::lower(Str::random(5));
-        
+
         // upload multiple pictures
         if ($request->hasFile('voucher_picture')) {
             $voucherPicture = $request->file('voucher_picture')->store('assets/item', 'public');
@@ -110,7 +111,7 @@ class VoucherCategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, VoucherCategory $voucherCategory)
+    public function update(VoucherCategoryRequest $request, VoucherCategory $voucherCategory)
     {
         $data = $request->all();
         // dd($data);
