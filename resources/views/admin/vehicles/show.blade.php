@@ -37,10 +37,10 @@
 
                     {{-- {{$pictures = explode(',' ,str_replace('"', '', $vehicle->car_picture))}} --}}
 
-                    <div class="container flex flex-wrap justify-around w-0.5 mx-auto">
+                    <div class="container flex flex-wrap justify-around w-25 mx-auto">
                         @if ($vehicle->car_picture)
                             @foreach (json_decode($vehicle->car_picture) as $picture)
-                                <img src="{{ Storage::url($picture) }}" alt="" class="w-64 mx-auto mb-5 rounded-md">
+                                <img src="{{ Storage::url($picture) }}" alt="no img right now" class="w-64 mx-auto mb-5 rounded-md">
                             @endforeach
                         @endif
                     </div>
