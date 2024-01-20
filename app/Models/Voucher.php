@@ -9,11 +9,6 @@ class Voucher extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = [
-        'voucher_category_id',
-        'user_id',
-    ];
-
     protected $fillable = [
         'voucher_category_id',
         'user_id',
