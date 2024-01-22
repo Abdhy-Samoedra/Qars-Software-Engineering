@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\VoucherCategoryController as AdminVoucherCategory
 use App\Http\Controllers\Admin\VoucherController as AdminVoucherController;
 use App\Http\Controllers\Front\LandingController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

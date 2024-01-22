@@ -15,9 +15,11 @@
                 },
                 columns: [
                     {
+                        //memanggil nama dari tabel user
                         data: 'id',
                         name: 'id',
                     },{
+                        //memanggil nama dari tabel user
                         data: 'user.name',
                         name: 'user.name',
                     },

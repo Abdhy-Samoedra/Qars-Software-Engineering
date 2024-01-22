@@ -46,10 +46,6 @@
                         name: 'taken_date',
                         class: 'text-center',
                     },{
-                        data: 'slug',
-                        name: 'slug',
-                        class: 'text-center',
-                    },{
                         data: 'action',
                         name: 'action',
                         orderable: false,
@@ -87,7 +83,6 @@
                                 <th>Description</th>
                                 <th>Taken Status</th>
                                 <th>Taken Date</th>
-                                <th>Slug</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
