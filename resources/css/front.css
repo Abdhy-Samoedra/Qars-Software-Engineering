@@ -14,21 +14,21 @@
     }
 
     body {
-        @apply font-poppins text-dark;
+        @apply font-poppins text-text_black;
     }
 }
 
 @layer components {
     .nav-link-item {
-        @apply text-base font-normal transition-all cursor-pointer text-secondary hover:text-dark hover:underline underline-offset-2;
+        @apply text-base font-normal transition-all cursor-pointer text-text_semiblack hover:text-primary hover:underline underline-offset-2;
     }
 
     .nav-link-item.active {
-        @apply font-semibold text-dark;
+        @apply font-semibold text-text_black;
     }
 
     .btn-primary {
-        @apply relative block text-white py-3 px-[26px] min-h-[47px] bg-primary font-semibold text-base rounded-full transition-all duration-[320ms] drop-shadow-[0_15px_20px_rgba(71,67,251,0.3)] hover:drop-shadow-none hover:shadow-[0_0_0_1px_#ffffff_inset] min-w-[180px] text-center;
+        @apply relative block text-white py-3 px-[26px] min-h-[47px] bg-primary font-semibold text-base rounded-full transition-all duration-[320ms] drop-shadow-[0_15px_20px_rgba(29,93,155,0.3)] hover:drop-shadow-none hover:shadow-[0_0_0_1px_#ffffff_inset] min-w-[180px] text-center;
     }
 
     .btn-primary > p {
@@ -40,15 +40,15 @@
     }
 
     .btn-secondary {
-        @apply px-10 py-4 text-center rounded-[50px] border border-grey hover:bg-dark transition-all hover:text-white text-base font-medium text-dark block;
+        @apply px-6 py-2 text-center rounded-[8px] border border-text_gray hover:bg-text_black transition-all hover:text-white text-base font-medium text-text_black block;
     }
 
     .card-popular {
-        @apply p-4 bg-white rounded-[22px] flex flex-col gap-4 relative transition ease-in-out duration-300 hover:shadow-[0_22px_50px_#D4D6DA] hover:scale-[1.02];
+        @apply p-4 bg-white rounded-[22px] flex flex-col shadow-[0_4px_10px_#D4D6DA] gap-4 relative transition ease-in-out duration-300 hover:shadow-[0_22px_50px_#D4D6DA] hover:scale-[1.02];
     }
 
     .vr {
-        @apply self-stretch w-[1px] min-h-[1em] bg-grey;
+        @apply self-stretch w-[1px] min-h-[1em] bg-text_gray;
     }
 
     .thumbnail {

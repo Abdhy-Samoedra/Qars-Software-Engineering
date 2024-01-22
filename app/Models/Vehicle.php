@@ -42,7 +42,7 @@ class Vehicle extends Model
         return 'https://via.placeholder.com/800x600';
     }
 
-    public function vehicleCategories()
+    public function vehicleCategory()
     {
         return $this->belongsTo(VehicleCategory::class);
     }
