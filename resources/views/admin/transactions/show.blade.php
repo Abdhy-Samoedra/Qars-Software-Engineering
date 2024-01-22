@@ -160,7 +160,7 @@
                                 for="grid-last-name">
                                 Driver
                             </label>
-                            <input value="{{ old('driver_id') ?? $transaction->driver->id }}" name="driver_id"
+                            <input value="{{ old('driver_id') ?? $transaction->driver->id ?? ''}}" name="driver_id"
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name" type="text" placeholder="Driver" disabled>
                         </div>
@@ -169,7 +169,7 @@
                                 for="grid-last-name">
                                 Voucher Id
                             </label>
-                            <input value="{{ old('voucher_id') ?? $transaction->voucher_category->id }}" name="voucher_id"
+                            <input value="{{ old('voucher_id') ?? $transaction->voucher_category->id ?? ''}}" name="voucher_id"
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name" type="text" placeholder="Voucher ID" disabled>
                         </div>
