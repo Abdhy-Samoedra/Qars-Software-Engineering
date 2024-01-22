@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\DriverRequest;
+use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -72,6 +74,7 @@ class UserController extends Controller
      */
     public function edit($slug)
     {
+
         $user = User::where('slug', $slug)->firstOrFail();
 
         $user['profile_photo_path'] = json_decode($user->profile_photo_path);
@@ -86,22 +89,25 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UserRequest $request, User $user)
+    public function update(UpdateUserRequest $request, User $user)
     {
         $data = $request->all();
+
+        //validasi emailnya sama dengan yang lain atau tidak
+        $data = $request->validated();
 
         // upload multiple pictures
         if ($request->hasFile('profile_photo_path')) {
             $profilePhotoPath = $request->file('profile_photo_path')->store('assets/item', 'public');
             $data['profile_photo_path'] = json_encode($profilePhotoPath);
-        }else {
+        } else {
             $data['profile_photo_path'] = $user->profile_photo_path;
         }
 
         if ($request->hasFile('driving_license_path')) {
             $drivingLicensePath = $request->file('driving_license_path')->store('assets/item', 'public');
             $data['driving_license_path'] = json_encode($drivingLicensePath);
-        }else {
+        } else {
             $data['driving_license_path'] = $user->driving_license_path;
         }
 

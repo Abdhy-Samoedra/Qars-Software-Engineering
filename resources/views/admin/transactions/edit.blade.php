@@ -42,7 +42,7 @@
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name" type="date" placeholder="Expired Date" required>
                             <div class="mt-2 text-sm text-gray-500">
-                                Nama transactions. Contoh: Transaction 1, Transaction 2, Transaction 3, dsb.
+                                Start Date. Example: 01/04/2004, 02/08/2018, etc.
                             </div>
                         </div>
                         <div class="w-full mb-4">
@@ -54,7 +54,7 @@
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name" type="date" placeholder="Expired Date" required>
                             <div class="mt-2 text-sm text-gray-500">
-                                Nama transactions. Contoh: Transaction 1, Transaction 2, Transaction 3, dsb.
+                                End Date. Example: 01/04/2004, 02/08/2018, etc.
                             </div>
                         </div>
                         <div class="grid w-full grid-cols-2 gap-4 px-3 mb-4 -mx-3">
@@ -67,7 +67,7 @@
                                     class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                     id="grid-last-name" type="number" placeholder="extend">
                                 <div class="mt-2 text-sm text-gray-500">
-                                    Nama items. Contoh: Item 1, Item 2, Item 3, dsb. Wajib diisi. Maksimal 255 karakter.
+                                    How Many Days That the Rental is Extended. Example : 1, 2, 3, etc.
                                 </div>
                             </div>
                             <div class="w-full">
@@ -79,7 +79,7 @@
                                     class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                     id="grid-last-name" type="number" placeholder="penalty">
                                 <div class="mt-2 text-sm text-gray-500">
-                                    Nama items. Contoh: Item 1, Item 2, Item 3, dsb. Wajib diisi. Maksimal 255 karakter.
+                                    Number of Days After the day of deadline. Example : 1, 2, 3, etc.
                                 </div>
                             </div>
                         </div>
@@ -99,7 +99,7 @@
                                 </option>
                             </select>
                             <div class="mt-2 text-sm text-gray-500">
-                                zip transactions. Contoh: Transaction 1, Transaction 2, Transaction 3, dsb.
+                                Status of the Transaction. Example: Pending or Confirmed
                             </div>
                         </div>
                         <div class="w-full mb-4">
@@ -123,7 +123,7 @@
                                     Expired</option>
                             </select>
                             <div class="mt-2 text-sm text-gray-500">
-                                pembayaran. Contoh: Transaction 1, Transaction 2, Transaction 3, dsb.
+                                Status of Payment. Example: Pending, Success, Failed, Expired.
                             </div>
                         </div>
                         <div class="w-full mb-4">
@@ -135,7 +135,7 @@
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name" type="text" placeholder="payment_url" required>
                             <div class="mt-2 text-sm text-gray-500">
-                                Nama transactions. Contoh: Transaction 1, Transaction 2, Transaction 3, dsb.
+                                Link of the payment. Auto
                             </div>
                         </div>
                         <div class="grid w-full grid-cols-2 gap-4 px-3 mb-4 -mx-3">
@@ -148,7 +148,7 @@
                                     class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                     id="grid-last-name" type="number" placeholder="exp_reward " required>
                                 <div class="mt-2 text-sm text-gray-500">
-                                    Nama items. Contoh: Item 1, Item 2, Item 3, dsb. Wajib diisi. Maksimal 255 karakter.
+                                    Quantity of experience gained.
                                 </div>
                             </div>
                             <div class="w-full">
@@ -156,11 +156,12 @@
                                     for="grid-last-name">
                                     Total*
                                 </label>
-                                <input value="{{ old('total_price') ?? $transaction->total_price }}" name="total_price"
+                                <input value="{{ old('total_price') ?? $transaction->total_price }}"
+                                    name="total_price"
                                     class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                     id="grid-last-name" type="number" placeholder="penalty" required>
                                 <div class="mt-2 text-sm text-gray-500">
-                                    Nama items. Contoh: Item 1, Item 2, Item 3, dsb. Wajib diisi. Maksimal 255 karakter.
+                                    Total of price paid, Example : 100000, 20000, 30000, etc.
                                 </div>
                             </div>
                         </div>
@@ -173,7 +174,7 @@
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name" type="text" placeholder="vehicle_id" required>
                             <div class="mt-2 text-sm text-gray-500">
-                                Nama transactions. Contoh: Transaction 1, Transaction 2, Transaction 3, dsb.
+                                License Plate of the Vehicle. Example: B 1389 CKN, A 9128 PPO, etc.
                             </div>
                         </div>
                         <div class="w-full mb-4">
@@ -185,7 +186,7 @@
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name" type="text" placeholder="user_id" required>
                             <div class="mt-2 text-sm text-gray-500">
-                                Nama transactions. Contoh: Transaction 1, Transaction 2, Transaction 3, dsb.
+                                User ID. Example : 1, 2, 3, etc.
                             </div>
                         </div>
                         <div class="w-full mb-4">
@@ -193,11 +194,12 @@
                                 for="grid-last-name">
                                 Driver
                             </label>
-                            <input value="{{ old('driver_id') ?? $transaction->driver->id }}" name="driver_id"
+                            <input value="{{ old('driver_id') ?? ($transaction->driver->id ?? '') }}"
+                                name="driver_id"
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name" type="text" placeholder="Driver">
                             <div class="mt-2 text-sm text-gray-500">
-                                Nama transactions. Contoh: Transaction 1, Transaction 2, Transaction 3, dsb.
+                                Driver ID. Example : 1, 2, 3, etc.
                             </div>
                         </div>
                         <div class="w-full mb-4">
@@ -205,11 +207,12 @@
                                 for="grid-last-name">
                                 Voucher Id
                             </label>
-                            <input value="{{ old('voucher_id') ?? $transaction->voucher_category->id }}" name="voucher_id"
+                            <input value="{{ old('voucher_id') ?? ($transaction->voucher_category->id ?? '') }}"
+                                name="voucher_id"
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name" type="text" placeholder="Voucher ID">
                             <div class="mt-2 text-sm text-gray-500">
-                                Nama transactions. Contoh: Transaction 1, Transaction 2, Transaction 3, dsb.
+                                Voucher ID. Example : 1, 2, 3, etc.
                             </div>
                         </div>
                     </div>
