@@ -24,7 +24,7 @@ class UserSeeder extends Seeder
             'role' => 'Customer',
             'profile_photo_path' => '',
             'experience_point' => '12',
-            'password' => 'sayang123',
+            'password' => bcrypt('password'),
             'slug' => 'bambang-19232',
         ]);
     }

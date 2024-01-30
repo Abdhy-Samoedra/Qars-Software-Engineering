@@ -1,17 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Front\LandingController;
+use App\Http\Controllers\Front\ProfileController;
 use App\Http\Controllers\Admin\UserController as AdminUsersController;
 use App\Http\Controllers\Admin\DriverController as AdminDriverController;
-use App\Http\Controllers\Admin\VehicleCategoryController as AdminVehicleCategoryController;
+use App\Http\Controllers\Admin\RatingController as AdminRatingController;
 use App\Http\Controllers\Admin\VehicleController as AdminVehicleController;
+use App\Http\Controllers\Admin\VoucherController as AdminVoucherController;
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\TransactionController as AdminTransactionController;
 use App\Http\Controllers\Admin\LostAndFoundController as AdminLostAndFoundController;
-use App\Http\Controllers\Admin\RatingController as AdminRatingController;
+use App\Http\Controllers\Admin\VehicleCategoryController as AdminVehicleCategoryController;
 use App\Http\Controllers\Admin\VoucherCategoryController as AdminVoucherCategoryController;
-use App\Http\Controllers\Admin\VoucherController as AdminVoucherController;
-use App\Http\Controllers\Front\LandingController;
 
 
 /*
@@ -27,6 +28,7 @@ use App\Http\Controllers\Front\LandingController;
 
 Route::name('front.')->group(function () {
     Route::get('/', [LandingController::class, 'index'])->name('index');
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 });
 
 

@@ -105,7 +105,8 @@
                         <div class="flex items-center justify-between gap-1">
                             <!-- Price -->
                             <p class="text-sm font-normal text-text_semiblack">
-                                <span class="text-base font-bold text-primary">${{ number_format($vehicle->rental_price) }}</span>/day
+                                <span
+                                    class="text-base font-bold text-primary">${{ number_format($vehicle->rental_price) }}</span>/day
                             </p>
                             <!-- Rating -->
                             <p class="text-text_black text-xs font-semibold flex items-center gap-[2px]">
