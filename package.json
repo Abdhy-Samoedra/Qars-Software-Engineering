@@ -23,6 +23,8 @@
     "test": "tests"
   },
   "dependencies": {
+    "@splidejs/splide": "^4.1.4",
+    "@splidejs/splide-extension-auto-scroll": "^0.5.3",
     "any-promise": "^1.3.0",
     "anymatch": "^3.1.3",
     "arg": "^5.0.2",

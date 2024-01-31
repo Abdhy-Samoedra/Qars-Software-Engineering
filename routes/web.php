@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Front\LandingController;
 use App\Http\Controllers\Front\ProfileController;
 use App\Http\Controllers\Admin\UserController as AdminUsersController;
 use App\Http\Controllers\Admin\DriverController as AdminDriverController;
@@ -13,7 +12,9 @@ use App\Http\Controllers\Admin\TransactionController as AdminTransactionControll
 use App\Http\Controllers\Admin\LostAndFoundController as AdminLostAndFoundController;
 use App\Http\Controllers\Admin\VehicleCategoryController as AdminVehicleCategoryController;
 use App\Http\Controllers\Admin\VoucherCategoryController as AdminVoucherCategoryController;
-
+use App\Http\Controllers\Front\CatalogueController;
+use App\Http\Controllers\Front\LandingController;
+use App\Http\Controllers\Front\VehicleDetailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,8 @@ use App\Http\Controllers\Admin\VoucherCategoryController as AdminVoucherCategory
 Route::name('front.')->group(function () {
     Route::get('/', [LandingController::class, 'index'])->name('index');
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::get('/catalogue', [CatalogueController::class, 'index'])->name('indexCatalogue');
+    Route::get('/vehicleDetail/{slug}', [VehicleDetailController::class, 'show'])->name('detailCatalogue');
 });
 
 

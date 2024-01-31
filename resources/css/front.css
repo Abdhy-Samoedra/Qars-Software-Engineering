@@ -15,6 +15,7 @@
 
     body {
         @apply font-poppins text-text_black;
+        overflow-x: hidden;
     }
 }
 
@@ -77,3 +78,4 @@
 [x-cloak] {
     display: none;
 }
+

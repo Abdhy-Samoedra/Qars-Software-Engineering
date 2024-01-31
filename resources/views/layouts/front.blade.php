@@ -17,12 +17,37 @@
     <script defer src="https://unpkg.com/alpinejs@3.7.0/dist/cdn.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"
         integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+  
+  <link rel="stylesheet" href="{{ url('splide-4.1.3/dist/css/splide.min.css') }}">
+  
 
     <!-- Scripts -->
     @vite(['resources/css/front.css'])
 
     <!-- Styles -->
     @livewireStyles
+
+  <style>
+
+    .splide:not(.is-overflow) .splide__arrows {
+        display: none;
+      }
+
+    #forMobile{
+      display: none;
+    }
+
+    @media only screen and (max-width: 1020px){
+      .splide__arrows {
+        display: none;
+      }
+
+      #forMobile{
+        display: block;
+      }
+    }
+    
+  </style>
 </head>
 
 <body style="background-color:#EDF2F7">
@@ -54,7 +79,7 @@
                         <div
                             class="flex flex-col w-full ml-auto lg:w-auto gap-4 lg:gap-[50px] lg:items-center lg:flex-row">
                             <a href="#!" class="nav-link-item">Home</a>
-                            <a href="#!" class="nav-link-item">Catalog</a>
+                            <a href="{{ route('front.indexCatalogue') }}" class="nav-link-item">Catalog</a>
                             <a href="#!" class="nav-link-item">Booked</a>
                             <a href="#!" class="nav-link-item">Lost & Founds</a>
                             <a href="#!" class="nav-link-item">Vouchers</a>
@@ -142,7 +167,85 @@
     </script>
 
     <script src="{{ url('js/script.js') }}"></script>
+  <script src="{{ url('js/catalogue.js') }}"></script>
+  
+  {{-- <script src="{{ url('js/carousel.js') }}"></script> --}}
+  {{-- <script src="path-to-the-file/splide.min.js"></script> --}}
+  <script src="{{ url('splide-4.1.3/dist/js/splide.min.js') }}"></script>
+  
+  {{-- <script src="{{ url('splide-4.1.3/dist/js//splide-extension-auto-scroll.min.js') }}"></script> --}}
+  <script>
+    
+    // var splide = new Splide( '.splide', {
+    // perPage: 3,
+    // gap    : '2rem',
+    // breakpoints: {
+    //   1300: {
+    //     perPage: 2,
 
+    //   },
+    //   780: {
+    //     perPage: 1,
+    //   },
+    //   480: {
+    //     perPage: 1,
+    //     gap    : '.7rem',
+    //     height : '6rem',
+    //   },
+    // },
+    // rewind : true,
+    // } );
+
+    // splide.mount();
+
+    var elms = document.getElementsByClassName( 'splide' );
+
+
+    for ( var i = 0; i < elms.length; i++ ) {
+      if(i == 0){
+
+        new Splide( elms[ i ], {
+        perPage: 3,
+        gap    : '2rem',
+        breakpoints: {
+          1300: {
+            perPage: 2,
+  
+          },
+          780: {
+            perPage: 1,
+          },
+          480: {
+            perPage: 1
+
+          },
+        },
+        rewind : true
+        } ).mount();
+      }else{
+        new Splide( elms[ i ], {
+        perPage: 3,
+        gap    : '2rem',
+        breakpoints: {
+          1300: {
+            perPage: 3,
+  
+          },
+          1020: {
+            perPage: 2,
+          },
+          560: {
+            perPage: 1
+          },
+        },
+        rewind : true
+        } ).mount();
+      }
+    }
+
+    // splide.mount();
+    
+  </script>
 </body>
 
 </html>

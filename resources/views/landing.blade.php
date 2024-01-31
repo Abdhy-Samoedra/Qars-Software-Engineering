@@ -100,7 +100,7 @@
                             </p>
                             {{-- <a href="{{ route('front.detail', $vehicle->slug) }}" class="absolute inset-0"></a> --}}
                         </div>
-                        <img src="{{ $vehicle->thumbnail }}" class="rounded-[18px] min-w-[216px] w-full h-[150px]"
+                        <img src="{{ $vehicle->thumbnail }}" class="    "
                             alt="">
                         <div class="flex items-center justify-between gap-1">
                             <!-- Price -->
