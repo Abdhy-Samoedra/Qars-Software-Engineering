@@ -15,6 +15,10 @@ use App\Http\Controllers\Admin\VoucherCategoryController as AdminVoucherCategory
 use App\Http\Controllers\Front\CatalogueController;
 use App\Http\Controllers\Front\LandingController;
 use App\Http\Controllers\Front\VehicleDetailController;
+use App\Http\Controllers\Front\OrderController as FrontOrderController;
+use App\Http\Controllers\Front\VoucherController as FrontVoucherController;
+use App\Http\Controllers\Front\VoucherConfirmationController as FrontVoucherConfirmationController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +36,9 @@ Route::name('front.')->group(function () {
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
     Route::get('/catalogue', [CatalogueController::class, 'index'])->name('indexCatalogue');
     Route::get('/vehicleDetail/{slug}', [VehicleDetailController::class, 'show'])->name('detailCatalogue');
+    Route::get('/orders', [FrontOrderController::class, 'index'])->name('order');
+    Route::get('/vouchers', [FrontVoucherController::class, 'index'])->name('voucher');
+    Route::get('/voucher-confirmation', [FrontVoucherConfirmationController::class, 'index'])->name('voucher-confirmation');
 });
 
 

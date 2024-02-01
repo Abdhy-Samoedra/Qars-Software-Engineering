@@ -79,3 +79,14 @@
     display: none;
 }
 
+.pagination{
+    display: flex;
+    width: auto;
+    justify-content: space-between;
+    list-style: none;
+    @apply mr-48;
+}
+
+.text-muted{
+    @apply ml-48;
+}
