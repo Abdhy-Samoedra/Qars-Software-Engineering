@@ -34,7 +34,7 @@
                     @csrf
                     @method('put')
 
-                    <img src="{{ str_replace('"', '', Storage::url($user->profile_photo_path)) }}" alt=""
+                    <img src="{{ str_replace('"', '', Storage::url($user->profile_photo_path)) }}" alt="profile"
                         class="mx-auto rounded-md w-28">
 
                     <div class="flex flex-wrap px-3 mt-4 mb-6 -mx-3">
@@ -107,14 +107,15 @@
                         </div>
                     </div>
 
-                    @if(!empty($user->driving_license_path))
+                    @if (!empty($user->driving_license_path))
                         <div class="flex flex-wrap px-3 mt-4 mb-6 -mx-3">
                             <div class="w-full">
                                 <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase"
                                     for="grid-last-name">
                                     Driving License Picture
                                 </label>
-                                <img src="{{ str_replace('"', '',Storage::url($user->driving_license_path)) }}" alt="" class="rounded-md w-80">
+                                <img src="{{ str_replace('"', '', Storage::url($user->driving_license_path)) }}"
+                                    alt="" class="rounded-md w-80">
                             </div>
                         </div>
                     @endif
@@ -151,7 +152,7 @@
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name" type="number" placeholder="Age" required>
                             <div class="mt-2 text-sm text-gray-500">
-                                Phone. Example: 17, 18, 21 etc.
+                                Age. Example: 17, 18, 21 etc.
                             </div>
                         </div>
                     </div>
@@ -177,17 +178,29 @@
                         </div>
                     </div>
 
-                    {{-- <div class="flex flex-wrap px-3 mt-4 mb-6 -mx-3">
+                    <div class="flex flex-wrap px-3 mt-4 mb-6 -mx-3">
                         <div class="w-full">
                             <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase"
                                 for="grid-last-name">
-                                Foto*
+                                SIM Photo*
                             </label>
                             <input name="driving_license_path"
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                 accept="image/png,image/jpg,image/jpeg" id="grid-last-name" type="file">
                         </div>
-                    </div> --}}
+                    </div>
+
+                    <div class="flex flex-wrap px-3 mt-4 mb-6 -mx-3">
+                        <div class="w-full">
+                            <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase"
+                                for="grid-last-name">
+                                Profile Photo*
+                            </label>
+                            <input name="profle"
+                                class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
+                                accept="image/png,image/jpg,image/jpeg" id="grid-last-name" type="file">
+                        </div>
+                    </div>
 
                     <div class="flex flex-wrap mb-6 -mx-3">
                         <div class="w-full px-3 text-right">

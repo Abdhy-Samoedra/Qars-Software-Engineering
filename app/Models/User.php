@@ -55,7 +55,7 @@ class User extends Authenticatable
     // mendapatkan foto pertama untuk thumbnail
     public function getThumbnailAttribute()
     {
-        if ($this->vehicle_category_picture) {
+        if ($this->profile_photo_path) {
             return Storage::url(json_decode($this->profile_photo_path));
         }
 
