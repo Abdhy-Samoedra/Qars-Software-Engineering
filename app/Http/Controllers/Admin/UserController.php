@@ -9,6 +9,7 @@ use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;
 use Illuminate\Validation\Rule;
 
@@ -74,7 +75,6 @@ class UserController extends Controller
      */
     public function edit($slug)
     {
-
         $user = User::where('slug', $slug)->firstOrFail();
 
         $user['profile_photo_path'] = json_decode($user->profile_photo_path);
@@ -96,6 +96,11 @@ class UserController extends Controller
         //validasi emailnya sama dengan yang lain atau tidak
         $data = $request->validated();
 
+        $data = $request->validate([
+            'email' => [Rule::unique('users')->ignore($user->id)],
+            'phone' => [Rule::unique('users')->ignore($user->id)]
+        ]);
+
         // upload multiple pictures
         if ($request->hasFile('profile_photo_path')) {
             $profilePhotoPath = $request->file('profile_photo_path')->store('assets/item', 'public');
@@ -110,7 +115,6 @@ class UserController extends Controller
         } else {
             $data['driving_license_path'] = $user->driving_license_path;
         }
-
         $user->update($data);
 
         return redirect()->route('admin.users.index');

@@ -79,7 +79,7 @@ class RatingController extends Controller
     {
         $data = $request->all();
         $rating->update($data);
-        return redirect()->route('admin.ratings.index')->with('message', 'Rating Updated Successfully');
+        return redirect()->route('admin.ratings.index')->with('flash.banner', 'Rating Updated Successfully')->with('flash.bannerStyle', 'success');
     }
 
     /**

@@ -1,10 +1,5 @@
 <x-app-layout>
     <x-slot name="title">Ratings</x-slot>
-    <x-slot name="header">
-        <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ __('Ratings') }}
-        </h2>
-    </x-slot>
 
     <x-slot name="script">
         <script>
@@ -45,6 +40,11 @@
 
     <div class="py-12">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="flex justify-between mb-5">
+                <div class="text-3xl font-medium text-blue-950">
+                    {{ __('Ratings') }}
+                </div>
+            </div>
             <div class="overflow-hidden shadow sm:rounded-md">
                 <div class="px-4 py-5 bg-white sm:p-6">
                     <table id="dataTable">

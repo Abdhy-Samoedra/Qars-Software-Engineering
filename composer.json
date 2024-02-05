@@ -12,10 +12,9 @@
         "laravel/jetstream": "^4.1",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
-        "livewire/livewire": "^3.0",
+        "livewire/livewire": "^3.4",
+        "midtrans/midtrans-php": "^2.5",
         "thiagoprz/eloquent-composite-key": "^1.0",
-        "midtrans/midtrans-php": "^2.5",
-        "midtrans/midtrans-php": "^2.5",
         "yajra/laravel-datatables-oracle": "^10.11"
     },
     "require-dev": {
@@ -60,6 +59,7 @@
         }
     },
     "config": {
+        "platform-check": false,
         "optimize-autoloader": true,
         "preferred-install": "dist",
         "sort-packages": true,

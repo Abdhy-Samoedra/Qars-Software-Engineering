@@ -86,6 +86,7 @@
                                 class="flex flex-col w-full ml-auto lg:w-auto lg:gap-12 lg:items-center lg:flex-row nav-link-item">
                                 <x-dropdown align="right" width="100">
                                     <x-slot name="trigger">
+
                                         @if (Auth::user()->profile_photo_path)
                                             <button
                                                 class="flex text-sm transition border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300">
@@ -111,30 +112,33 @@
 
                                     <x-slot name="content">
                                         <!-- Account Management -->
-                                        <div class="block px-8 py-2 text-xs text-gray-400">
-                                            {{ __('Manage Account') }}
+                                        <div>
+                                            <div class="flex px-3 py-2 w-48 leading-5 text-sm text-gray-400">
+                                                {{ __('Manage Account') }}
+                                            </div>
+
+                                            <x-dropdown-link href="{{ route('front.profile', Auth::user()->id) }}">
+                                                {{ __('Profile') }}
+                                            </x-dropdown-link>
+
+                                            @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
+                                                <x-dropdown-link href="{{ route('api-tokens.index') }}">
+                                                    {{ __('API Tokens') }}
+                                                </x-dropdown-link>
+                                            @endif
+
+                                            <div class="border-t border-gray-200"></div>
+
+                                            <!-- Authentication -->
+                                            <form method="POST" action="{{ route('logout') }}" x-data>
+                                                @csrf
+
+                                                <x-dropdown-link href="{{ route('logout') }}"
+                                                    @click.prevent="$root.submit();">
+                                                    {{ __('Log Out') }}
+                                                </x-dropdown-link>
+                                            </form>
                                         </div>
-
-                                        <x-dropdown-link href="{{ route('front.profile') }}">
-                                            {{ __('Profile') }}
-                                        </x-dropdown-link>
-
-                                        @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-                                            <x-dropdown-link href="{{ route('api-tokens.index') }}">
-                                                {{ __('API Tokens') }}
-                                            </x-dropdown-link>
-                                        @endif
-
-                                        <div class="border-t border-gray-200"></div>
-
-                                        <!-- Authentication -->
-                                        <form method="POST" action="{{ route('logout') }}" x-data>
-                                            @csrf
-
-                                            <x-dropdown-link href="{{ route('logout') }}" @click.prevent="$root.submit();">
-                                                {{ __('Log Out') }}
-                                            </x-dropdown-link>
-                                        </form>
                                     </x-slot>
                                 </x-dropdown>
                             </div>
