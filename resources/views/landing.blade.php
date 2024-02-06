@@ -100,7 +100,6 @@
                             </p>
                             {{-- <a href="{{ route('front.detail', $vehicle->slug) }}" class="absolute inset-0"></a> --}}
                         </div>
-                        {{-- {{ dd($vehicle->thumbnail) }} --}}
                         <img src="{{ $vehicle->thumbnail }}" class="rounded-[18px] min-w-[216px] w-full h-[150px]"
                             alt="">
                         <div class="flex items-center justify-between gap-1">

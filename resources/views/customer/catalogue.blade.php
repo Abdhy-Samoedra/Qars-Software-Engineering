@@ -1,5 +1,13 @@
 <x-front-layout>
-    @vite(['resources/css/carousel.css'])
+    <style>
+        .vehicle-card {
+            opacity: 1;
+            transition: opacity 1s;
+        }
+        .vehicle-card.hide {
+            opacity: 0;
+        }
+    </style>
     <br>
     <div class="flex container containCatalog gap-12">
             {{-- nav category --}}

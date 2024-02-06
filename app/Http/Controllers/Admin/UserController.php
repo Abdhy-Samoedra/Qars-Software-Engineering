@@ -95,6 +95,7 @@ class UserController extends Controller
 
         //validasi emailnya sama dengan yang lain atau tidak
         $data = $request->validated();
+        // dd($data);
 
         $data = $request->validate([
             'email' => [Rule::unique('users')->ignore($user->id)],
