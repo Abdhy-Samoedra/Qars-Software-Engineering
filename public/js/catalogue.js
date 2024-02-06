@@ -207,71 +207,71 @@ categoryButtons.forEach(x => {
             elementNow = vehicleCard
         }
         else if(x.innerText == "Off-Road"){
-            document.querySelectorAll('.listCar li:not(.Cooper)').forEach((y) => {
+            document.querySelectorAll('.listCar li:not(.Off-Road)').forEach((y) => {
                 y.classList.add('hidden')
             })
 
-            document.querySelectorAll('.Cooper').forEach((y, i) => {
+            document.querySelectorAll('.Off-Road').forEach((y, i) => {
                 if(i >= maxShowItem) y.classList.add('hidden')
                 
             })
 
-            classNow = 'Cooper'
-            elementNow = document.querySelectorAll('.Cooper')
+            classNow = 'Off-Road'
+            elementNow = document.querySelectorAll('.Off-Road')
             
         }
         else if(x.innerText == "Classic"){
-            document.querySelectorAll('.listCar li:not(.Crosby)').forEach((j, i) => {
+            document.querySelectorAll('.listCar li:not(.Classic)').forEach((j, i) => {
                 j.classList.add('hidden')
                 
             })
 
-            document.querySelectorAll('.Crosby').forEach((y, i) => {
+            document.querySelectorAll('.Classic').forEach((y, i) => {
                 if(i >= maxShowItem) y.classList.add('hidden')
                 
             })
 
-            classNow = 'Crosby'
-            elementNow = document.querySelectorAll('.Crosby')
+            classNow = 'Classic'
+            elementNow = document.querySelectorAll('.Classic')
         }
         else if(x.innerText == "Family"){
-            document.querySelectorAll('.listCar li:not(.Shannon)').forEach((r,i) => {
+            document.querySelectorAll('.listCar li:not(.Family)').forEach((r,i) => {
                 r.classList.add('hidden')
             })
 
-            document.querySelectorAll('.Shannon').forEach((y, i) => {
+            document.querySelectorAll('.Family').forEach((y, i) => {
                 if(i >= maxShowItem) y.classList.add('hidden')
                 
             })
 
-            classNow = 'Shannon'
-            elementNow = document.querySelectorAll('.Shannon')
+            classNow = 'Family'
+            elementNow = document.querySelectorAll('.Family')
         }
         else if(x.innerText == "Sport"){
-            document.querySelectorAll('.listCar li:not(.Dennis)').forEach((f,i) => {
+            document.querySelectorAll('.listCar li:not(.Sport)').forEach((f,i) => {
                 f.classList.add('hidden')
             })
 
-            document.querySelectorAll('.Dennis').forEach((y, i) => {
+            document.querySelectorAll('.Sport').forEach((y, i) => {
                 if(i >= maxShowItem) y.classList.add('hidden')
                 
             })
 
-            classNow = 'Dennis'
-            elementNow = document.querySelectorAll('.Dennis')
+            classNow = 'Sport'
+            elementNow = document.querySelectorAll('.Sport')
         }
         else if(x.innerText == "Race"){
-            document.querySelectorAll('.listCar li:not(.Forbes)').forEach((g,i) => {
+            document.querySelectorAll('.listCar li:not(.Race)').forEach((g,i) => {
                 g.classList.add('hidden')
             })
 
-            document.querySelectorAll('.Forbes').forEach((y, i) => {
+            document.querySelectorAll('.Race').forEach((y, i) => {
                 if(i >= maxShowItem) y.classList.add('hidden')
                 
             })
 
-            classNow = 'Forbes'
-            elementNow = document.querySelectorAll('.Forbes')
+            classNow = 'Race'
+            elementNow = document.querySelectorAll('.Race')
         }
 
         maxItem = elementNow.length - 1

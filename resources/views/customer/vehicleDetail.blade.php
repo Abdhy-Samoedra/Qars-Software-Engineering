@@ -1,6 +1,6 @@
 <x-front-layout>
     <!-- Main Content -->
-    <section class="bg-darkGrey relative py-[70px]">
+    <section class="relative py-[70px]">
       <div class="container">
         <!-- Breadcrumb -->
         <ul class="flex items-center gap-5 mb-[50px]">
@@ -22,7 +22,7 @@
   
         <div class="grid grid-cols-12 gap-[30px]">
           <!-- Car Preview -->
-          <div class="col-span-12 lg:col-span-8">
+          {{-- <div class="col-span-12 lg:col-span-8">
             <div class="bg-white p-4 rounded-[30px] flex flex-col gap-4" id="gallery">
               <img src="{{$vehicle->thumbnail}}"
                    class="md:h-[490px] rounded-[18px] h-auto w-full" alt="">
@@ -38,9 +38,9 @@
                 @endforeach
               </div>
             </div>
-          </div>
+          </div> --}}
 
-          {{-- <div class="col-span-12 lg:col-span-8">
+          <div class="col-span-12 lg:col-span-8">
             <div class="bg-white p-4 rounded-[30px] flex flex-col gap-4" id="gallery">
               <img :src="thumbnails[activeThumbnail].url" :key="thumbnails[activeThumbnail].id"
                    class="md:h-[490px] rounded-[18px] h-auto w-full" alt="">
@@ -53,7 +53,7 @@
                 </div>
               </div>
             </div>
-          </div> --}}
+          </div>
   
           <!-- Details -->
           <div class="col-span-12 md:col-start-5 lg:col-start-auto md:col-span-8 lg:col-span-4">
@@ -69,12 +69,14 @@
                   </p>
                   <div class="flex items-center gap-2">
                     <span class="flex items-center gap-1">
-                      @for ($i = 0; $i < 5; $i++)
+
+                      
+                      @for ($i = 0; $i < intval($vehicleRating->transactions[0]->rating->rating); $i++)
                         <img src="/svgs/ic-star.svg" class="h-[22px] w-[22px]" alt="">
                       @endfor
                     </span>
                     <p class="text-base font-semibold text-dark mt-[2px]">
-                      (1,223)
+                      ({{count(($vehicleRating->transactions))}})
                     </p>
                   </div>
                 </div>
@@ -231,122 +233,35 @@
 
     <section class="splide container relative pt-[100px] pb-[100px]">
       <header class="mb-[30px]">
-        <h2 class="font-bold text-dark text-[26px] mb-1">
+        <h2 class="font-bold text-text_black text-[26px] mb-1">
           Review
         </h2>
-        <p class="text-base text-secondary">Evaluate your wants</p>
+        <p class="text-base text-text_semiblack">Evaluate your wants</p>
         <p class="font-bold text-[20px] mt-7" id="forMobile">Swipe left, to see more.</p>
       </header>
       <div class="splide__track">
         <div class="splide__list flex items-center md:flex-row">
-          <div class="splide__slide w-52 p-10 lg:max-w-[536px] bg-white rounded-xl">
-
-            <p class="w-full">Amet minim mollit non deserunt u llamco estsit aliqua dolor do ame tsint. Velit offcia consequat Amet minim mollit non deserunt u llamco estsit aliqua dolor do ame tsint. Velit offcia </p>
-            <br><br>
-              <div class="flex flex-row justify-between">
-                <div>
-
-                  <span class="font-bold text-dark text-[16px] mb-1">HerdianSyah</span>
+          {{-- @dd($vehicleRating) --}}
+          @foreach($vehicleRating->transactions as $rate)
+            <div class="splide__slide w-52 p-10 lg:max-w-[536px] bg-white rounded-xl">
               
-                  <p class="text-base text-secondary text-[12px]">Mobile Developer</p>
+              <p class="w-full">{{$rate->rating->review}}</p>
+              <br><br>
+                <div class="flex flex-row justify-between">
+                  <div>
 
+                    <span class="font-bold text-dark text-[16px] mb-1">{{$rate->user->name}}</span>
+                
+                    {{-- <p class="text-base text-secondary text-[12px]">Mobile Developer</p> --}}
+
+                  </div>
+                  <div>
+                    <img src="{{ Storage::url($rate->user->profile_photo_path) }}" class="rounded-full w-20" alt=""> 
+                  </div>
                 </div>
-                <div>
-                  {{-- <img src="{{ Storage::url($pic) }}" class="rounded-full w-20" alt="">  --}}
-                </div>
-              </div>
-            
-          </div>
-          <div class="splide__slide w-64 p-10 lg:max-w-[536px] bg-white rounded-xl">
-
-            <p class="w-full">Amet minim mollit non deserunt u llamco estsit aliqua dolor do ame tsint. Velit offcia consequat Amet minim mollit non deserunt u llamco estsit aliqua dolor do ame tsint. Velit offcia </p>
-            <br><br>
-              <div class="flex flex-row justify-between">
-                <div>
-
-                  <span class="font-bold text-dark text-[16px] mb-1">HerdianSyah</span>
               
-                  <p class="text-base text-secondary text-[12px]">Mobile Developer</p>
-
-                </div>
-                <div>
-                  {{-- <img src="{{ Storage::url($pic) }}" class="rounded-full w-20" alt="">  --}}
-                </div>
-              </div>
-            
-          </div>
-          <div class="splide__slide w-64 p-10 lg:max-w-[536px] bg-white rounded-xl">
-
-            <p class="w-full">Amet minim mollit non deserunt u llamco estsit aliqua dolor do ame tsint. Velit offcia consequat Amet minim mollit non deserunt u llamco estsit aliqua dolor do ame tsint. Velit offcia </p>
-            <br><br>
-              <div class="flex flex-row justify-between">
-                <div>
-
-                  <span class="font-bold text-dark text-[16px] mb-1">HerdianSyah</span>
-              
-                  <p class="text-base text-secondary text-[12px]">Mobile Developer</p>
-
-                </div>
-                <div>
-                  {{-- <img src="{{ Storage::url($pic) }}" class="rounded-full w-20" alt="">  --}}
-                </div>
-              </div>
-            
-          </div>
-          <div class="splide__slide w-64 p-10 lg:max-w-[536px] bg-white rounded-xl">
-
-            <p class="w-full">Amet minim mollit non deserunt u llamco estsit aliqua dolor do ame tsint. Velit offcia consequat Amet minim mollit non deserunt u llamco estsit aliqua dolor do ame tsint. Velit offcia </p>
-            <br><br>
-              <div class="flex flex-row justify-between">
-                <div>
-
-                  <span class="font-bold text-dark text-[16px] mb-1">HerdianSyah</span>
-              
-                  <p class="text-base text-secondary text-[12px]">Mobile Developer</p>
-
-                </div>
-                <div>
-                  {{-- <img src="{{ Storage::url($pic) }}" class="rounded-full w-20" alt="">  --}}
-                </div>
-              </div>
-            
-          </div>
-          <div class="splide__slide w-64 p-10 lg:max-w-[536px] bg-white rounded-xl">
-
-            <p class="w-full">Amet minim mollit non deserunt u llamco estsit aliqua dolor do ame tsint. Velit offcia consequat Amet minim mollit non deserunt u llamco estsit aliqua dolor do ame tsint. Velit offcia </p>
-            <br><br>
-              <div class="flex flex-row justify-between">
-                <div>
-
-                  <span class="font-bold text-dark text-[16px] mb-1">HerdianSyah</span>
-              
-                  <p class="text-base text-secondary text-[12px]">Mobile Developer</p>
-
-                </div>
-                <div>
-                  {{-- <img src="{{ Storage::url($pic) }}" class="rounded-full w-20" alt="">  --}}
-                </div>
-              </div>
-            
-          </div>
-          <div class="splide__slide w-64 p-10 lg:max-w-[536px] bg-white rounded-xl">
-
-            <p class="w-full">Amet minim mollit non deserunt u llamco estsit aliqua dolor do ame tsint. Velit offcia consequat Amet minim mollit non deserunt u llamco estsit aliqua dolor do ame tsint. Velit offcia </p>
-            <br><br>
-              <div class="flex flex-row justify-between">
-                <div>
-
-                  <span class="font-bold text-dark text-[16px] mb-1">HerdianSyah</span>
-              
-                  <p class="text-base text-secondary text-[12px]">Mobile Developer</p>
-
-                </div>
-                <div>
-                  {{-- <img src="{{ Storage::url($pic) }}" class="rounded-full w-20" alt="">  --}}
-                </div>
-              </div>
-            
-          </div>
+            </div>
+            @endforeach
             {{-- <img src="/images/illustration-01.webp" class="w-64 lg:max-w-[536px]" alt="">
             <img src="/images/illustration-01.webp" class="w-64 lg:max-w-[536px]" alt="">
             <img src="/images/illustration-01.webp" class="w-64 lg:max-w-[536px]" alt=""> --}}
@@ -426,18 +341,18 @@
   </section>
   
     <!-- Similar Cars -->
-    <section class="bg-darkGrey splide">
+    <section class="bg-darkGrey">
       <div class="container relative py-[100px]">
         <header class="mb-[30px]">
-          <h2 class="font-bold text-dark text-[26px] mb-1">
+          <h2 class="font-bold text-text_black text-[26px] mb-1">
             Similar Cars
           </h2>
-          <p class="text-base text-secondary">Start your big day</p>
+          <p class="text-base text-text_semiblack">Start your big day</p>
           <p class="font-bold text-[20px] mt-7" id="forMobile">Swipe left, to see more.</p>
         </header>
   
         <!-- Cars -->
-        <div class="splide__track">
+        {{-- <div class="splide__track">
           <div class="splide__list">            
             @foreach ($similiarItems as $similiarItem)
               <!-- Card -->
@@ -467,11 +382,42 @@
               </div>
             @endforeach
           </div>
+        </div> --}}
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-[29px]">
+          @foreach ($similiarItems as $similiarItem)
+              <!-- Card -->
+              {{-- @dd($similiarItem->transactions[0]->rating->rating) --}}
+              <div class="card-popular">
+                  <div>
+                      <h5 class="text-lg text-text_black font-bold mb-[2px]">
+                          {{ ($similiarItem->brand) }}
+                      </h5>
+                      <p class="text-sm font-normal text-text_semiblack">
+                          {{ $similiarItem->vehicle_category_id ? $similiarItem->vehicleCategory->vehicle_category_name : '-' }}
+                      </p>
+                      {{-- <a href="{{ route('front.detail', $similiarItem->slug) }}" class="absolute inset-0"></a> --}}
+                  </div>
+                  <img src="{{ $similiarItem->thumbnail }}" class="rounded-[18px] min-w-[216px] w-full h-[150px]"
+                      alt="">
+                  <div class="flex items-center justify-between gap-1">
+                      <!-- Price -->
+                      <p class="text-sm font-normal text-text_semiblack">
+                          <span
+                              class="text-base font-bold text-primary">${{ number_format(($similiarItem->rental_price)) }}</span>/day
+                      </p>
+                      <!-- Rating -->
+                      <p class="text-text_black text-xs font-semibold flex items-center gap-[2px]">
+                        ({{ $similiarItem->transactions[0]->rating->rating ?? 'No rating available' }}/5)
+                           <img src="/svgs/ic-star.svg" alt="">
+                        </p>
+                  </div>
+              </div>
+          @endforeach
         </div>
       </div>
     </section>
   
-    <script src="https://unpkg.com/vue@next/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
       const {
         createApp

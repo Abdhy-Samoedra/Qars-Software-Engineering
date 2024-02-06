@@ -167,16 +167,16 @@
         });
     </script>
 
-    <script src="{{ url('js/script.js') }}"></script>
+  <script src="{{ url('js/script.js') }}"></script>
   <script src="{{ url('js/catalogue.js') }}"></script>
-
+  
   {{-- <script src="{{ url('js/carousel.js') }}"></script> --}}
   {{-- <script src="path-to-the-file/splide.min.js"></script> --}}
   <script src="{{ url('splide-4.1.3/dist/js/splide.min.js') }}"></script>
-
+  
   {{-- <script src="{{ url('splide-4.1.3/dist/js//splide-extension-auto-scroll.min.js') }}"></script> --}}
   <script>
-
+    
     // var splide = new Splide( '.splide', {
     // perPage: 3,
     // gap    : '2rem',
@@ -184,26 +184,26 @@
     //   1300: {
     //     perPage: 2,
 
-        //   },
-        //   780: {
-        //     perPage: 1,
-        //   },
-        //   480: {
-        //     perPage: 1,
-        //     gap    : '.7rem',
-        //     height : '6rem',
-        //   },
-        // },
-        // rewind : true,
-        // } );
+    //   },
+    //   780: {
+    //     perPage: 1,
+    //   },
+    //   480: {
+    //     perPage: 1,
+    //     gap    : '.7rem',
+    //     height : '6rem',
+    //   },
+    // },
+    // rewind : true,
+    // } );
 
-        // splide.mount();
+    // splide.mount();
 
-        var elms = document.getElementsByClassName('splide');
+    var elms = document.getElementsByClassName( 'splide' );
 
 
-        for (var i = 0; i < elms.length; i++) {
-            if (i == 0) {
+    for ( var i = 0; i < elms.length; i++ ) {
+      if(i == 0){
 
         new Splide( elms[ i ], {
         perPage: 3,
@@ -211,7 +211,7 @@
         breakpoints: {
           1300: {
             perPage: 2,
-
+  
           },
           780: {
             perPage: 1,
@@ -230,7 +230,7 @@
         breakpoints: {
           1300: {
             perPage: 3,
-
+  
           },
           1020: {
             perPage: 2,
@@ -245,7 +245,7 @@
     }
 
     // splide.mount();
-
+    
   </script>
 </body>
 
