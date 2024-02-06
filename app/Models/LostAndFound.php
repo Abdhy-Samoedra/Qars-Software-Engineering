@@ -31,6 +31,6 @@ class LostAndFound extends Model
     }
 
     public function vehicles(){
-        return $this->belongsTo(Vehicle::class);
+        return $this->belongsTo(Vehicle::class, 'vehicle_id');
     }
 }

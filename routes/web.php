@@ -6,6 +6,7 @@ use App\Http\Controllers\Front\ProfileController;
 use App\Http\Controllers\Front\CatalogueController;
 use App\Http\Controllers\Front\UpdateProfileController;
 use App\Http\Controllers\Front\VehicleDetailController;
+use App\Http\Controllers\Front\LostandFoundViewController;
 use App\Http\Controllers\Admin\UserController as AdminUsersController;
 use App\Http\Controllers\Front\OrderController as FrontOrderController;
 use App\Http\Controllers\Admin\DriverController as AdminDriverController;
@@ -43,6 +44,7 @@ Route::name('front.')->group(function () {
     Route::get('/orders', [FrontOrderController::class, 'index'])->name('order');
     Route::get('/vouchers', [FrontVoucherController::class, 'index'])->name('voucher');
     Route::get('/voucher-confirmation', [FrontVoucherConfirmationController::class, 'index'])->name('voucher-confirmation');
+    Route::get('/lostandfounds', [LostandFoundViewController::class, 'index'])->name('lostandfound');
 });
 
 
