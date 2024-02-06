@@ -49,7 +49,7 @@ class Vehicle extends Model
 
     public function lostAndFounds()
     {
-        return $this->hasMany(LostAndFound::class);
+        return $this->hasMany(LostAndFound::class, 'vehicle_id');
     }
 
     public function transactions()

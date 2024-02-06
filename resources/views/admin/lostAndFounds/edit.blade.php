@@ -124,13 +124,13 @@
                         <div class="w-full">
                             <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase"
                                 for="grid-last-name">
-                                Taken Date *
+                                Taken Date
                             </label>
-                            <input value="{{ old('taken_date') ?? $lostAndFound->found_date }}" name="taken_date"
+                            <input value="{{ old('taken_date') ?? $lostAndFound->taken_date }}" name="taken_date"
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="grid-last-name" type="date" placeholder="Found Date" >
                             <div class="mt-2 text-sm text-gray-500">
-                                Taken Date. Example: 2023-12-23, 2023-02-23, 2043-12-23, etc. Required.
+                                Taken Date. Example: 2023-12-23, 2023-02-23, 2043-12-23, etc.
                             </div>
                         </div>
                     </div>
