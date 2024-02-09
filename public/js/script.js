@@ -36,7 +36,10 @@ $("#btnUploadPhoto").on("click", () => {
 
 // Delete photo preview
 $("#btnDeletePhoto").on("click", () => {
-    $("#imageSrc").attr("src", "../assets/svgs/ic-default-photo.svg");
+    $("#imageSrc").attr(
+        "src",
+        "C:laragonwwwQars-Software-Engineeringstorageapppublicassetsitem\vjUv9F8ZFUghTMuWoEhkjshz3OamRD0gOunRY6X6.png"
+    );
     $("#btnDeletePhoto").toggleClass("hidden");
     $("#btnUploadPhoto").toggleClass("hidden");
 });

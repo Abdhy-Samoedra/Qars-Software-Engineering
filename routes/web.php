@@ -38,7 +38,6 @@ Route::name('front.')->group(function () {
     Route::get('/profile/{id}', [ProfileController::class, 'index'])->name('profile');
     Route::put('/profile/{id}/update', [UpdateProfileController::class, 'updateProfile'])->name('profile.update-info');
     Route::put('/profile/{id}/update/driver', [UpdateProfileController::class, 'updateDrivingLicense'])->name('profile.update-driver');
-    // Route::post('/profile/{id}/update/hidden', 'UpdateProfileController@update');
     Route::get('/catalogue', [CatalogueController::class, 'index'])->name('indexCatalogue');
     Route::get('/vehicleDetail/{slug}', [VehicleDetailController::class, 'show'])->name('detailCatalogue');
     Route::get('/orders', [FrontOrderController::class, 'index'])->name('order');

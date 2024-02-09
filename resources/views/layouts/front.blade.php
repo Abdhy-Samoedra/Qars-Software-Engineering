@@ -73,7 +73,7 @@
                 <!-- Nav Menu -->
                 <div class="hidden w-full lg:block" id="navigation">
                     <div
-                        class="flex flex-col items-baseline gap-4 mt-6 lg:justify-between lg:flex-row lg:items-center lg:mt-0">
+                        class="flex flex-col items-baseline gap-4 mt-6 lg:justify-between lg:flex-row lg:items-center lg:mt-0 ">
                         <div
                             class="flex flex-col w-full ml-auto lg:w-auto gap-4 lg:gap-[50px] lg:items-center lg:flex-row">
                             <a href="/" class="nav-link-item">Home</a>
@@ -84,13 +84,12 @@
                         </div>
                         @auth
                             <div
-                                class="flex flex-col w-full ml-auto lg:w-auto lg:gap-12 lg:items-center lg:flex-row nav-link-item">
+                                class="max-lg:hidden flex-col w-full ml-auto lg:w-auto lg:gap-12 lg:items-center lg:flex-row">
                                 <x-dropdown align="right" width="100">
                                     <x-slot name="trigger">
-
                                         @if (Auth::user()->profile_photo_path)
                                             <button
-                                                class="flex text-sm transition border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300">
+                                                class="hidden lg:flex text-sm transition border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300">
                                                 <img class="object-cover w-10 h-10 rounded-full"
                                                     src="{{ Auth::user()->thumbnail }}" alt="{{ Auth::user()->name }}" />
                                             </button>
@@ -99,7 +98,6 @@
                                                 <button type="button"
                                                     class="inline-flex items-center px-3 py-2 leading-4 transition duration-150 ease-in-out border border-transparent rounded-md hover:underline focus:outline-none">
                                                     {{ Auth::user()->name }}
-
                                                     <svg class="ms-2 -me-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg"
                                                         fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                                         stroke="currentColor">
@@ -113,7 +111,7 @@
 
                                     <x-slot name="content">
                                         <!-- Account Management -->
-                                        <div>
+                                        <div class = "hidden lg:block" id = "mobileprofile">
                                             <div class="flex px-3 py-2 w-48 leading-5 text-sm text-gray-400">
                                                 {{ __('Manage Account') }}
                                             </div>
@@ -142,6 +140,17 @@
                                         </div>
                                     </x-slot>
                                 </x-dropdown>
+                            </div>
+                            <div
+                                class="flex flex-col w-full ml-auto lg:hidden lg:w-auto gap-4 lg:gap-[50px] lg:items-center lg:flex-row">
+                                <a href="{{ route('front.profile', Auth::user()->id) }}"
+                                    class="nav-link-item">{{ __('Profile') }}</a>
+                                <form method="POST" action="{{ route('logout') }}" x-data>
+                                    @csrf
+                                    <a href="{{ route('logout') }}" class="nav-link-item"
+                                        @click.prevent="$root.submit();">{{ __('Log Out') }}</a>
+                                </form>
+
                             </div>
                         @else
                             <div class="flex flex-col w-full ml-auto lg:w-auto lg:gap-12 lg:items-center lg:flex-row">
