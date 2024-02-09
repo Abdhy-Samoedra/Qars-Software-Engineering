@@ -22,16 +22,17 @@
     @csrf
     @method('PUT')
 
-    <div class="flex self-center mb-5 w-1/2">
-        <div class="text-4xl font-medium text-blue-950">
+    <div class="flex self-center mb-3 lg:mb-5 w-full lg:w-1/2 justify-center lg:justify-start lg:min-w-[620px]">
+        <div class="text-3xl lg:text-4xl font-medium text-blue-950">
             {{ __('Your Profile') }}
         </div>
     </div>
-    <div class="py-10 px-8 bg-white sm:p-6 shadow sm:rounded-tl-md sm:rounded-tr-md  w-1/2 container relative block">
+    <div
+        class="py-10 lg:px-8 bg-white sm:p-6 shadow sm:rounded-tl-md sm:rounded-tr-md  w-full lg:min-w-[620px] lg:w-1/2 container relative block">
 
-        <div class ="flex flex-row items-center justify-center gap-[100px]">
+        <div class ="flex flex-col lg:flex-row items-center justify-center lg:gap-[100px]">
             {{-- Form --}}
-            <div name = "form" class = "flex flex-col w-80 gap-y-5">
+            <div name = "form" class = "flex flex-col w-auto lg:w-80 gap-y-5">
                 {{-- Name --}}
                 <div class="col-span-6 sm:col-span-4">
                     <x-label for="name" value="{{ __('Name') }}" />
@@ -77,7 +78,7 @@
                 </div>
 
 
-                {{-- Gender --}}
+                {{-- Gender & Age --}}
                 <div class="col-span-6 sm:col-span-4 flex flex-row w-full gap-[50px]">
                     <div class = "block w-1/2">
                         <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase"
@@ -85,7 +86,7 @@
                             Gender
                         </label>
                         <select name="gender" required
-                            class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm mt-1 block w-full">
+                            class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm mt-1 block w-full lg:w-full">
                             <option value="" class = "text-sm" disabled>Choose Gender</option>
                             <option value="Male" {{ (old('gender') ?? $user->gender) === 'Male' ? 'selected' : '' }}>
                                 Male</option>
@@ -100,7 +101,7 @@
                             Age
                         </label>
                         <input value="{{ old('age') ?? $user->age }}" name="age"
-                            class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm mt-1 block w-full"
+                            class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm mt-1 block w-full lg:w-full"
                             id="grid-last-name" type="number" placeholder="Age" required>
                     </div>
                 </div>

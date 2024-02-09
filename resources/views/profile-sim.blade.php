@@ -1,32 +1,15 @@
-@if ($errors->any())
-    <div class="mb-5" role="alert">
-        <div class="px-4 py-2 font-bold text-white bg-red-500 rounded-t">
-            Error!
-        </div>
-        <div class="px-4 py-3 text-red-700 bg-red-100 border border-t-0 border-red-400 rounded-b">
-            <p>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-            </p>
-        </div>
-    </div>
-@endif
-
-
 <form class="w-full flex flex-col" action="{{ route('front.profile.update-driver', $user->id) }}" method="post"
     enctype="multipart/form-data">
 
     @csrf
     @method('PUT')
-    <div class="flex self-center mb-5 w-1/2">
-        <div class="text-4xl font-medium text-blue-950">
+    <div class="flex self-center mb-3 lg:mb-5 w-full lg:w-1/2 justify-center lg:justify-start lg:min-w-[620px]">
+        <div class="text-3xl lg:text-4xl font-medium text-blue-950">
             {{ __('Your Driver License') }}
         </div>
     </div>
-    <div class="py-10 px-8 bg-white sm:p-6 shadow sm:rounded-tl-md sm:rounded-tr-md  w-1/2 container relative block">
+    <div
+        class="py-10 lg:px-8 bg-white sm:p-6 shadow sm:rounded-tl-md sm:rounded-tr-md  w-full lg:min-w-[620px] lg:w-1/2 container relative block">
 
         <div class ="flex flex-col items-center justify-center gap-[100px]">
             <!-- Profile Photo -->
@@ -51,12 +34,14 @@
                             <!-- Current Profile Photo -->
                             <div class="my-10" x-show="! photoPreview">
                                 <img src="{{ Storage::url(json_decode($user->driving_license_path)) }}"
-                                    alt="Driver License" class="rounded-md h-[306px] w-[486px] object-cover">
+                                    alt="Driver License"
+                                    class="rounded-md h-[153px] w-[243px] md:h-[306px] md:w-[486px] object-cover">
                             </div>
 
                             <!-- New Profile Photo Preview -->
                             <div class="my-10" x-show="photoPreview" style="display: none;">
-                                <span class="block rounded-md  h-[306px] w-[486px] bg-cover bg-no-repeat bg-center"
+                                <span
+                                    class="block rounded-md  h-[153px] w-[243px] md:h-[306px] md:w-[486px] bg-cover bg-no-repeat bg-center"
                                     x-bind:style="'background-image: url(\'' + photoPreview + '\');'">
                                 </span>
                             </div>
