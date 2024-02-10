@@ -69,14 +69,21 @@
                   </p>
                   <div class="flex items-center gap-2">
                     <span class="flex items-center gap-1">
-
                       
-                      @for ($i = 0; $i < intval($vehicleRating->transactions[0]->rating->rating); $i++)
-                        <img src="/svgs/ic-star.svg" class="h-[22px] w-[22px]" alt="">
-                      @endfor
+                      @if($vehicleRating)
+                        @for ($i = 0; $i < intval($vehicleRating->transactions[0]->rating->rating); $i++)
+                          <img src="/svgs/ic-star.svg" class="h-[22px] w-[22px]" alt="">
+                        @endfor
+                      @else
+                        No Ratings Available  
+                      @endif
                     </span>
                     <p class="text-base font-semibold text-dark mt-[2px]">
-                      ({{count(($vehicleRating->transactions))}})
+                      @if($vehicleRating)
+                        ({{count(($vehicleRating->transactions))}})
+                      @else
+                        (0)
+                      @endif
                     </p>
                   </div>
                 </div>
@@ -242,26 +249,30 @@
       <div class="splide__track">
         <div class="splide__list flex items-center md:flex-row">
           {{-- @dd($vehicleRating) --}}
-          @foreach($vehicleRating->transactions as $rate)
-            <div class="splide__slide w-52 p-10 lg:max-w-[536px] bg-white rounded-xl">
-              
-              <p class="w-full">{{$rate->rating->review}}</p>
-              <br><br>
-                <div class="flex flex-row justify-between">
-                  <div>
-
-                    <span class="font-bold text-dark text-[16px] mb-1">{{$rate->user->name}}</span>
+          @if($vehicleRating)
+            @foreach($vehicleRating->transactions as $rate)
+              <div class="splide__slide w-52 p-10 lg:max-w-[536px] bg-white rounded-xl">
                 
-                    {{-- <p class="text-base text-secondary text-[12px]">Mobile Developer</p> --}}
+                <p class="w-full">{{$rate->rating->review}}</p>
+                <br><br>
+                  <div class="flex flex-row justify-between">
+                    <div>
 
+                      <span class="font-bold text-dark text-[16px] mb-1">{{$rate->user->name}}</span>
+                  
+                      {{-- <p class="text-base text-secondary text-[12px]">Mobile Developer</p> --}}
+
+                    </div>
+                    <div>
+                      <img src="{{ Storage::url($rate->user->profile_photo_path) }}" class="rounded-full w-20" alt=""> 
+                    </div>
                   </div>
-                  <div>
-                    <img src="{{ Storage::url($rate->user->profile_photo_path) }}" class="rounded-full w-20" alt=""> 
-                  </div>
-                </div>
-              
-            </div>
-            @endforeach
+                
+              </div>
+              @endforeach
+          @else
+              <span class="font-bold text-dark text-[20px] mb-1">No Reviews Currently</span>
+          @endif
             {{-- <img src="/images/illustration-01.webp" class="w-64 lg:max-w-[536px]" alt="">
             <img src="/images/illustration-01.webp" class="w-64 lg:max-w-[536px]" alt="">
             <img src="/images/illustration-01.webp" class="w-64 lg:max-w-[536px]" alt=""> --}}
@@ -387,31 +398,33 @@
           @foreach ($similiarItems as $similiarItem)
               <!-- Card -->
               {{-- @dd($similiarItem->transactions[0]->rating->rating) --}}
-              <div class="card-popular">
-                  <div>
-                      <h5 class="text-lg text-text_black font-bold mb-[2px]">
-                          {{ ($similiarItem->brand) }}
-                      </h5>
-                      <p class="text-sm font-normal text-text_semiblack">
-                          {{ $similiarItem->vehicle_category_id ? $similiarItem->vehicleCategory->vehicle_category_name : '-' }}
-                      </p>
-                      {{-- <a href="{{ route('front.detail', $similiarItem->slug) }}" class="absolute inset-0"></a> --}}
-                  </div>
-                  <img src="{{ $similiarItem->thumbnail }}" class="rounded-[18px] min-w-[216px] w-full h-[150px]"
-                      alt="">
-                  <div class="flex items-center justify-between gap-1">
-                      <!-- Price -->
-                      <p class="text-sm font-normal text-text_semiblack">
-                          <span
-                              class="text-base font-bold text-primary">${{ number_format(($similiarItem->rental_price)) }}</span>/day
-                      </p>
-                      <!-- Rating -->
-                      <p class="text-text_black text-xs font-semibold flex items-center gap-[2px]">
-                        ({{ $similiarItem->transactions[0]->rating->rating ?? 'No rating available' }}/5)
-                           <img src="/svgs/ic-star.svg" alt="">
+              <a href="{{ route('front.detailCatalogue', [$similiarItem->slug]) }}">
+                <div class="card-popular">
+                    <div>
+                        <h5 class="text-lg text-text_black font-bold mb-[2px]">
+                            {{ ($similiarItem->brand) }}
+                        </h5>
+                        <p class="text-sm font-normal text-text_semiblack">
+                            {{ $similiarItem->vehicle_category_id ? $similiarItem->vehicleCategory->vehicle_category_name : '-' }}
                         </p>
-                  </div>
-              </div>
+                        {{-- <a href="{{ route('front.detail', $similiarItem->slug) }}" class="absolute inset-0"></a> --}}
+                    </div>
+                    <img src="{{ $similiarItem->thumbnail }}" class="rounded-[18px] min-w-[216px] w-full h-[150px]"
+                        alt="">
+                    <div class="flex items-center justify-between gap-1">
+                        <!-- Price -->
+                        <p class="text-sm font-normal text-text_semiblack">
+                            <span
+                                class="text-base font-bold text-primary">${{ number_format(($similiarItem->rental_price)) }}</span>/day
+                        </p>
+                        <!-- Rating -->
+                        <p class="text-text_black text-xs font-semibold flex items-center gap-[2px]">
+                          ({{ $similiarItem->transactions[0]->rating->rating ?? 'No rating available' }}/5)
+                            <img src="/svgs/ic-star.svg" alt="">
+                          </p>
+                    </div>
+                </div>
+              </a>
           @endforeach
         </div>
       </div>

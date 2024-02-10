@@ -66,8 +66,9 @@
                                             <span class="text-base font-bold text-primary">${{ number_format($vehicle->rental_price) }}</span>/day
                                         </p>
                                         <!-- Rating -->
+                                        {{-- @dd($vehicle->vehicleCategory) --}}
                                         <p class="text-text_black text-xs font-semibold flex items-center gap-[2px]">
-                                            (4,7/5)
+                                            ({{ $vehicle->transactions[0]->rating->rating ?? 'No rating available' }}/5)
                                             <img src="/svgs/ic-star.svg" alt="">
                                         </p>
                                     </div>
