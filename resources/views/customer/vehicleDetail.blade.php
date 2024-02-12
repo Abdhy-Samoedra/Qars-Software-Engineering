@@ -249,11 +249,11 @@
       <div class="splide__track">
         <div class="splide__list flex items-center md:flex-row">
           {{-- @dd($vehicleRating) --}}
-          @if($vehicleRating)
+          @if(isset($vehicleRating->transactions[0]->rating->review))
             @foreach($vehicleRating->transactions as $rate)
               <div class="splide__slide w-52 p-10 lg:max-w-[536px] bg-white rounded-xl">
                 
-                {{-- <p class="w-full">{{$rate->rating->review}}</p> --}}
+                <p class="w-full">{{$rate->rating->review}}</p>
                 <br><br>
                   <div class="flex flex-row justify-between">
                     <div>
