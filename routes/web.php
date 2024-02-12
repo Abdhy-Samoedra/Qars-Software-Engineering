@@ -19,8 +19,9 @@ use App\Http\Controllers\Admin\TransactionController as AdminTransactionControll
 use App\Http\Controllers\Admin\LostAndFoundController as AdminLostAndFoundController;
 use App\Http\Controllers\Admin\VehicleCategoryController as AdminVehicleCategoryController;
 use App\Http\Controllers\Admin\VoucherCategoryController as AdminVoucherCategoryController;
-use App\Http\Controllers\Front\VoucherConfirmationController as FrontVoucherConfirmationController;
-
+use App\Http\Controllers\Front\CheckoutController;
+use App\Http\Controllers\Front\PaymentController;
+use App\Http\Controllers\Front\VoucherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,10 +41,17 @@ Route::name('front.')->group(function () {
     Route::put('/profile/{id}/update/driver', [UpdateProfileController::class, 'updateDrivingLicense'])->name('profile.update-driver');
     Route::get('/catalogue', [CatalogueController::class, 'index'])->name('indexCatalogue');
     Route::get('/vehicleDetail/{slug}', [VehicleDetailController::class, 'show'])->name('detailCatalogue');
-    Route::get('/orders', [FrontOrderController::class, 'index'])->name('order');
-    Route::get('/vouchers', [FrontVoucherController::class, 'index'])->name('voucher');
-    Route::get('/voucher-confirmation', [FrontVoucherConfirmationController::class, 'index'])->name('voucher-confirmation');
-    Route::get('/lostandfounds', [LostandFoundViewController::class, 'index'])->name('lostandfound');
+    Route::get('/lostandfound', [LostandFoundViewController::class, 'index'])->name('lostandfound');
+    Route::get('/voucher', [VoucherController::class, 'index'])->name('voucher');
+
+    Route::group(['middleware' =>'auth'] , function(){
+        Route::get('/checkout/{slug}', [CheckoutController::class, 'index'])->name('checkout');
+        Route::post('/checkout/{slug}', [CheckoutController::class, 'store'])->name('checkout.store');
+
+        Route::get('/payment/success',[PaymentController::class, 'success'])->name('payment.success');
+        Route::get('/payment/{transactionId}', [PaymentController::class, 'index'])->name('payment');
+        Route::post('/payment/{transactionId}', [PaymentController::class, 'update'])->name('payment.update');
+    });
 });
 
 

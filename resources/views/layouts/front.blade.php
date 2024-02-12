@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 
     <!-- Libraries -->
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.7/dist/flowbite.min.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script defer src="https://unpkg.com/alpinejs@3.7.0/dist/cdn.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"
@@ -22,6 +23,7 @@
 
     <!-- Scripts -->
     @vite(['resources/css/front.css'])
+    <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
 
     <!-- Styles -->
     @livewireStyles
@@ -69,14 +71,14 @@
                         </button>
                     </div>
                 </div>
-
+                
                 <!-- Nav Menu -->
                 <div class="hidden w-full lg:block" id="navigation">
                     <div
                         class="flex flex-col items-baseline gap-4 mt-6 lg:justify-between lg:flex-row lg:items-center lg:mt-0 ">
                         <div
                             class="flex flex-col w-full ml-auto lg:w-auto gap-4 lg:gap-[50px] lg:items-center lg:flex-row">
-                            <a href="/" class="nav-link-item">Home</a>
+                            <a href="{{ route('front.index') }}" class="nav-link-item">Home</a>
                             <a href="{{ route('front.indexCatalogue') }}" class="nav-link-item">Catalog</a>
                             <a href="#!" class="nav-link-item">Booked</a>
                             <a href="{{ route('front.lostandfound') }}" class="nav-link-item">Lost & Founds</a>

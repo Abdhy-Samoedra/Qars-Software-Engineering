@@ -70,13 +70,13 @@
                   <div class="flex items-center gap-2">
                     <span class="flex items-center gap-1">
                       
-                      @if($vehicleRating)
+                      {{-- @if($vehicleRating)
                         @for ($i = 0; $i < intval($vehicleRating->transactions[0]->rating->rating); $i++)
                           <img src="/svgs/ic-star.svg" class="h-[22px] w-[22px]" alt="">
                         @endfor
                       @else
                         No Ratings Available  
-                      @endif
+                      @endif --}}
                     </span>
                     <p class="text-base font-semibold text-dark mt-[2px]">
                       @if($vehicleRating)
@@ -112,7 +112,7 @@
                   <div class="w-full max-w-[70%]">
                     <!-- Button Primary -->
                     <div class="p-1 rounded-full bg-primary group">
-                      <a href="" class="btn-primary">
+                      <a href="{{route('front.checkout' , $vehicle->slug)}}" class="btn-primary">
                         <p>
                           Rent Now
                         </p>
@@ -253,7 +253,7 @@
             @foreach($vehicleRating->transactions as $rate)
               <div class="splide__slide w-52 p-10 lg:max-w-[536px] bg-white rounded-xl">
                 
-                <p class="w-full">{{$rate->rating->review}}</p>
+                {{-- <p class="w-full">{{$rate->rating->review}}</p> --}}
                 <br><br>
                   <div class="flex flex-row justify-between">
                     <div>
