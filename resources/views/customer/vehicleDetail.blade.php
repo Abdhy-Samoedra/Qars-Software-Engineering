@@ -70,13 +70,13 @@
                   <div class="flex items-center gap-2">
                     <span class="flex items-center gap-1">
                       
-                      {{-- @if($vehicleRating)
+                      @if(isset($vehicleRating->transactions[0]->rating->rating))
                         @for ($i = 0; $i < intval($vehicleRating->transactions[0]->rating->rating); $i++)
                           <img src="/svgs/ic-star.svg" class="h-[22px] w-[22px]" alt="">
                         @endfor
                       @else
                         No Ratings Available  
-                      @endif --}}
+                      @endif
                     </span>
                     <p class="text-base font-semibold text-dark mt-[2px]">
                       @if($vehicleRating)
