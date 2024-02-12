@@ -92,7 +92,7 @@ class UserController extends Controller
     public function update(UpdateUserRequest $request, User $user)
     {
         $data = $request->all();
-
+        
         //validasi emailnya sama dengan yang lain atau tidak
         $data = $request->validated();
         // dd($data);

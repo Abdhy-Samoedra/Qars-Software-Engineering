@@ -12,10 +12,12 @@ class Transaction extends Model
     protected $fillable = [
         'start_date',
         'end_date',
+        'total_days',
         'extend',
         'penalty',
         'exp_reward',
         'status',
+        'payment_method',
         'payment_status',
         'payment_url',
         'total_price',
