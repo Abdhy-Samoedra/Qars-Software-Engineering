@@ -24,25 +24,25 @@ class UpdateUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255',
-            'email' => [
-                'required',
-                'string',
-                'email',
-                'max:255',
-            ],
-            'phone' => [
-                'required',
-                'string',
-                'regex:/(08)[0-9]*/',
-                'min:10',
-                'max:13',
-            ],
-            'age' => 'required|integer|min:1|max:200',
-            'profile_photo_path' => 'nullable',
-            'profile_photo_path.*' => 'nullable | image | mimes : jpg ,jpeg,png |max:2048',
-            'driving_license_path' => 'nullable',
-            'driving_license_path.*' => 'nullable | image | mimes : jpg ,jpeg,png |max:2048',
+            // 'name' => 'required|string|max:255',
+            // 'email' => [
+            //     'required',
+            //     'string',
+            //     'email',
+            //     'max:255',
+            // ],
+            // 'phone' => [
+            //     'required',
+            //     'string',
+            //     'regex:/(08)[0-9]*/',
+            //     'min:10',
+            //     'max:13',
+            // ],
+            // 'age' => 'required|integer|min:1|max:200',
+            // 'profile_photo_path' => 'nullable',
+            // 'profile_photo_path.*' => 'nullable | image | mimes : jpg ,jpeg,png |max:2048',
+            // 'driving_license_path' => 'nullable',
+            // 'driving_license_path.*' => 'nullable | image | mimes : jpg ,jpeg,png |max:2048',
         ];
     }
 }

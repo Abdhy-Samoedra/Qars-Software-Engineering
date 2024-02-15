@@ -92,16 +92,38 @@ class UserController extends Controller
     public function update(UpdateUserRequest $request, User $user)
     {
         $data = $request->all();
-        
-        //validasi emailnya sama dengan yang lain atau tidak
-        $data = $request->validated();
-        // dd($data);
 
-        $data = $request->validate([
-            'email' => [Rule::unique('users')->ignore($user->id)],
-            'phone' => [Rule::unique('users')->ignore($user->id)]
+        // dd($user->phone, $request->phone);
+        //validasi emailnya sama dengan yang lain atau tidak
+        // $data = $request->validate([
+        //     'email' => [Rule::unique('users')->ignore($user->email)],
+        //     'phone' => [Rule::unique('users')->ignore($user->phone)],
+        // ]);
+        $data = request()->validate([
+            'name' => 'required|string|max:255',
+            'email' => [
+                'required',
+                'string',
+                'email',
+                'max:255',
+                Rule::unique('users')->ignore($user->id),
+            ],
+            'phone' => [
+                'required',
+                'string',
+                'regex:/(08)[0-9]*/',
+                'min:10',
+                'max:13',
+                Rule::unique('users')->ignore($user->id),
+            ],
+            'age' => 'required|integer|min:1|max:200',
+            'profile_photo_path' => 'nullable',
+            'profile_photo_path.*' => 'nullable | image | mimes : jpg ,jpeg,png |max:2048',
+            'driving_license_path' => 'nullable',
+            'driving_license_path.*' => 'nullable | image | mimes : jpg ,jpeg,png |max:2048'
         ]);
 
+        dd($data);
         // upload multiple pictures
         if ($request->hasFile('profile_photo_path')) {
             $profilePhotoPath = $request->file('profile_photo_path')->store('assets/item', 'public');
@@ -116,6 +138,8 @@ class UserController extends Controller
         } else {
             $data['driving_license_path'] = $user->driving_license_path;
         }
+
+        dd($data);
         $user->update($data);
 
         return redirect()->route('admin.users.index');
