@@ -26,7 +26,7 @@
                     @foreach ($validVouchers as $voucher)
                         <li>
                             <input type="radio" id="voucher-{{ $loop->index + 1 }}" name="voucher_category_id"
-                                value="{{ $voucher->voucher_category->id }}" class="hidden peer" required>
+                                value="{{ $voucher->voucher_category->id }}" class="hidden peer" required onchange="toggleButtonStyle('voucher-{{ $loop->index + 1 }}', 'toggleButton')">
                             <label for="voucher-{{ $loop->index + 1 }}"
                                 class="group inline-flex items-center justify-between w-full p-5 border border-gray-200 rounded-lg cursor-pointer  peer-checked:bg-success  hover:bg-primary">
                                 <div class="flex flex-row gap-x-5 items-start">
