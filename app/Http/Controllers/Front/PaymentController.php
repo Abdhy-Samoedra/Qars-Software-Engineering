@@ -53,16 +53,17 @@ class PaymentController extends Controller
             // get voucher data
             $transaction->voucher_category_id  = $request->voucher_category_id;
             $voucher = VoucherCategory::findOrFail($request->voucher_category_id);
+            // dd($voucher->voucher_nominal);
+
+            $voucherNominal = $voucher->voucher_nominal;
+
+            // calculate total price
+            $totalPrice = $transaction->total_price - $voucherNominal;
+
+            // update total price   
+            $transaction->total_price = $totalPrice;
         }
-        // dd($voucher->voucher_nominal);
 
-        $voucherNominal = $voucher->voucher_nominal;
-
-        // calculate total price
-        $totalPrice = $transaction->total_price - $voucherNominal;
-
-        // update total price   
-        $transaction->total_price = $totalPrice;
 
 
 
