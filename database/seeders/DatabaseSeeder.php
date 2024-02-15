@@ -26,7 +26,8 @@ class DatabaseSeeder extends Seeder
             VehicleSeeder::class,
             VoucherCategorySeeder::class,
             UserSeeder::class,
-            VoucherSeeder::class
+            VoucherSeeder::class,
+            TransactionSeeder::class,
         ]);
     }
 }
