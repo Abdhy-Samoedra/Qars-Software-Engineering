@@ -92,14 +92,20 @@
                                 Add Voucher
                             </h5>
                             <!-- Modal toggle -->
-                            <button data-modal-target="select-modal" data-modal-toggle="select-modal"
+                            <button id="toggleButton" data-modal-target="select-modal" data-modal-toggle="select-modal"
                                 class="border border-grey rounded-[20px] p-5 min-h-[80px] text-gray  text-2xl font-semibold"
                                 type="button">
                                 <span class="opacity-50">+</span>
                             </button>
+
+                            {{-- <button data-modal-target="select-modal" data-modal-toggle="select-modal"
+                                class="bg-success rounded-[20px] p-5 min-h-[80px] text-gray  text-2xl font-semibold"
+                                type="button">
+                                <span class="text-white">Voucher Added</span>
+                            </button> --}}
                             @include('.modal.voucher')
                         </div>
-                        
+
                         {{-- choose payment method --}}
                         <div class="flex flex-col gap-4">
                             <h5 class="text-lg font-semibold">
@@ -145,5 +151,21 @@
         $('#checkoutButton').click(function() {
             $('#checkoutForm').submit();
         })
+    </script>
+    <script>
+        function toggleButtonStyle(radioButtonId, buttonId) {
+            var radioButton = document.getElementById(radioButtonId);
+            var button = document.getElementById(buttonId);
+
+            if (radioButton.checked) {
+                button.style.backgroundColor = '#4FD3C4'; // Your success color
+                button.style.color = '#ffffff'; // White text
+                button.innerHTML = '<span class="text-white">Voucher Added</span>';
+            } else {
+                button.style.backgroundColor = ''; // Reset to default
+                button.style.color = ''; // Reset to default
+                button.innerHTML = '<span class="opacity-50">+</span>';
+            }
+        }
     </script>
 </x-front-layout>
