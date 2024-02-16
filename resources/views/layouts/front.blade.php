@@ -80,7 +80,7 @@
                             class="flex flex-col w-full ml-auto lg:w-auto gap-4 lg:gap-[50px] lg:items-center lg:flex-row">
                             <a href="{{ route('front.index') }}" class="nav-link-item">Home</a>
                             <a href="{{ route('front.indexCatalogue') }}" class="nav-link-item">Catalog</a>
-                            <a href="#!" class="nav-link-item">Booked</a>
+                            <a href="{{ route('front.order') }}" class="nav-link-item">Booked</a>
                             <a href="{{ route('front.lostandfound') }}" class="nav-link-item">Lost & Founds</a>
                             <a href="{{ route('front.voucher') }}" class="nav-link-item">Vouchers</a>
                         </div>
@@ -180,14 +180,14 @@
 
   <script src="{{ url('js/script.js') }}"></script>
   <script src="{{ url('js/catalogue.js') }}"></script>
-  
+
   {{-- <script src="{{ url('js/carousel.js') }}"></script> --}}
   {{-- <script src="path-to-the-file/splide.min.js"></script> --}}
   <script src="{{ url('splide-4.1.3/dist/js/splide.min.js') }}"></script>
-  
+
   {{-- <script src="{{ url('splide-4.1.3/dist/js//splide-extension-auto-scroll.min.js') }}"></script> --}}
   <script>
-    
+
     // var splide = new Splide( '.splide', {
     // perPage: 3,
     // gap    : '2rem',
@@ -222,7 +222,7 @@
         breakpoints: {
           1300: {
             perPage: 2,
-  
+
           },
           780: {
             perPage: 1,
@@ -241,7 +241,7 @@
         breakpoints: {
           1300: {
             perPage: 3,
-  
+
           },
           1020: {
             perPage: 2,
@@ -256,7 +256,7 @@
     }
 
     // splide.mount();
-    
+
   </script>
 </body>
 

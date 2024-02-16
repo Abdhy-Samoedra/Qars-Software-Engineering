@@ -13,6 +13,11 @@ class VoucherController extends Controller
      */
     public function index()
     {
+        if(!auth()->check())
+        {
+            return redirect()->route('login');
+        }
+
         $data = voucher::paginate(5);
 
         return view('customer.voucher', compact('data'));
@@ -21,9 +26,18 @@ class VoucherController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $newVoucher = [
+            'voucher_category_id' => $id,
+            'user_id' => auth()->user()->id,
+            'qty' => 1,
+        ];
+
+        $voucher = voucher::find($id);
+        $voucher->voucher()->create($newVoucher);
+
+        return redirect()->route('front.voucher');
     }
 
     /**

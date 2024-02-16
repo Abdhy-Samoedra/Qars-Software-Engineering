@@ -42,7 +42,10 @@ Route::name('front.')->group(function () {
     Route::get('/catalogue', [CatalogueController::class, 'index'])->name('indexCatalogue');
     Route::get('/vehicleDetail/{slug}', [VehicleDetailController::class, 'show'])->name('detailCatalogue');
     Route::get('/lostandfound', [LostandFoundViewController::class, 'index'])->name('lostandfound');
+    Route::get('/orders', [FrontOrderController::class, 'index'])->name('order');
+    Route::get('/orders/{id}', [FrontOrderController::class, 'show'])->name('orderDetail');
     Route::get('/voucher', [VoucherController::class, 'index'])->name('voucher');
+    Route::post('/vouchers', [VoucherController::class, 'create'])->name('createVoucher');
 
     Route::group(['middleware' =>'auth'] , function(){
         Route::get('/checkout/{slug}', [CheckoutController::class, 'index'])->name('checkout');
