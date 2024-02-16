@@ -7,10 +7,15 @@ use App\Http\Controllers\Controller;
 
 class LostandFoundViewController extends Controller
 {
-    public function index(){
+    public function index()
+    {
+        if(!auth()->check())
+        {
+            return redirect()->route('login');
+        }
 
         $data = LostAndFound::with(['vehicles'])->get();
-        
+
 
 
 
