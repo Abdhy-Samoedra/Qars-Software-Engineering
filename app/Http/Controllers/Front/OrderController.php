@@ -107,7 +107,7 @@ class OrderController extends Controller
 
     public function extend(Request $request, $id)
     {
-        $transaction = Transaction::with('user','vehicle', 'vehicleCategory')->findOrFail($id);
+        $transaction = Transaction::with('user', 'vehicle', 'vehicle.vehicleCategory')->findOrFail($id);
 
         $start_date = Carbon::createFromFormat('Y-m-d', $transaction->start_date);
         $end_date = Carbon::createFromFormat('Y-m-d', $transaction->end_date)->addDays(1);
@@ -117,10 +117,11 @@ class OrderController extends Controller
         $transaction->start_date = $start_date;
         $transaction->end_date = $end_date;
         $transaction->total_days = $days;
-        $transaction->total_price = $transaction->total_price + $transaction->vehicle->rental_price * $days + ($transaction->vehicle->rental_price * $days * 0.1);;
+        $transaction->total_price = $transaction->total_price + $transaction->vehicle->rental_price * $days + ($transaction->vehicle->rental_price * $days * 0.1);
+        $transaction->extend = 1;
         $transaction->save();
 
-        return redirect()->route('front.order.show', $id);
+        return redirect()->route('front.orderDetail', $id);
     }
     public function rate()
     {

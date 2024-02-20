@@ -21,7 +21,6 @@ use App\Http\Controllers\Admin\VehicleCategoryController as AdminVehicleCategory
 use App\Http\Controllers\Admin\VoucherCategoryController as AdminVoucherCategoryController;
 use App\Http\Controllers\Front\CheckoutController;
 use App\Http\Controllers\Front\PaymentController;
-use App\Http\Controllers\Front\VoucherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,8 +43,9 @@ Route::name('front.')->group(function () {
     Route::get('/lostandfound', [LostandFoundViewController::class, 'index'])->name('lostandfound');
     Route::get('/orders', [FrontOrderController::class, 'index'])->name('order');
     Route::get('/orders/{id}', [FrontOrderController::class, 'show'])->name('orderDetail');
-    Route::get('/voucher', [VoucherController::class, 'index'])->name('voucher');
-    Route::post('/vouchers', [VoucherController::class, 'create'])->name('createVoucher');
+    Route::get('/voucher', [FrontVoucherController::class, 'index'])->name('voucher');
+    Route::post('/vouchers/{id}', [FrontVoucherController::class, 'create'])->name('createVoucher');
+    Route::post('/orders/extend/{id}', [FrontOrderController::class, 'extend'])->name('extendOrder');
 
     Route::group(['middleware' =>'auth'] , function(){
         Route::get('/checkout/{slug}', [CheckoutController::class, 'index'])->name('checkout');

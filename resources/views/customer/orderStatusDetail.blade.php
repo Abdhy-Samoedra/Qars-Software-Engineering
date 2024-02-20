@@ -73,21 +73,32 @@
                     {{-- Extend & Rate Button --}}
                     @if ($status == 'Reserved' || $status == 'On Going')
                         <div class="flex justify-end">
-                            <a href=""
-                                class="bg-blue-900 hover:bg-blue-800 text-white font-semibold p-2 rounded-2xl w-full text-center my-1 py-3">
-                                Extend
-                            </a>
+                            <button class="bg-blue-900 hover:bg-blue-800 text-white font-semibold p-2 rounded-2xl w-full text-center my-1 py-3 {{$transaction->extend == 1 ? 'bg-grey hover:bg-grey' : ''}}" onclick="openModal();" {{$transaction->extend == 1 ? 'disabled' : ''}}>Extend</button>
                         </div>
                     @elseif ($status == 'Done')
                         <div class="flex justify-end">
+                            {{-- menunggu ryan --}}
                             <a href=""
                                 class="bg-blue-900 hover:bg-blue-800 text-white font-semibold p-2 rounded-2xl w-full text-center my-1 py-3">
                                 Rate
                             </a>
+                            {{-- menunggu ryan --}}
                         </div>
                     @endif
                 <div>
-
+                </div>
+            </div>
+        </div>
+        <div id="modal" class="fixed inset-0 z-10 flex items-center justify-center hidden">
+            <div class="absolute inset-0 bg-gray-900 opacity-50"></div>
+            <div class="bg-white p-8 rounded-md z-20">
+                <p class="mb-4">Are you sure you want to extend this transaction?</p>
+                <div class="flex flex-row">
+                    <form action="{{ route('front.extendOrder', $transaction->id) }}" method="POST" class="bg-green-500 text-white px-4 py-2 rounded-md mr-4">
+                        @csrf
+                        <button>Yes</button>
+                    </form>
+                    <button class="bg-red-500 text-white px-4 py-2 rounded-md" onclick="closeModal()">No</button>
                 </div>
             </div>
         </div>
@@ -99,5 +110,17 @@
         </footer>
     </x-front-layout>
 </body>
+<script>
+    let id = null;
 
+    document.querySelector()
+
+    function openModal() {
+        document.getElementById('modal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+        document.getElementById('modal').classList.add('hidden');
+    }
+</script>
 </html>
