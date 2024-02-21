@@ -36,16 +36,16 @@
                                     <div class="bg-white rounded-3xl p-4">
                                         <div>
                                             <h5 class="text-lg text-text_black font-bold">
-                                                {{$transaction->vehicle_brand}}
+                                                {{$transaction->vehicle->brand}}
                                             </h5>
                                             <p class="text-sm font-normal text-text_semiblack">
-                                                {{$transaction->category_name}}
+                                                {{$transaction->vehicle->vehicleCategory->vehicle_category_name}}
                                             </p>
 
                                         </div>
 
-                                        <img src="{{ $transaction->car_picture }}" class="rounded-3xl min-w-72 w-full h-48 m-2"
-                                            alt="{{ $transaction->car_brand }}">
+                                        <img src="{{ $transaction->vehicle->thumbnail }}" class="rounded-3xl min-w-72 w-full h-48 m-2"
+                                            alt="{{ $transaction->vehicle->brand}}">
                                         {{-- Start Date --}}
                                         <div class="flex items-center justify-between gap-1">
                                             <p class="text-sm font-semibold text-blue-900 mt-2">

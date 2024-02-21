@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Qars') }}</title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -97,7 +97,7 @@
                                             </button>
                                         @else
                                             <span class="inline-flex rounded-md">
-                                                <button type="button"
+                                                <bu tton type="button"
                                                     class="inline-flex items-center px-3 py-2 leading-4 transition duration-150 ease-in-out border border-transparent rounded-md hover:underline focus:outline-none">
                                                     {{ Auth::user()->name }}
                                                     <svg class="ms-2 -me-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg"

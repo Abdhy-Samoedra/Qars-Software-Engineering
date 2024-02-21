@@ -11,7 +11,9 @@ class CatalogueController extends Controller
 {
     public function index()
     {
-        $vehicles = Vehicle::all();
+        //get vehicle data from database that status is 1
+        $vehicles = Vehicle::where('status', 0)->get();
+        // $vehicles = Vehicle::all();
 
         // $vehicles = DB::table('vehicles')->simplePaginate(8);
  
