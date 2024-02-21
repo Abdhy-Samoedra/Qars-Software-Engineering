@@ -122,16 +122,19 @@ class PaymentController extends Controller
 
     public function success(Request $request)
     {
+        // dd("yuegjh");
         // dd($request->all());
         // get transaction id from midtrans
-        $transactionId = $request->order_id;
+        // $transactionId = $request->order_id;
         // get transaction
-        $transaction = Transaction::findOrFail($transactionId);
+        // $transaction = Transaction::findOrFail($transactionId);
         // set transaction status to paid
-        $transaction->status = 'paid';
+        // $transaction->status = 'paid';
         // save transaction
-        $transaction->save();
+        // $transaction->save();
         // redirect to payment success page
-        return view('customer.payment-success');
+        // return view('customer.paymentSuccess');
+        // return view('customer.paymentFailed');
+        return view('customer.paymentProcessed');
     }
 }

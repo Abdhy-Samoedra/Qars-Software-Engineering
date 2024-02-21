@@ -39,21 +39,9 @@ class OrderController extends Controller
             $status = 'Done';
         }
 
-        $data = Transaction::join('users', 'users.id', '=', 'transactions.user_id')
-            ->join('vehicles', 'vehicles.id', '=', 'transactions.vehicle_id')
-            ->join('vehicle_categories', 'vehicle_categories.id', '=', 'vehicles.vehicle_category_id')
-            ->where('transactions.user_id', '=', $user_id)
-            ->where('transactions.status', '=', $status)
-            ->select(
-                'transactions.*',
-                'users.name',
-                'vehicles.car_picture',
-                'vehicles.id as vehicle_id',
-                'vehicles.brand as vehicle_brand',
-                'vehicle_categories.vehicle_category_name as category_name')
-            ->orderBy('transactions.start_date', 'desc')
-            ->paginate(12);
 
+        $data = Transaction::with('vehicle', 'vehicle.vehicleCategory')->where('user_id', $user_id)->where('status', $status)->paginate(12);
+        // dd($data);
         return view('customer.orderListPage', compact('data'));
     }
 
@@ -117,7 +105,7 @@ class OrderController extends Controller
         $transaction->start_date = $start_date;
         $transaction->end_date = $end_date;
         $transaction->total_days = $days;
-        $transaction->total_price = $transaction->total_price + $transaction->vehicle->rental_price * $days + ($transaction->vehicle->rental_price * $days * 0.1);
+        $transaction->total_price = $transaction->vehicle->rental_price * $days + ($transaction->vehicle->rental_price * $days * 0.1);
         $transaction->extend = 1;
         $transaction->save();
 

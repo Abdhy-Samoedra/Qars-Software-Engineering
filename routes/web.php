@@ -59,8 +59,6 @@ Route::name('front.')->group(function () {
 
 
 
-
-
 Route::prefix('admin')->name('admin.')->middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
