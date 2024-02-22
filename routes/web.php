@@ -43,16 +43,15 @@ Route::name('front.')->group(function () {
     Route::get('/lostandfound', [LostandFoundViewController::class, 'index'])->name('lostandfound');
     Route::get('/orders', [FrontOrderController::class, 'index'])->name('order');
     Route::get('/orders/{id}', [FrontOrderController::class, 'show'])->name('orderDetail');
-    Route::post('/orders/{id}/rate', [FrontOrderController::class, 'rate'])->name('orderDetailRate');
     Route::get('/voucher', [FrontVoucherController::class, 'index'])->name('voucher');
     Route::post('/vouchers/{id}', [FrontVoucherController::class, 'create'])->name('createVoucher');
     Route::post('/orders/extend/{id}', [FrontOrderController::class, 'extend'])->name('extendOrder');
 
-    Route::group(['middleware' => 'auth'], function () {
+    Route::group(['middleware' =>'auth'] , function(){
         Route::get('/checkout/{slug}', [CheckoutController::class, 'index'])->name('checkout');
         Route::post('/checkout/{slug}', [CheckoutController::class, 'store'])->name('checkout.store');
 
-        Route::get('/payment/success', [PaymentController::class, 'success'])->name('payment.success');
+        Route::get('/payment/success',[PaymentController::class, 'success'])->name('payment.success');
         Route::get('/payment/{transactionId}', [PaymentController::class, 'index'])->name('payment');
         Route::post('/payment/{transactionId}', [PaymentController::class, 'update'])->name('payment.update');
     });

@@ -133,7 +133,7 @@
                             </label>
                             <input value="{{ old('payment_url') ?? $transaction->payment_url }}" name="payment_url"
                                 class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500"
-                                id="grid-last-name" type="text" placeholder="payment_url">
+                                id="grid-last-name" type="text" placeholder="payment_url" required>
                             <div class="mt-2 text-sm text-gray-500">
                                 Link of the payment. Auto
                             </div>
