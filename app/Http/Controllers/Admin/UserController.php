@@ -122,8 +122,6 @@ class UserController extends Controller
             'driving_license_path' => 'nullable',
             'driving_license_path.*' => 'nullable | image | mimes : jpg ,jpeg,png |max:2048'
         ]);
-
-        dd($data);
         // upload multiple pictures
         if ($request->hasFile('profile_photo_path')) {
             $profilePhotoPath = $request->file('profile_photo_path')->store('assets/item', 'public');

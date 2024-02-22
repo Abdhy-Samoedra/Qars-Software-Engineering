@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Front;
 
-use App\Http\Controllers\Controller;
+use Carbon\Carbon;
+use App\Models\Rating;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
+use App\Http\Controllers\Controller;
 
 class OrderController extends Controller
 {
@@ -14,8 +15,7 @@ class OrderController extends Controller
      */
     public function index(Request $request)
     {
-        if(!auth()->check())
-        {
+        if (!auth()->check()) {
             return redirect()->route('login');
         }
 
@@ -23,22 +23,36 @@ class OrderController extends Controller
 
         $status = $request->get('status');
 
-        if(!isset($status))
-        {
+        if (!isset($status)) {
             $status = 'Pending';
         }
 
-        if($status == 'reserved')
-        {
+        if ($status == 'reserved') {
             $status = 'Pending';
-        } else if($status == 'ongoing')
-        {
+        } else if ($status == 'ongoing') {
             $status = 'Confirmed';
-        } else if($status == 'done')
-        {
+        } else if ($status == 'done') {
             $status = 'Done';
         }
 
+<<<<<<< Updated upstream
+=======
+        $data = Transaction::join('users', 'users.id', '=', 'transactions.user_id')
+            ->join('vehicles', 'vehicles.id', '=', 'transactions.vehicle_id')
+            ->join('vehicle_categories', 'vehicle_categories.id', '=', 'vehicles.vehicle_category_id')
+            ->where('transactions.user_id', '=', $user_id)
+            ->where('transactions.status', '=', $status)
+            ->select(
+                'transactions.*',
+                'users.name',
+                'vehicles.car_picture',
+                'vehicles.id as vehicle_id',
+                'vehicles.brand as vehicle_brand',
+                'vehicle_categories.vehicle_category_name as category_name'
+            )
+            ->orderBy('transactions.start_date', 'desc')
+            ->paginate(12);
+>>>>>>> Stashed changes
 
         $data = Transaction::with('vehicle', 'vehicle.vehicleCategory')->where('user_id', $user_id)->where('status', $status)->paginate(12);
         // dd($data);
@@ -50,8 +64,7 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        if(!auth()->check())
-        {
+        if (!auth()->check()) {
             return redirect()->route('login');
         }
 
@@ -65,28 +78,40 @@ class OrderController extends Controller
                 'vehicles.car_picture',
                 'vehicles.id as vehicle_id',
                 'vehicles.brand as vehicle_brand',
-                'vehicle_categories.vehicle_category_name as category_name')
+                'vehicle_categories.vehicle_category_name as category_name'
+            )
             ->orderBy('transactions.start_date', 'desc')
             ->first();
 
-        if(empty($transaction))
-        {
+        if (empty($transaction)) {
             return redirect()->route('front.order');
         }
 
-        if($transaction->status == 'Pending')
-        {
+        if ($transaction->status == 'Pending') {
             $status = 'Reserved';
-        } else if($transaction->status == 'Confirmed')
-        {
+        } else if ($transaction->status == 'Confirmed') {
             $status = 'On Going';
-        } else if($transaction->status == 'Done')
-        {
+        } else if ($transaction->status == 'Done') {
             $status = 'Done';
         }
 
+        $user = auth()->user();
 
-        return view('customer.orderStatusDetail', compact('transaction', 'status'));
+        // Alternative way
+        // $ratings = Rating::join('transactions', 'transactions.id', '=', 'ratings.transactions_id')
+        //     ->where('ratings.transactions_id', '=', $id)
+        //     ->select('ratings.*', 'transactions.id as transaction_id')
+        //     ->first();
+
+        $product = Rating::join('transactions', 'transactions.id', '=', 'ratings.transactions_id')
+            ->join('vehicles', 'vehicles.id', '=', 'transactions.vehicle_id')
+            ->where('ratings.transactions_id', '=', $id)
+            ->get();
+
+        $exists = Rating::where('transactions_id', $id)->exists();
+
+        $rating = Rating::where('transactions_id', $id)->get()->first();
+        return view('customer.orderStatusDetail', compact('transaction', 'status', 'user', 'id', 'exists', 'rating'));
     }
 
     /**
@@ -111,8 +136,40 @@ class OrderController extends Controller
 
         return redirect()->route('front.orderDetail', $id);
     }
-    public function rate()
+    public function rate(Request $request, $id)
     {
+        if (!auth()->check()) {
+            return redirect()->route('login');
+        }
 
+        $transaction = Transaction::findOrFail($id);
+
+        $transaction_id = $transaction->id;
+        $stars_rated = $request->input('product_rating');
+        $description = $request->input('desc');
+
+        if ($transaction->user_id == auth()->user()->id) {
+
+            // Check if the transaction is done and the payment is success
+            if ($transaction->status == 'Done' && $transaction->payment_status == 'Success') {
+
+                // Check if the transaction ID is already rated, if yes, return error
+                if (Rating::find($id)) {
+                    return redirect()->back()->withErrors(['status' => 'The transaction ID already exists. Cannot rate anymore']);
+                } else {
+                    Rating::create([
+                        'transactions_id' => $transaction_id,
+                        'review' => $description,
+                        'rating' => $stars_rated,
+                        'created_at' => now(),
+                    ]);
+                    return redirect()->back();
+                }
+            } else {
+                return redirect()->back()->with('status', 'Your rent is not finished !');
+            }
+        } else {
+            return redirect()->back()->with('status', 'Error, You cannot rate a car that you did not rent');
+        }
     }
 }
