@@ -52,6 +52,8 @@ Route::name('front.')->group(function () {
         Route::post('/checkout/{slug}', [CheckoutController::class, 'store'])->name('checkout.store');
 
         Route::get('/payment/success',[PaymentController::class, 'success'])->name('payment.success');
+        Route::get('/payment/processed',[PaymentController::class, 'processed'])->name('payment.processed');
+        Route::get('/payment/error',[PaymentController::class, 'error'])->name('payment.error');
         Route::get('/payment/{transactionId}', [PaymentController::class, 'index'])->name('payment');
         Route::post('/payment/{transactionId}', [PaymentController::class, 'update'])->name('payment.update');
     });
@@ -61,7 +63,7 @@ Route::name('front.')->group(function () {
 
 Route::prefix('admin')->name('admin.')->middleware([
     'auth:sanctum',
-    config('jetstream.auth_session'),
+    config('jetstream.auth_session'),   
     'verified',
     'admin',
 

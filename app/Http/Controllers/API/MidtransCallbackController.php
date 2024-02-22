@@ -26,8 +26,13 @@ class MidtransCallbackController extends Controller
         $fraud = $notification->fraud_status;
         $orderId = $notification->order_id;
 
+        //cut the order_id to get the transaction id
+        $orderId = explode('-', $orderId);
+
+        // dd($notification->transaction_status, $notification->payment_type, $notification->fraud_status, $notification->order_id);
+
         // Cari transaksi berdasarkan ID
-        $transaction = Transaction::findOrFail($orderId);
+        $transaction = Transaction::findOrFail($orderId[1]);
 
         // Handle notification status midtrans
         if ($status == 'capture') {
@@ -36,6 +41,7 @@ class MidtransCallbackController extends Controller
                     $transaction->payment_status = 'pending';
                 } else {
                     $transaction->payment_status = 'success';
+                    $transaction->status = 'Confirmed';
                 }
             }
         } elseif ($status == 'settlement') {

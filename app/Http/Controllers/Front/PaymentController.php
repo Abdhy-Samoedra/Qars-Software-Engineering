@@ -94,7 +94,7 @@ class PaymentController extends Controller
             //docs : https://api-docs.midtrans.com/#request-body-json-attributes
             $midtransParams = [
                 'transaction_details' => [
-                    'order_id' => "BAYARWOY-" . $transaction->id,
+                    'order_id' => "booking-".$transaction->id,
                     'gross_amount' => $totalPrice,
                 ],
                 'customer_details' => [
@@ -102,7 +102,7 @@ class PaymentController extends Controller
                     'email' => $transaction->user->email,
                     'phone' => $transaction->user->phone,
                 ],
-                'enabled_payments' => ['gopay', 'bank_transfer', 'shopeepay', 'echannel', 'indomaret', 'akulaku'],
+                'enabled_payments' => ['gopay', 'bank_transfer', 'shopeepay', 'echannel', 'indomaret', 'akulaku', 'credit_card'],
             ];
 
 
@@ -115,12 +115,59 @@ class PaymentController extends Controller
             //save booking
             $transaction->save();
 
+
+            //disable selected cars
+            $transaction->vehicle->status = 1;
+            $transaction->vehicle->save();
+
+            //drop data voucher from user
+            if ($request->voucher_category_id) {
+                $voucher = Voucher::where('user_id', auth()->user()->id)->where('voucher_category_id', $request->voucher_category_id);
+                $voucher->delete();
+            }
+
             // redirect to snap payment page
             return redirect($paymentUrl);
         }
     }
 
     public function success(Request $request)
+    {
+        // dd("yuegjh");
+        // dd($request->all());
+        // get transaction id from midtrans
+        // $transactionId = $request->order_id;
+        // get transaction
+        // $transaction = Transaction::findOrFail($transactionId);
+        // set transaction status to paid
+        // $transaction->status = 'paid';
+        // save transaction
+        // $transaction->save();
+        // redirect to payment success page
+        return view('customer.paymentSuccess');
+        // return view('customer.paymentFailed');
+        // return view('customer.paymentProcessed');
+    }
+
+    public function error(Request $request)
+    {
+        // dd("yuegjh");
+        // dd($request->all());
+        // get transaction id from midtrans
+        // $transactionId = $request->order_id;
+        // get transaction
+        // $transaction = Transaction::findOrFail($transactionId);
+        // set transaction status to paid
+        // $transaction->status = 'paid';
+        // save transaction
+        // $transaction->save();
+        // redirect to payment success page
+        // return view('customer.paymentSuccess');
+        return view('customer.paymentFailed');
+        // return view('customer.paymentProcessed');
+    }
+
+    public function processed(Request $request)
     {
         // dd("yuegjh");
         // dd($request->all());
