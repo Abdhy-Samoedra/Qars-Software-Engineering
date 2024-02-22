@@ -33,7 +33,7 @@ class RatingController extends Controller
                         href="' . route('admin.ratings.edit', $rating->id) . '">
                         edit
                     </a>
-                    <form class="block w-full" onsubmit="return confirm(\'Apakah anda yakin?\');" -block" action="' . route('admin.drivers.destroy', $rating->id) . '" method="POST">
+                    <form class="block w-full" onsubmit="return confirm(\'Apakah anda yakin?\');" -block" action="' . route('admin.ratings.destroy', $rating->id) . '" method="POST">
                     <button class="w-full px-2 py-1 mx-1 text-xs text-white transition duration-500 bg-red-500 border border-red-500 rounded-md select-none ease hover:bg-red-600 focus:outline-none focus:shadow-outline" >
                         delete
                     </button>

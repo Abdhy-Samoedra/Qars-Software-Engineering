@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Front;
 
-use App\Http\Controllers\Controller;
+use Carbon\Carbon;
+use App\Models\Rating;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
+use App\Http\Controllers\Controller;
 
 class OrderController extends Controller
 {
@@ -76,8 +77,25 @@ class OrderController extends Controller
             $status = 'Done';
         }
 
+        $user = auth()->user();
 
-        return view('customer.orderStatusDetail', compact('transaction', 'status'));
+        // Alternative way
+        // $ratings = Rating::join('transactions', 'transactions.id', '=', 'ratings.transactions_id')
+        //     ->where('ratings.transactions_id', '=', $id)
+        //     ->select('ratings.*', 'transactions.id as transaction_id')
+        //     ->first();
+
+        $product = Rating::join('transactions', 'transactions.id', '=', 'ratings.transactions_id')
+            ->join('vehicles', 'vehicles.id', '=', 'transactions.vehicle_id')
+            ->where('ratings.transactions_id', '=', $id)
+            ->get();
+
+        $exists = Rating::where('transactions_id', $id)->exists();
+
+        $rating = Rating::where('transactions_id', $id)->get()->first();
+
+
+        return view('customer.orderStatusDetail', compact('transaction', 'status', 'user', 'id', 'exists', 'rating'));
     }
 
     /**
@@ -113,7 +131,7 @@ class OrderController extends Controller
         //docs : https://api-docs.midtrans.com/#request-body-json-attributes
         $midtransParams = [
             'transaction_details' => [
-                'order_id' => "extend-".$transaction->id,
+                'order_id' => "extend-" . $transaction->id,
                 'gross_amount' => $totalPrice,
             ],
             'customer_details' => [
@@ -151,11 +169,47 @@ class OrderController extends Controller
         return redirect($paymentUrl);
 
 
-        
+
 
         // return redirect()->route('front.orderDetail', $id);
     }
-    public function rate()
+    public function rate(Request $request, $id)
     {
+        if (!auth()->check()) {
+            return redirect()->route('login');
+        }
+
+        $transaction = Transaction::findOrFail($id);
+
+        $transaction_id = $transaction->id;
+        $stars_rated = $request->input('product_rating');
+        $description = $request->input('desc');
+
+
+        if ($transaction->user_id == auth()->user()->id) {
+            // Check if the transaction is done and the payment is success
+            if ($transaction->status == 'Done') {
+                // Check if the transaction ID is already rated, if yes, return error
+                if (Rating::where('transactions_id', $id)->first()) {
+                    return redirect()->back()->withErrors(['status' => 'The transaction ID already exists. Cannot rate anymore']);
+                } else {
+                    Rating::create([
+                        'transactions_id' => $transaction_id,
+                        'review' => $description,
+                        'rating' => $stars_rated,
+                        'created_at' => now(),
+                    ]);
+                    return redirect()->back();
+                }
+            } else {
+
+                return redirect()->back()->with('status', 'Your rent is not finished !');
+            }
+        } else {
+            return redirect()->back()->with('status', 'Error, You cannot rate a car that you did not rent');
+        }
+
+        //get vehicle rating and calculate with new rating
+
     }
 }

@@ -43,11 +43,12 @@ Route::name('front.')->group(function () {
     Route::get('/lostandfound', [LostandFoundViewController::class, 'index'])->name('lostandfound');
     Route::get('/orders', [FrontOrderController::class, 'index'])->name('order');
     Route::get('/orders/{id}', [FrontOrderController::class, 'show'])->name('orderDetail');
+    Route::post('/orders/{id}/rate', [FrontOrderController::class, 'rate'])->name('orderDetailRate');
     Route::get('/voucher', [FrontVoucherController::class, 'index'])->name('voucher');
     Route::post('/vouchers/{id}', [FrontVoucherController::class, 'create'])->name('createVoucher');
     Route::post('/orders/extend/{id}', [FrontOrderController::class, 'extend'])->name('extendOrder');
 
-    Route::group(['middleware' =>'auth'] , function(){
+    Route::group(['middleware' => 'auth'], function () {
         Route::get('/checkout/{slug}', [CheckoutController::class, 'index'])->name('checkout');
         Route::post('/checkout/{slug}', [CheckoutController::class, 'store'])->name('checkout.store');
 
@@ -63,7 +64,7 @@ Route::name('front.')->group(function () {
 
 Route::prefix('admin')->name('admin.')->middleware([
     'auth:sanctum',
-    config('jetstream.auth_session'),   
+    config('jetstream.auth_session'),
     'verified',
     'admin',
 
