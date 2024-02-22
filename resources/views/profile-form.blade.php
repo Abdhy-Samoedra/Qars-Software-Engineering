@@ -27,6 +27,11 @@
             {{ __('Your Profile') }}
         </div>
     </div>
+    <div class="flex self-center mb-3 lg:mb-5 w-full lg:w-1/2 justify-center lg:justify-start lg:min-w-[620px]">
+        <div class="text-xl lg:text-xl font-medium text-blue-950">
+            {{ __('Point : ') }} {{$user->experience_point}}
+        </div>
+    </div>
     <div
         class="py-10 lg:px-8 bg-white sm:p-6 shadow sm:rounded-tl-md sm:rounded-tr-md  w-full lg:min-w-[620px] lg:w-1/2 container relative block">
 

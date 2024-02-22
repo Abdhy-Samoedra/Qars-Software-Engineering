@@ -10,7 +10,7 @@ class LandingController extends Controller
 {
     public function index()
     {
-        $vehicles = Vehicle::with(['vehicleCategory'])->latest()->take(4)->get()->reverse();
+        $vehicles = Vehicle::with(['vehicleCategory'])->where('status', 0)->latest()->take(4)->get()->reverse();
         return view('landing' , compact('vehicles'));
     }
 }
