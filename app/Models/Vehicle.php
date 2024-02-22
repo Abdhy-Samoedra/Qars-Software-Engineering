@@ -26,6 +26,7 @@ class Vehicle extends Model
         'status',
         'car_picture',
         'slug',
+        'rating'
     ];
 
     protected $casts = [

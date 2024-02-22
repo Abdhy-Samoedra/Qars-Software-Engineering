@@ -16,22 +16,26 @@
                 },
                 columns: [{
                         data: 'transactions_id',
-                        name: 'transactions_id'
+                        name: 'transactions_id',
+                        class: 'text-center'
                     },
                     {
                         data: 'review',
-                        name: 'review'
+                        name: 'review',
+                        class: 'text-center'
                     },
                     {
                         data: 'rating',
-                        name: 'rating'
+                        name: 'rating',
+                        class: 'text-center'
                     },
                     {
                         data: 'action',
                         name: 'action',
                         orderable: false,
                         searchable: false,
-                        width: '15%'
+                        width: '15%',
+                        class: 'text-center'
                     },
                 ],
             });
