@@ -40,9 +40,16 @@
             </ul>
         </div>
         <div class="container">
+<<<<<<< Updated upstream
             <div class="flex flex-row gap-14 my-6 w-full items-center">
                 <div class="rounded-3xl w-full h-full m-2">
                     <img src="{{ $transaction->vehicle->thumbnail }}" class="rounded-3xl min-w-72 w-full h-80  m-2" alt="{{ $transaction->car_brand }}">
+=======
+            <div class="flex flex-row gap-14 my-6 mx-20 w-full">
+                <div class="rounded-3xl w-2/5 h-full m-2">
+                    <img src="{{ $transaction->car_picture }}" class="rounded-3xl min-w-72 w-full h-48 m-2"
+                        alt="{{ $transaction->car_brand }}">
+>>>>>>> Stashed changes
                 </div>
                 <div class="rounded-3xl w-3/5 h-full m-2 bg-white p-5">
                     <div class="flex mb-2">
@@ -79,7 +86,14 @@
                     {{-- Extend & Rate Button --}}
                     @if ($status == 'Reserved' || $status == 'On Going')
                         <div class="flex justify-end">
+<<<<<<< Updated upstream
                             <button class="bg-blue-900 hover:bg-blue-800 text-white font-semibold p-2 rounded-2xl w-full text-center my-1 py-3 {{$transaction->extend == 1 || $status == 'Reserved' ? 'bg-grey hover:bg-grey' : ''}}" onclick="openModal();" {{$transaction->extend == 1 || $status == 'Reserved' ? 'disabled' : ''}}>Extend</button>
+=======
+                            <button
+                                class="bg-blue-900 hover:bg-blue-800 text-white font-semibold p-2 rounded-2xl w-full text-center my-1 py-3 {{ $transaction->extend == 1 ? 'bg-grey hover:bg-grey' : '' }}"
+                                onclick="openModal();"
+                                {{ $transaction->extend == 1 ? 'disabled' : '' }}>Extend</button>
+>>>>>>> Stashed changes
                         </div>
                     @elseif ($status == 'Done')
                         @if ($exists)
@@ -100,6 +114,7 @@
                     </div>
                 </div>
             </div>
+<<<<<<< Updated upstream
         </div>
         <div id="modal" class="fixed inset-0 z-10 flex items-center justify-center hidden">
             <div class="absolute inset-0 bg-gray-900 opacity-50"></div>
@@ -112,6 +127,20 @@
                         <button>Yes</button>
                     </form>
                     <button class="bg-red-500 text-white px-4 py-2 rounded-md" onclick="closeModal()">No</button>
+=======
+            <div id="modal" class="fixed inset-0 z-10 flex items-center justify-center hidden">
+                <div class="absolute inset-0 bg-gray-900 opacity-50"></div>
+                <div class="bg-white p-8 rounded-md z-20">
+                    <p class="mb-4">Are you sure you want to extend this transaction?</p>
+                    <div class="flex flex-row">
+                        <form action="{{ route('front.extendOrder', $transaction->id) }}" method="POST"
+                            class="bg-green-500 text-white px-4 py-2 rounded-md mr-4">
+                            @csrf
+                            <button>Yes</button>
+                        </form>
+                        <button class="bg-red-500 text-white px-4 py-2 rounded-md" onclick="closeModal()">No</button>
+                    </div>
+>>>>>>> Stashed changes
                 </div>
             </div>
             <div id="rate" class="fixed inset-0 z-10 flex items-center justify-center hidden">
