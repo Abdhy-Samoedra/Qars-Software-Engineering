@@ -35,25 +35,6 @@ class OrderController extends Controller
             $status = 'Done';
         }
 
-<<<<<<< Updated upstream
-=======
-        $data = Transaction::join('users', 'users.id', '=', 'transactions.user_id')
-            ->join('vehicles', 'vehicles.id', '=', 'transactions.vehicle_id')
-            ->join('vehicle_categories', 'vehicle_categories.id', '=', 'vehicles.vehicle_category_id')
-            ->where('transactions.user_id', '=', $user_id)
-            ->where('transactions.status', '=', $status)
-            ->select(
-                'transactions.*',
-                'users.name',
-                'vehicles.car_picture',
-                'vehicles.id as vehicle_id',
-                'vehicles.brand as vehicle_brand',
-                'vehicle_categories.vehicle_category_name as category_name'
-            )
-            ->orderBy('transactions.start_date', 'desc')
-            ->paginate(12);
->>>>>>> Stashed changes
-
         $data = Transaction::with('vehicle', 'vehicle.vehicleCategory')->where('user_id', $user_id)->where('status', $status)->paginate(12);
         // dd($data);
         return view('customer.orderListPage', compact('data'));
