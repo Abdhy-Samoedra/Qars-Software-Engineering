@@ -29,7 +29,7 @@
     </div>
     <div class="flex self-center mb-3 lg:mb-5 w-full lg:w-1/2 justify-center lg:justify-start lg:min-w-[620px]">
         <div class="text-xl lg:text-xl font-medium text-blue-950">
-            {{ __('Point : ') }} {{$user->experience_point}}
+            {{ __('Point : ') }} {{ $user->experience_point }}
         </div>
     </div>
     <div
@@ -117,7 +117,7 @@
             <div class="gap-[29px] flex items-center justify-center ">
                 <!-- Container -->
                 <div class=" block justify-center">
-                    @if ($user->profile_photo_path)
+                    @if ($user)
                         <div x-data="{ photoName: null, photoPreview: null }"
                             class="col-span-6 sm:col-span-4 flex flex-col items-center justify-start">
                             <!-- Profile Photo File Input -->
