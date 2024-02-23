@@ -108,6 +108,8 @@ class UserController extends Controller
                 'max:255',
                 Rule::unique('users')->ignore($user->id),
             ],
+            'gender' => 'required|string|max:255',
+            'driving_license_status' => 'required|string|max:255',
             'phone' => [
                 'required',
                 'string',
@@ -120,10 +122,10 @@ class UserController extends Controller
             'profile_photo_path' => 'nullable',
             'profile_photo_path.*' => 'nullable | image | mimes : jpg ,jpeg,png |max:2048',
             'driving_license_path' => 'nullable',
-            'driving_license_path.*' => 'nullable | image | mimes : jpg ,jpeg,png |max:2048'
+            'driving_license_path.*' => 'nullable | image | mimes : jpg ,jpeg,png |max:2048',
+            'role' => 'required|string|max:255'
         ]);
 
-        // dd($data);
         // upload multiple pictures
         if ($request->hasFile('profile_photo_path')) {
             $profilePhotoPath = $request->file('profile_photo_path')->store('assets/item', 'public');
@@ -139,10 +141,9 @@ class UserController extends Controller
             $data['driving_license_path'] = $user->driving_license_path;
         }
 
-        dd($data);
         $user->update($data);
 
-        return redirect()->route('admin.users.index');
+        return redirect()->route('admin.users.index')->with('flash.banner', 'User Updated Successfully')->with('flash.bannerStyle', 'success');
     }
 
     /**

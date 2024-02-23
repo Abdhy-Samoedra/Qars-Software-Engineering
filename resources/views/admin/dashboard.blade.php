@@ -60,6 +60,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {{-- @dd($query) --}}
                         @foreach ($query as $item)
                             <tr class="odd:bg-white even:bg-gray-100">
                                 <th scope="row" class="px-6 py-4 font-medium text-blue-900 whitespace-nowrap">

@@ -16,7 +16,7 @@
             <div class="flex items-center justify-center w-full">
                 <!-- Container -->
                 <div class=" block justify-center">
-                    @if ($user->driving_license_path)
+                    @if ($user)
                         <div x-data="{ photoName: null, photoPreview: null }"
                             class="col-span-6 sm:col-span-4 flex flex-col items-center justify-start">
                             <!-- Profile Photo File Input -->
@@ -33,7 +33,7 @@
 
                             <!-- Current Profile Photo -->
                             <div class="my-10" x-show="! photoPreview">
-                                <img src="{{ Storage::url(json_decode($user->driving_license_path)) }}"
+                                <img src="{{ $user->driving_license_path ? Storage::url(json_decode($user->driving_license_path)) : 'https://via.placeholder.com/800x600' }}"
                                     alt="Driver License"
                                     class="rounded-md h-[153px] w-[243px] md:h-[306px] md:w-[486px] object-cover">
                             </div>
