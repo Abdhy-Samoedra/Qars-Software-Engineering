@@ -61,6 +61,7 @@ class OrderController extends Controller
                 'vehicles.id as vehicle_id',
                 'vehicles.brand as vehicle_brand',
                 'vehicle_categories.vehicle_category_name as category_name'
+
             )
             ->orderBy('transactions.start_date', 'desc')
             ->first();
