@@ -124,7 +124,7 @@ class VehicleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(VehicleRequest $request, Vehicle $vehicle)
+    public function update(Request $request, Vehicle $vehicle)
     {
         $data = $request->all();
         // dd($data);
@@ -145,7 +145,7 @@ class VehicleController extends Controller
         } else {
             $data['car_picture'] = $vehicle->car_picture;
         }
-
+        // dd($data);
         $vehicle->update($data);
 
         return redirect()->route('admin.vehicles.index');
