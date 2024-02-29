@@ -69,13 +69,19 @@
                         <h5 class="text-lg text-text_black font-bold w-1/2 text-end">$
                             {{ number_format($transaction->total_price, 2, '.', ',') }}</h5>
                     </div>
-                    {{-- Extend & Rate Button --}}
-                    @if ($status == 'Reserved' || $status == 'On Going')
+                    {{-- Cancel, Extend & Rate Button --}}
+                    @if ($status == 'Reserved')
                         <div class="flex justify-end">
                             <button
-                                class="bg-blue-900 hover:bg-blue-800 text-white font-semibold p-2 rounded-2xl w-full text-center my-1 py-3 {{ $transaction->extend == 1 || $status == 'Reserved' ? 'bg-grey hover:bg-grey' : '' }}"
+                                class="bg-red-600 hover:bg-red-500 text-white font-semibold p-2 rounded-2xl w-full text-center my-1 py-3"
+                                onclick="openCancelModal();">Cancel</button>
+                        </div>
+                    @elseif ($status == 'On Going')
+                        <div class="flex justify-end">
+                            <button
+                                class="bg-blue-900 hover:bg-blue-800 text-white font-semibold p-2 rounded-2xl w-full text-center my-1 py-3 {{ $transaction->extend == 1 ? 'bg-grey hover:bg-grey' : '' }}"
                                 onclick="openModal();"
-                                {{ $transaction->extend == 1 || $status == 'Reserved' ? 'disabled' : '' }}>Extend</button>
+                                {{ $transaction->extend == 1 ? 'disabled' : '' }}>Extend</button>
                         </div>
                     @elseif ($status == 'Done')
                         @if ($exists)
@@ -223,6 +229,22 @@
                     </div>
                 </div>
             </div>
+            <div id="cancel" class="fixed inset-0 z-10 flex items-center justify-center hidden">
+                <div class="absolute inset-0 bg-gray-900 opacity-50"></div>
+                <div class="bg-white p-8 rounded-md z-20">
+                    <p>Are you sure you want to cancel this transaction?</p>
+                    <p class="mb-4 text-red-800">Once you cancel your order, this action
+                        cannot be reverted!</p>
+                    <div class="flex flex-row">
+                        <form action="{{ route('front.cancelOrder', $transaction->id) }}" method="POST"
+                            class="bg-red-500 text-white px-4 py-2 rounded-md mr-4">
+                            @csrf
+                            <button>Yes</button>
+                        </form>
+                        <button class="bg-blue-800 text-white px-4 py-2 rounded-md" onclick="closeCancelModal()">No</button>
+                    </div>
+                </div>
+            </div>
             <br>
     </x-front-layout>
 </body>
@@ -245,6 +267,14 @@
 
     function closeRatingModal() {
         document.getElementById('rate').classList.add('hidden');
+    }
+
+    function openCancelModal() {
+        document.getElementById('cancel').classList.remove('hidden');
+    }
+
+    function closeCancelModal() {
+        document.getElementById('cancel').classList.add('hidden');
     }
 </script>
 

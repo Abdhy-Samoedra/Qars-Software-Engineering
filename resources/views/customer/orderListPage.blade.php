@@ -28,6 +28,20 @@
                 <a href="/orders?status=done"
                     class="{{ Request::get('status') == 'done' ? 'bg-blue-900 text-white font-semibold' : 'font-normal bg-slate-300 hover:bg-blue-800 hover:text-white' }} p-2 rounded-lg m-2">Done</a>
             </div>
+            @if (session('cancel'))
+                <div class="mb-5" role="alert">
+                    <div class="px-4 py-2 font-bold text-white bg-red-500 rounded-t">
+                        Cancelled
+                    </div>
+                    <div class="px-4 py-3 text-red-700 bg-red-100 border border-t-0 border-red-400 rounded-b">
+                        <p>
+                        <ul>
+                            <li>{{ session('cancel') }}</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+            @endif
 
             {{-- Content --}}
             <div class="flex flex-col gap-6">

@@ -47,6 +47,7 @@ Route::name('front.')->group(function () {
     Route::get('/voucher', [FrontVoucherController::class, 'index'])->name('voucher');
     Route::post('/vouchers/{id}', [FrontVoucherController::class, 'create'])->name('createVoucher');
     Route::post('/orders/extend/{id}', [FrontOrderController::class, 'extend'])->name('extendOrder');
+    Route::post('/orders/cancel/{id}', [FrontOrderController::class, 'cancel'])->name('cancelOrder');
 
     Route::group(['middleware' => 'auth'], function () {
         Route::get('/checkout/{slug}', [CheckoutController::class, 'index'])->name('checkout');

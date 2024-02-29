@@ -97,6 +97,8 @@
                                     Confirmed</option>
                                 <option value="Done" {{ $transaction->status === 'Done' ? 'selected' : '' }}>Done
                                 </option>
+                                <option value="Cancelled" {{ $transaction->status === 'Cancelled' ? 'selected' : '' }}>Cancelled
+                                </option>
                             </select>
                             <div class="mt-2 text-sm text-gray-500">
                                 Status of the Transaction. Example: Pending or Confirmed
