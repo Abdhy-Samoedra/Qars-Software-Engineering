@@ -18,6 +18,7 @@ class Driver extends Model
         'picture',
         'age',
         'slug',
+        'status',
     ];
 
 
