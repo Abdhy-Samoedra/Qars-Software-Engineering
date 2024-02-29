@@ -19,9 +19,8 @@ class VehicleDetailController extends Controller
             ->where('vehicle_category_id', '=', $vehicle->vehicle_category_id)
             ->latest()->take(4)->get();
         // dd($similiarItems);
-
         $vehicleRating = Vehicle::with(['transactions.rating', 'transactions.user'])->whereRelation('transactions', 'vehicle_id', '=', $vehicle->id)->first();
-
+        
 
         // dd($similiarItems);
         // ->whereRelation('transactions', 'vehicle_id', '=', 'B 3288 JDW')

@@ -47,7 +47,7 @@ class UpdateProfileController extends Controller
         // Update the user with the validated data
         $user->update($data);
 
-        return redirect()->back()->with('message', 'Profile Updated Successfully');
+        return redirect()->back()->with('success', 'Profile Updated Successfully');
     }
 
     public function updateDrivingLicense(Request $request, $id)
@@ -63,6 +63,6 @@ class UpdateProfileController extends Controller
             $data['driving_license_path'] = json_encode($drivingLicensePath);
         }
         $user->update($data);
-        return redirect()->back()->with('message', 'Driving License Updated Successfully');
+        return redirect()->back()->with('success', 'Driving License Updated Successfully');
     }
 }

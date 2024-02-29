@@ -54,6 +54,6 @@ class Transaction extends Model
 
     public function rating()
     {
-        return $this->belongsTo(Rating::class,'id');
+        return $this->belongsTo(Rating::class, 'id', 'transactions_id');
     }
 }
