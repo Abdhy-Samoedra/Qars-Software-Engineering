@@ -14,11 +14,7 @@ class LostandFoundViewController extends Controller
             return redirect()->route('login');
         }
 
-        $data = LostAndFound::with(['vehicles'])->get();
-
-
-
-
-        return view('customer.lostandfound', compact(['data']));
+        $data = LostAndFound::with('vehicles')->paginate(5);
+        return view('customer.lostandfound', compact('data'));
     }
 }
