@@ -82,6 +82,26 @@
                         <div class="w-full">
                             <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase"
                                 for="grid-last-name">
+                                Driver Status *
+                            </label>
+                            <select name="status" required disabled
+                                class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500">
+                                <option>Choose Driver Status</option>
+                                <option value="available"
+                                    {{ (old('status') ?? $driver->status) == "available" ? 'selected' : '' }}>Available</option>
+                                <option value="unavailable"
+                                    {{ (old('status') ?? $driver->status) == "unavailable" ? 'selected' : '' }}>Unavailable</option>
+                            </select>
+                            <div class="mt-2 text-sm text-gray-500">
+                                Select one. Required.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap px-3 mt-4 mb-6 -mx-3">
+                        <div class="w-full">
+                            <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase"
+                                for="grid-last-name">
                                 Age
                             </label>
                             <input value="{{ old('age') ?? $driver->age }}" name="age"
