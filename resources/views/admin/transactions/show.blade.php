@@ -85,6 +85,8 @@
                                     Confirmed</option>
                                 <option value="Done" {{ $transaction->status === 'Done' ? 'selected' : '' }}>Done
                                 </option>
+                                <option value="Cancelled" {{ $transaction->status === 'Cancelled' ? 'selected' : '' }}>Cancelled
+                                </option>
                             </select>
                         </div>
                         <div class="w-full mb-4">

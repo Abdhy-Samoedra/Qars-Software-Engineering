@@ -7,6 +7,7 @@ use App\Models\Rating;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Vehicle;
 
 class OrderController extends Controller
 {
@@ -212,5 +213,18 @@ class OrderController extends Controller
 
         //get vehicle rating and calculate with new rating
 
+    }
+
+    public function cancel(Request $request, $id)
+    {
+        $transaction = Transaction::findOrFail($id);
+        $transaction->status = 'Cancelled';
+        $transaction->save();
+
+        $vehicle = Vehicle::findOrFail($transaction->vehicle->id);
+        $vehicle->status = 0;
+        $vehicle->save();
+
+        return redirect()->route('front.order', $id)->with('cancel', 'Your order has been cancelled.');
     }
 }
