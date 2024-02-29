@@ -32,7 +32,7 @@
                                 <img src="{{ str_replace('"', '', Storage::url($lostAndFounds->lost_and_found_picture)) }}"
                                     alt="" class="rounded-md w-96 h-64 object-left">
                             </div>
-                            <div class="flex flex-col text-lg">
+                            <div class="flex flex-col text-lg mt-4">
                                 {{-- {{dd($lostAndFounds->vehicles)}} --}}
                                 <p class="my-1" class="inline-block w-48">Car</p>
                                 <p class="my-1" class="inline-block w-48">License Plate</p>
@@ -41,7 +41,7 @@
                                 <p class="my-1"  class="inline-block w-48">Description</p>
 
                             </div>
-                            <div class="flex flex-col text-lg col-span-3">
+                            <div class="flex flex-col text-lg col-span-3 mt-4">
                                 <p class="my-1" class="inline-block w-48">: {{$lostAndFounds->vehicles ? $lostAndFounds->vehicles->type : '-' }}</p>
                                 <p class="my-1" class="inline-block w-48">: {{$lostAndFounds->vehicle_id }}</p>
                                 <p class="my-1" class="inline-block w-48">: {{$lostAndFounds->found_date }}</p>
@@ -56,7 +56,7 @@
                     @endforeach
                 </div>
             </div>
-            {{$data->onEachSide(1)->links()}}
+            {{ $data->onEachSide(1)->links() }}
             <br>
 
 
