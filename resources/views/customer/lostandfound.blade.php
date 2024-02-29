@@ -29,7 +29,8 @@
                     @foreach ($data as $lostAndFounds)
                         <div class="bg-white rounded-lg grid grid-cols-6 p-4 my-4 items-start gap-x-10">
                             <div class="rounded-md  object-left col-span-2">
-                                <img src="{{ str_replace('"', '', Storage::url($lostAndFounds->lost_and_found_picture)) }}" alt="">
+                                <img src="{{ str_replace('"', '', Storage::url($lostAndFounds->lost_and_found_picture)) }}"
+                                    alt="" class="rounded-md w-96 h-64 object-left">
                             </div>
                             <div class="flex flex-col text-lg">
                                 {{-- {{dd($lostAndFounds->vehicles)}} --}}
@@ -54,9 +55,8 @@
                         </div>
                     @endforeach
                 </div>
-
             </div>
-            {{-- {{$data->onEachSide(1)->links()}} --}}
+            {{$data->onEachSide(1)->links()}}
             <br>
 
 

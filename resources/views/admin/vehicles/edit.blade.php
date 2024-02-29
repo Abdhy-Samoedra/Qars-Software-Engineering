@@ -37,7 +37,8 @@
                     <div class="container flex flex-wrap justify-around w-25 mx-auto">
                         @if ($vehicle->car_picture)
                             @foreach (json_decode($vehicle->car_picture) as $picture)
-                                <img src="{{ Storage::url($picture) }}" alt="" class="w-64 mx-auto mb-5 rounded-md">
+                                <img src="{{ Storage::url($picture) }}" alt=""
+                                    class="w-64 mx-auto mb-5 rounded-md">
                             @endforeach
                         @endif
                     </div>
@@ -185,6 +186,26 @@
                                 id="grid-last-name" type="number" placeholder="Vehicle Description" required>
                             <div class="mt-2 text-sm text-gray-500">
                                 Vehicle's Rental Price per day. Example: 23000, 40000, 100000, etc. Required.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap px-3 mt-4 mb-6 -mx-3">
+                        <div class="w-full">
+                            <label class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase"
+                                for="grid-last-name">
+                                Vehicle Status *
+                            </label>
+                            <select name="status" required
+                                class="block w-full px-4 py-3 leading-tight text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-gray-500">
+                                <option>Choose Vehicle Status</option>
+                                <option value=0
+                                    {{ (old('status') ?? $vehicle->status) == 0 ? 'selected' : '' }}>Available</option>
+                                <option value=1
+                                    {{ (old('status') ?? $vehicle->status) == 1 ? 'selected' : '' }}>Unavailable</option>                               </option>
+                            </select>
+                            <div class="mt-2 text-sm text-gray-500">
+                                Select one. Required.
                             </div>
                         </div>
                     </div>
