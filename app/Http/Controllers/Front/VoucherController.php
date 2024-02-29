@@ -18,12 +18,11 @@ class VoucherController extends Controller
         if (!auth()->check()) {
             return redirect()->route('login');
         }
+
         $user = auth()->user();
-        $User = User::findOrFail($user->id);
 
         $data = VoucherCategory::with('vouchers', 'vouchers.user')->paginate(5);
-
-        return view('customer.voucher', compact('data'));
+        return view('customer.voucher', compact('data', 'user'));
     }
 
     /**
@@ -38,54 +37,48 @@ class VoucherController extends Controller
         ];
 
         $user = auth()->user();
-        $User = User::find($user->id);
-        $voucher = VoucherCategory::find($id);
-        $User->experience_point -= $voucher->voucher_price;
-        $voucher->vouchers()->create($newVoucher);
-        // // Ensure user exists
-        // if ($user) {
-        //     $User = User::findOrFail($user->id);
+        // Ensure user exists
+        if ($user) {
+            $User = User::findOrFail($user->id);
 
-        //     // Ensure voucher exists
-        //     $voucher = voucher::findOrFail($id);
+            // Ensure voucher exists
+            $voucher = VoucherCategory::findOrFail($id);
 
-        //     if ($User && $voucher) {
-        //         // Check if user has sufficient experience points
-        //         if ($User->experience_point >= $voucher->voucher_price) {
-        //             // Use a database transaction for data consistency
-        //             try {
-        //                 DB::beginTransaction();
+            if ($User && $voucher) {
+                // Check if user has sufficient experience points
+                if ($User->experience_point >= $voucher->voucher_price) {
+                    // Use a database transaction for data consistency
+                    try {
+                        DB::beginTransaction();
 
-        //                 // Subtract experience points
-        //                 $User->experience_point -= $voucher->voucher_price;
-        //                 $User->save();
+                        // Subtract experience points
+                        $User->experience_point -= $voucher->voucher_price;
+                        $User->save();
+                        $voucher->vouchers()->create($newVoucher);
+                        // Your code to create the voucher transaction goes here
 
-        //                 // Your code to create the voucher transaction goes here
+                        DB::commit();
 
-        //                 DB::commit();
+                        // Success message or redirection
+                        return redirect()->route('front.voucher')->with('success', 'Voucher purchased successfully!');
+                    } catch (\Exception $e) {
+                        DB::rollback();
 
-        //                 // Success message or redirection
-        //                 return redirect()->route('your.success.route')->with('success', 'Voucher purchased successfully!');
-        //             } catch (\Exception $e) {
-        //                 DB::rollback();
-
-        //                 // Handle the exception (e.g., log, display error message)
-        //                 return redirect()->route('front.voucher')->with('error', 'Failed to purchase voucher.');
-        //             }
-        //         } else {
-        //             // Insufficient experience points
-        //             return redirect()->route('front.voucher')->with('error', 'Insufficient experience points.');
-        //         }
-        //     } else {
-        //         // User or voucher not found
-        //         return redirect()->route('front.voucher')->with('error', 'User or voucher not found.');
-        //     }
-        // } else {
-        //     // User not authenticated
-        //     return redirect()->route('front.voucher')->with('error', 'User not authenticated.');
-        // }
-
-        return redirect()->route('front.voucher');
+                        // Handle the exception (e.g., log, display error message)
+                        return redirect()->route('front.voucher')->with('error', 'Failed to purchase voucher.');
+                    }
+                } else {
+                    // Insufficient experience points
+                    return redirect()->route('front.voucher')->with('error', 'Insufficient experience points.');
+                }
+            } else {
+                // User or voucher not found
+                return redirect()->route('front.voucher')->with('error', 'User or voucher not found.');
+            }
+        } else {
+            // User not authenticated
+            return redirect()->route('front.voucher')->with('error', 'User not authenticated.');
+        }
     }
 
     /**

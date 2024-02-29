@@ -25,6 +25,35 @@
                 <p class="font-light text-sm">Save some money by using your experience points</p>
             </div>
             {{-- Content --}}
+            @if (session('error'))
+                <div class="mb-5" role="alert">
+                    <div class="px-4 py-2 font-bold text-white bg-red-500 rounded-t">
+                        Error!
+                    </div>
+                    <div class="px-4 py-3 text-red-700 bg-red-100 border border-t-0 border-red-400 rounded-b">
+                        <p>
+                        <ul>
+                            <li>{{ session('error') }}</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+            @endif
+            @if (session('success'))
+                <div class="mb-5" role="alert">
+                    <div class="px-4 py-2 font-bold text-white bg-green-700 rounded-t">
+                        Success!
+                    </div>
+                    <div class="px-4 py-3 text-green-700 bg-green-100 border border-t-0 border-green-400 rounded-b">
+                        <p>
+                        <ul>
+                            <li>{{ session('success') }}</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+            @endif
+            {{-- content --}}
             <div>
                 @foreach ($data as $voucherCategory)
                     <div class="bg-white rounded-lg flex flex-row p-4 my-4 relative"
@@ -34,7 +63,8 @@
                                 alt="" class="rounded-md w-96 h-64 object-left">
                         </div>
                         <div class="flex flex-col mx-12 my-9 text-lg">
-                            <p class="my-1"><span class="inline-block w-48">Name</span>: {{ $voucherCategory->voucher_name }}
+                            <p class="my-1"><span class="inline-block w-48">Name</span>:
+                                {{ $voucherCategory->voucher_name }}
                             </p>
                             <p class="my-1"><span class="inline-block w-48">Nominal</span>: Rp
                                 {{ $voucherCategory->voucher_nominal }}</p>
@@ -45,15 +75,30 @@
                             <p class="my-1"><span class="inline-block w-48">Minimum Spending</span>: Rp
                                 {{ $voucherCategory->minimum_spending }}</p>
                         </div>
-                        {{-- @dd(isset($voucherCategory)) --}}
-                        <button class="bg-blue-500 text-white px-4 py-2 rounded-md absolute bottom-4 right-4 btnPrchs {{ isset($voucherCategory->vouchers[0]) && $voucherCategory->vouchers[0]->qty == 1 ? 'bg-grey hover:bg-grey' : '' }}"
-                            onclick="openModal(); selectVoucher(this);" {{ isset($voucherCategory->vouchers[0]) && $voucherCategory->vouchers[0]->qty == 1 ? 'disabled' : '' }}>Purchase</button>
-                    </div>
-                @endforeach
-            </div>
-        </div>
+                        <button
+                            class="bg-blue-500 text-white px-4 py-2 rounded-md absolute bottom-4 right-4 btnPrchs
+                                @if (isset($voucherCategory->vouchers[0]))
+                                    @foreach ($voucherCategory->vouchers as $vouchers)
+                                        @if ($vouchers->user_id == $user->id && $vouchers->qty == 1)
+                                        bg-grey hover:bg-grey
+                                        @endif
+                                    @endforeach
+                                @endif"
+                            onclick="openModal(); selectVoucher(this);"
+                                @if (isset($voucherCategory->vouchers[0]))
+                                    @foreach ($voucherCategory->vouchers as $vouchers)
+                                        @if ($vouchers->user_id == $user->id && $vouchers->qty == 1)
+                                            disabled
+                                            @endif
+                                    @endforeach
+                                @endif>Purchase</button>
 
+            </div>
+            @endforeach
+        </div>
+        </div>
         {{ $data->onEachSide(1)->links() }}
+
         {{-- Modal --}}
         <div id="modal" class="fixed inset-0 z-10 flex items-center justify-center hidden">
             <div class="absolute inset-0 bg-gray-900 opacity-50"></div>
