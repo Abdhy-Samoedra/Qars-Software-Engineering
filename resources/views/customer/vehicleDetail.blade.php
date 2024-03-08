@@ -5,17 +5,17 @@
         <!-- Breadcrumb -->
         <ul class="flex items-center gap-5 mb-[50px]">
           <li
-              class="text-text_semiblack font-normal text-base capitalize after:content-['/'] last:after:content-none inline-flex gap-5">
+              class="text-secondary font-normal text-base capitalize after:content-['/'] last:after:content-none inline-flex gap-5">
             <a href="{{ route('front.index') }}">Home</a>
           </li>
           <li
-              class="text-text_semiblack font-normal text-base capitalize after:content-['/'] last:after:content-none inline-flex gap-5">
+              class="text-secondary font-normal text-base capitalize after:content-['/'] last:after:content-none inline-flex gap-5">
             <a href="#!">
               {{ $vehicle->brand }}
             </a>
           </li>
           <li
-              class="text-text_black font-semibold text-base capitalize after:content-['/'] last:after:content-none inline-flex gap-5">
+              class="text-dark font-semibold text-base capitalize after:content-['/'] last:after:content-none inline-flex gap-5">
             Details
           </li>
         </ul>
@@ -51,9 +51,30 @@
                   </p>
                   <div class="flex items-center gap-2">
                     <span class="flex items-center gap-1">
-                      
+                    @php
+                        $temp = 0;
+                        $count = 0;
+                        $check = 0;
+                        // @dd($vehicle->transactions);
+                        if(isset($vehicleRating)){
+                            foreach ($vehicleRating->transactions as $transaction) {
+                                if (isset($transaction->rating->rating)) {
+                                    $check = 1;
+                                    $count += 1;
+                                    $temp = $temp + $transaction->rating->rating;
+                                }
+                            }
+                            if($check == 1){
+                                $temp = $temp / $count;
+                                $temp = number_format($temp, 1);
+                            }else{
+                                $temp = null;
+                            }
+                        }
+
+                    @endphp
                       @if(isset($vehicleRating->transactions[0]->rating->rating))
-                        @for ($i = 0; $i < intval($vehicleRating->transactions[0]->rating->rating); $i++)
+                        @for ($i = 0; $i < intval($temp); $i++)
                           <img src="/svgs/ic-star.svg" class="h-[22px] w-[22px]" alt="">
                         @endfor
                       @else
@@ -191,7 +212,29 @@
                                     </p>
                                     <!-- Rating -->
                                     <p class="text-text_black text-xs font-semibold flex items-center gap-[2px]">
-                                        ({{ $similiarItem->transactions[0]->rating->rating ?? 'No rating available' }}/5)
+                                        @php
+                                            $temp = 0;
+                                            $count = 0;
+                                            $check = 0;
+                                            // @dd($vehicle->transactions);
+                                            if(isset($similiarItem)){
+                                                foreach ($similiarItem->transactions as $transaction) {
+                                                    if (isset($transaction->rating->rating)) {
+                                                        $check = 1;
+                                                        $count += 1;
+                                                        $temp = $temp + $transaction->rating->rating;
+                                                    }
+                                                }
+                                                if($check == 1){
+                                                    $temp = $temp / $count;
+                                                    $temp = number_format($temp, 1);
+                                                }else{
+                                                    $temp = null;
+                                                }
+                                            }
+                                            
+                                        @endphp
+                                        ({{ $temp ?? 'No rating available' }}/5)
                                         <img src="/svgs/ic-star.svg" alt="">
                                     </p>
                                 </div>

@@ -77,16 +77,22 @@
                                         @php
                                             $temp = 0;
                                             $count = 0;
+                                            $check = 0;
                                             // @dd($vehicle->transactions);
                                             foreach ($vehicle->transactions as $transaction) {
                                                 if (isset($transaction->rating->rating)) {
+                                                    $check = 1;
                                                     $count += 1;
                                                     $temp = $temp + $transaction->rating->rating;
                                                 }
                                             }
-
-                                            $temp = $temp / $count;
-                                            $temp = number_format($temp, 1);
+                                            if($check == 1){
+                                                $temp = $temp / $count;
+                                                $temp = number_format($temp, 1);
+                                            }else{
+                                                $temp = null;
+                                            }
+                                            
 
                                         @endphp
 
