@@ -1,121 +1,113 @@
 <x-front-layout>
     <!-- Main Content -->
     <section class="relative py-[70px]">
-        <div class="container">
-            <!-- Breadcrumb -->
-            <ul class="flex items-center gap-5 mb-[50px]">
-                <li
-                    class="text-secondary font-normal text-base capitalize after:content-['/'] last:after:content-none inline-flex gap-5">
-                    <a href="{{ route('front.index') }}">Home</a>
-                </li>
-                <li
-                    class="text-secondary font-normal text-base capitalize after:content-['/'] last:after:content-none inline-flex gap-5">
-                    <a href="#!">
-                        {{ $vehicle->brand }}
-                    </a>
-                </li>
-                <li
-                    class="text-dark font-semibold text-base capitalize after:content-['/'] last:after:content-none inline-flex gap-5">
-                    Details
-                </li>
-            </ul>
-
-            <div class="grid grid-cols-12 gap-[30px]">
-                <!-- Car Preview -->
-                <div class="col-span-12 lg:col-span-8">
-                    <div class="bg-white p-4 rounded-[30px] flex flex-col gap-4" id="gallery">
-                        <img :src="thumbnails[activeThumbnail].url" :key="thumbnails[activeThumbnail].id"
-                            class="md:h-[490px] rounded-[18px] h-auto w-full" alt="">
-                        <div class="grid items-center grid-cols-4 gap-3 md:gap-5">
-                            <div v-for="(thumbnail, index) in thumbnails" :key="thumbnail.id">
-                                <a href="#!" @click="changeActive(index)">
-                                    <img :src="thumbnail.url" alt="" class="thumbnail"
-                                        :class="{ selected: index == activeThumbnail }">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+      <div class="container">
+        <!-- Breadcrumb -->
+        <ul class="flex items-center gap-5 mb-[50px]">
+          <li
+              class="text-text_semiblack font-normal text-base capitalize after:content-['/'] last:after:content-none inline-flex gap-5">
+            <a href="{{ route('front.index') }}">Home</a>
+          </li>
+          <li
+              class="text-text_semiblack font-normal text-base capitalize after:content-['/'] last:after:content-none inline-flex gap-5">
+            <a href="#!">
+              {{ $vehicle->brand }}
+            </a>
+          </li>
+          <li
+              class="text-text_black font-semibold text-base capitalize after:content-['/'] last:after:content-none inline-flex gap-5">
+            Details
+          </li>
+        </ul>
+  
+        <div class="grid grid-cols-12 gap-[30px]">
+          <!-- Car Preview -->          
+          <div class="col-span-12 lg:col-span-8">
+            <div class="bg-white p-4 rounded-[30px] flex flex-col gap-4" id="gallery">
+              <img :src="thumbnails[activeThumbnail].url" :key="thumbnails[activeThumbnail].id"
+                   class="md:h-[490px] rounded-[18px] h-auto w-full" alt="">
+              <div class="grid items-center grid-cols-4 gap-3 md:gap-5">
+                <div v-for="(thumbnail, index) in thumbnails" :key="thumbnail.id">
+                  <a href="#!" @click="changeActive(index)">
+                    <img :src="thumbnail.url" alt="" class="thumbnail"
+                         :class="{ selected: index == activeThumbnail }">
+                  </a>
                 </div>
-
-                <!-- Details -->
-                <div class="col-span-12 md:col-start-5 lg:col-start-auto md:col-span-8 lg:col-span-4">
-                    <div class="bg-white p-5 pb-[30px] rounded-3xl h-full">
-                        <div class="flex flex-col h-full divide-y divide-grey">
-                            <!-- Name, Category, Rating -->
-                            <div class="max-w-[230px] pb-5">
-                                <h1 class="font-bold text-[28px] leading-[42px] text-text_black mb-[6px]">
-                                    {{ $vehicle->brand }}
-                                </h1>
-                                <p class="text-text_semiblack font-normal text-base mb-[10px]">
-                                    {{ $vehicle->type }}
-                                </p>
-                                <div class="flex items-center gap-2">
-                                    <span class="flex items-center gap-1">
-                                        {{-- @php
-                                            foreach ($vehicle->transactions as $transaction) {
-                                                $temp += $transaction->rating->rating;
-                                            }
-
-                                            $temp /= count($vehicle->transactions);
-
-                                        @endphp --}}
-                                        {{-- @dd($vehicleRating->transactions); --}}
-                                        @if (isset($vehicleRating->transactions[0]->rating->rating))
-                                            @for ($i = 0; $i < intval($vehicleRating->transactions[0]->rating->rating); $i++)
-                                                <img src="/svgs/ic-star.svg" class="h-[22px] w-[22px]" alt="">
-                                            @endfor
-                                        @else
-                                            No Ratings Available
-                                        @endif
-                                    </span>
-                                    <p class="text-base font-semibold text-dark mt-[2px]">
-                                        @if ($vehicleRating)
-                                            ({{ count($vehicleRating->transactions) }})
-                                        @else
-                                            (0)
-                                        @endif
-                                    </p>
-                                </div>
-                            </div>
-                            <!-- Features -->
-                            <ul class="flex flex-col gap-4 flex-start pt-5 pb-[25px]">
-                                @php
-                                    $features = explode(',', $vehicle->car_description);
-                                @endphp
-                                @foreach ($features as $feature)
-                                    <li class="flex items-center gap-3 text-base font-semibold text-text_black">
-                                        <img src="/svgs/ic-checkDark.svg" alt="">
-                                        {{ $feature }}
-                                    </li>
-                                @endforeach
-                            </ul>
-                            <!-- Price, CTA Button -->
-                            <div class="flex items-center justify-between gap-4 pt-5 mt-auto">
-                                <div>
-                                    <p class="font-bold text-primary text-[22px]">
-                                        ${{ number_format($vehicle->rental_price) }}
-                                    </p>
-                                    <p class="text-base font-normal text-text_semiblack">
-                                        /day
-                                    </p>
-                                </div>
-                                <div class="w-full max-w-[70%]">
-                                    <!-- Button Primary -->
-                                    <div class="p-1 rounded-full bg-primary group">
-                                        <a href="{{ route('front.checkout', $vehicle->slug) }}" class="btn-primary">
-                                            <p>
-                                                Rent Now
-                                            </p>
-                                            <img src="/svgs/ic-arrow-right.svg" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
+          </div>
+  
+          <!-- Details -->
+          <div class="col-span-12 md:col-start-5 lg:col-start-auto md:col-span-8 lg:col-span-4">
+            <div class="bg-white p-5 pb-[30px] rounded-3xl h-full">
+              <div class="flex flex-col h-full divide-y divide-grey">
+                <!-- Name, Category, Rating -->
+                <div class="max-w-[230px] pb-5">
+                  <h1 class="font-bold text-[28px] leading-[42px] text-text_black mb-[6px]">
+                    {{ $vehicle->brand }}
+                  </h1>
+                  <p class="text-text_semiblack font-normal text-base mb-[10px]">
+                    {{ $vehicle->type }}
+                  </p>
+                  <div class="flex items-center gap-2">
+                    <span class="flex items-center gap-1">
+                      
+                      @if(isset($vehicleRating->transactions[0]->rating->rating))
+                        @for ($i = 0; $i < intval($vehicleRating->transactions[0]->rating->rating); $i++)
+                          <img src="/svgs/ic-star.svg" class="h-[22px] w-[22px]" alt="">
+                        @endfor
+                      @else
+                        No Ratings Available  
+                      @endif
+                    </span>
+                    <p class="text-base font-semibold text-dark mt-[2px]">
+                      @if($vehicleRating)
+                        ({{count(($vehicleRating->transactions))}})
+                      @else
+                        (0)
+                      @endif
+                    </p>
+                  </div>
+                </div>
+                <!-- Features -->
+                <ul class="flex flex-col gap-4 flex-start pt-5 pb-[25px]">
+                  @php
+                    $features = explode(',', $vehicle->car_description);
+                  @endphp
+                  @foreach ($features as $feature)
+                    <li class="flex items-center gap-3 text-base font-semibold text-text_black">
+                      <img src="/svgs/ic-checkDark.svg" alt="">
+                      {{ $feature }}
+                    </li>
+                  @endforeach
+                </ul>
+                <!-- Price, CTA Button -->
+                <div class="flex items-center justify-between gap-4 pt-5 mt-auto">
+                  <div>
+                    <p class="font-bold text-primary text-[22px]">
+                      ${{ number_format($vehicle->rental_price) }}
+                    </p>
+                    <p class="text-base font-normal text-text_semiblack">
+                      /day
+                    </p>
+                  </div>
+                  <div class="w-full max-w-[70%]">
+                    <!-- Button Primary -->
+                    <div class="p-1 rounded-full bg-primary group">
+                      <a href="{{route('front.checkout' , $vehicle->slug)}}" class="btn-primary">
+                        <p>
+                          Rent Now
+                        </p>
+                        <img src="/svgs/ic-arrow-right.svg" alt="">
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <section class="splide container relative pt-[100px] pb-[100px]">
