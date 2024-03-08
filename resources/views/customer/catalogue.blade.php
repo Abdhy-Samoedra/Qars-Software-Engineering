@@ -117,7 +117,7 @@
 
         </div>
     </div>
-    <footer class="w-screen pt-32 pb-16 px-20 lg:px-[160px]">
+    <footer class="w-screen mt-32 pt-32 pb-16 px-20 lg:px-[160px] bg-[#060523]">
         <div class="flex flex-col gap-y-16 max-w-6xl mx-auto">
             <div class="grid gap-y-12 md:grid-cols-2 md:gap-x-10">
                 <div class="flex flex-col gap-y-8 h-fit ">
@@ -140,7 +140,7 @@
                             d="M76.4905 25.9869H80.3049L82.5641 28.9158L84.1761 30.823L88.0473 35.7954H83.9604L81.3266 32.4578L80.2028 30.8684L76.4905 25.9869ZM88.6036 22.1725C88.6036 24.6776 88.1343 26.8232 87.1959 28.6093C86.265 30.3878 84.9935 31.7501 83.3814 32.6962C81.777 33.6422 79.9568 34.1152 77.9209 34.1152C75.885 34.1152 74.0611 33.6422 72.449 32.6962C70.8446 31.7426 69.5731 30.3765 68.6346 28.5979C67.7037 26.8118 67.2383 24.67 67.2383 22.1725C67.2383 19.6674 67.7037 17.5255 68.6346 15.747C69.5731 13.9609 70.8446 12.5948 72.449 11.6487C74.0611 10.7027 75.885 10.2297 77.9209 10.2297C79.9568 10.2297 81.777 10.7027 83.3814 11.6487C84.9935 12.5948 86.265 13.9609 87.1959 15.747C88.1343 17.5255 88.6036 19.6674 88.6036 22.1725ZM84.3691 22.1725C84.3691 20.4091 84.0929 18.9219 83.5404 17.711C82.9955 16.4925 82.2386 15.5729 81.2699 14.9523C80.3011 14.3241 79.1848 14.0101 77.9209 14.0101C76.657 14.0101 75.5407 14.3241 74.5719 14.9523C73.6032 15.5729 72.8426 16.4925 72.2901 17.711C71.7452 18.9219 71.4727 20.4091 71.4727 22.1725C71.4727 23.9359 71.7452 25.4268 72.2901 26.6453C72.8426 27.8563 73.6032 28.7758 74.5719 29.404C75.5407 30.0246 76.657 30.3349 77.9209 30.3349C79.1848 30.3349 80.3011 30.0246 81.2699 29.404C82.2386 28.7758 82.9955 27.8563 83.5404 26.6453C84.0929 25.4268 84.3691 23.9359 84.3691 22.1725ZM98.7315 34.1493C97.6266 34.1493 96.6313 33.9525 95.7458 33.559C94.8679 33.1578 94.1716 32.5675 93.657 31.788C93.1499 31.0084 92.8964 30.0473 92.8964 28.9045C92.8964 27.9206 93.078 27.107 93.4413 26.4637C93.8046 25.8204 94.3003 25.3057 94.9285 24.9198C95.5566 24.5338 96.2643 24.2424 97.0514 24.0456C97.846 23.8413 98.6672 23.6937 99.5148 23.6029C100.537 23.4969 101.365 23.4023 102.001 23.3191C102.637 23.2282 103.098 23.092 103.386 22.9104C103.681 22.7212 103.829 22.4298 103.829 22.0362V21.9681C103.829 21.1129 103.575 20.4507 103.068 19.9814C102.561 19.5122 101.831 19.2776 100.877 19.2776C99.8706 19.2776 99.0721 19.4971 98.4818 19.936C97.899 20.375 97.5055 20.8934 97.3011 21.4913L93.464 20.9464C93.7667 19.8868 94.2662 19.0013 94.9625 18.2899C95.6588 17.5709 96.5102 17.0336 97.5168 16.6779C98.5234 16.3146 99.6359 16.133 100.854 16.133C101.695 16.133 102.531 16.2314 103.363 16.4281C104.196 16.6249 104.956 16.9503 105.645 17.4044C106.334 17.851 106.886 18.4602 107.303 19.2322C107.726 20.0041 107.938 20.9691 107.938 22.1271V33.7974H103.988V31.402H103.851C103.602 31.8864 103.25 32.3405 102.796 32.7643C102.349 33.1805 101.785 33.5173 101.104 33.7747C100.431 34.0244 99.6397 34.1493 98.7315 34.1493ZM99.7987 31.1295C100.624 31.1295 101.339 30.9668 101.944 30.6414C102.55 30.3084 103.015 29.8694 103.341 29.3245C103.674 28.7796 103.84 28.1855 103.84 27.5422V25.4874C103.711 25.5933 103.492 25.6917 103.182 25.7825C102.879 25.8734 102.538 25.9528 102.16 26.0209C101.782 26.0891 101.407 26.1496 101.036 26.2026C100.665 26.2556 100.344 26.301 100.071 26.3388C99.4581 26.4221 98.9094 26.5583 98.425 26.7475C97.9406 26.9367 97.5584 27.2016 97.2784 27.5422C96.9984 27.8752 96.8584 28.3066 96.8584 28.8363C96.8584 29.5932 97.1346 30.1646 97.6871 30.5506C98.2396 30.9365 98.9434 31.1295 99.7987 31.1295ZM113.349 33.7974V16.36H117.334V19.2662H117.516C117.834 18.2597 118.379 17.4839 119.15 16.939C119.93 16.3865 120.819 16.1103 121.818 16.1103C122.045 16.1103 122.299 16.1216 122.579 16.1443C122.867 16.1595 123.105 16.1859 123.294 16.2238V20.0041C123.12 19.9436 122.844 19.8906 122.465 19.8452C122.095 19.7922 121.735 19.7657 121.387 19.7657C120.638 19.7657 119.964 19.9285 119.366 20.2539C118.776 20.5718 118.31 21.0145 117.97 21.5821C117.629 22.1498 117.459 22.8044 117.459 23.5461V33.7974H113.349ZM141.085 20.9691L137.339 21.3778C137.233 20.9994 137.047 20.6437 136.782 20.3107C136.525 19.9777 136.177 19.709 135.738 19.5046C135.299 19.3003 134.762 19.1981 134.126 19.1981C133.271 19.1981 132.552 19.3835 131.969 19.7544C131.394 20.1252 131.11 20.6058 131.118 21.1962C131.11 21.7032 131.295 22.1157 131.674 22.4336C132.06 22.7514 132.696 23.0125 133.581 23.2169L136.555 23.8526C138.205 24.2083 139.431 24.7722 140.234 25.5441C141.043 26.3161 141.452 27.3265 141.46 28.5752C141.452 29.6726 141.13 30.6414 140.495 31.4815C139.866 32.314 138.992 32.9649 137.872 33.4341C136.752 33.9033 135.466 34.1379 134.012 34.1379C131.878 34.1379 130.16 33.6914 128.858 32.7983C127.557 31.8977 126.781 30.6452 126.531 29.0407L130.539 28.6547C130.72 29.4418 131.106 30.0359 131.697 30.437C132.287 30.8382 133.055 31.0387 134.001 31.0387C134.977 31.0387 135.761 30.8382 136.351 30.437C136.949 30.0359 137.248 29.5402 137.248 28.9499C137.248 28.4504 137.055 28.0379 136.669 27.7125C136.29 27.387 135.7 27.1373 134.898 26.9632L131.924 26.3388C130.251 25.9907 129.014 25.4041 128.211 24.5792C127.409 23.7467 127.012 22.6947 127.019 21.4232C127.012 20.3485 127.303 19.4176 127.893 18.6305C128.491 17.8358 129.32 17.2228 130.38 16.7914C131.447 16.3524 132.677 16.133 134.069 16.133C136.113 16.133 137.721 16.5681 138.894 17.4385C140.075 18.3088 140.805 19.4857 141.085 20.9691Z"
                             fill="#1D5D9B" />
                     </svg>
-                    <p class="text-text_semiblack font-normal text-[14px] lg:text-base">
+                    <p class="text-[#B9B8CE]  font-normal text-[14px] lg:text-base">
                         Legitimate, extravagant yet refined services <br>
                         which lends the ability toacquire various types <br>
                         of automobileon just a few touches
@@ -199,93 +199,93 @@
                 </div>
                 <div class="grid grid-cols-2 gap-y-8 md:grid-cols-4 md:gap-x-12">
                     <div class="flex flex-col gap-y-4">
-                        <p class="text-text_black font-medium text-[16px] lg:text-[18px]">
+                        <p class="text-[#B9B8CE] font-medium text-[16px] lg:text-[18px]">
                             Pages
                         </p>
                         <div class="flex flex-col gap-y-2">
                             <a href=""
-                                class="text-[14px] lg:text-base text-text_semiblack font-normal hover:text-primary ">
+                                class="text-[14px] lg:text-base text-[#717086]  font-normal hover:text-white ">
                                 Home
                             </a>
                             <a href=""
-                                class="text-[14px] lg:text-base text-text_semiblack font-normal hover:text-primary">
+                                class="text-[14px] lg:text-base text-[#717086]  font-normal hover:text-white">
                                 Catalogs
                             </a>
                             <a href=""
-                                class="text-[14px] lg:text-base text-text_semiblack font-normal hover:text-primary">
+                                class="text-[14px] lg:text-base text-[#717086]  font-normal hover:text-white">
                                 Booked
                             </a>
                             <a href=""
-                                class="text-[14px] lg:text-base text-text_semiblack font-normal hover:text-primary">
+                                class="text-[14px] lg:text-base text-[#717086]  font-normal hover:text-white">
                                 Lost & Found
                             </a>
                             <a href=""
-                                class="text-[14px] lg:text-base text-text_semiblack font-normal hover:text-primary">
+                                class="text-[14px] lg:text-base text-[#717086]  font-normal hover:text-white">
                                 Vouchers
                             </a>
                         </div>
                     </div>
                     <div class="flex flex-col gap-y-4">
-                        <p class="text-text_black font-medium text-[16px] lg:text-[18px]">
+                        <p class="text-[#B9B8CE]  font-medium text-[16px] lg:text-[18px]">
                             Cars
                         </p>
                         <div class="flex flex-col gap-y-2">
                             <a href=""
-                                class="text-[14px] lg:text-base text-text_semiblack font-normal hover:text-primary">
+                                class="text-[14px] lg:text-base text-[#717086]  font-normal hover:text-white">
                                 Catalog
                             </a>
                             <a href=""
-                                class="text-[14px] lg:text-base text-text_semiblack font-normal hover:text-primary">
+                                class="text-[14px] lg:text-base text-[#717086]  font-normal hover:text-white">
                                 Vouchers
                             </a>
                             <a href=""
-                                class="text-[14px] lg:text-base text-text_semiblack font-normal hover:text-primary">
+                                class="text-[14px] lg:text-base text-[#717086]  font-normal hover:text-white">
                                 Popular
                             </a>
                         </div>
                     </div>
                     <div class="flex flex-col gap-y-4">
-                        <p class="text-text_black font-medium text-[16px] lg:text-[18px]">
+                        <p class="text-[#B9B8CE] font-medium text-[16px] lg:text-[18px]">
                             Creators
                         </p>
                         <div class="flex flex-col gap-y-2">
                             <a href=""
-                                class="text-[14px] lg:text-base text-text_semiblack font-normal hover:text-primary">
+                                class="text-[14px] lg:text-base text-[#717086] font-normal hover:text-white">
                                 Abdhy
                             </a>
                             <a href=""
-                                class="text-[14px] lg:text-base text-text_semiblack font-normal hover:text-primary">
+                                class="text-[14px] lg:text-base text-[#717086] font-normal hover:text-white">
                                 Bella
                             </a>
                             <a href=""
-                                class="text-[14px] lg:text-base text-text_semiblack font-normal hover:text-primary">
+                                class="text-[14px] lg:text-base text-[#717086] font-normal hover:text-white">
                                 Daniel
                             </a>
                             <a href=""
-                                class="text-[14px] lg:text-base text-text_semiblack font-normal hover:text-primary">
+                                class="text-[14px] lg:text-base text-[#717086] font-normal hover:text-white">
                                 Joel
                             </a>
                             <a href=""
-                                class="text-[14px] lg:text-base text-text_semiblack font-normal hover:text-primary">
+                                class="text-[14px] lg:text-base text-[#717086] font-normal hover:text-white">
                                 Ryan
                             </a>
                         </div>
                     </div>
                     <div class="flex flex-col gap-y-4">
-                        <p class="text-text_black font-medium text-[16px] lg:text-[18px]">
+                        <p class="text-[#B9B8CE] font-medium text-[16px] lg:text-[18px]">
                             Support
                         </p>
                         <div class="flex flex-col gap-y-2">
                             <a href=""
-                                class="text-[14px] lg:text-base text-text_semiblack font-normal hover:text-primary">
+                                class="text-[14px] lg:text-base text-[#717086]  font-normal hover:text-white">
                                 FAQ
                             </a>
                             <a href=""
-                                class="text-[14px] lg:text-base text-text_semiblack font-normal hover:text-primary">
+                                class="text-[14px] lg:text-base text-[#717086]  font-normal hover:text-white">
                                 Benefits
                             </a>
                             <a href=""
-                                class="text-[14px] lg:text-base text-text_semiblack font-normal hover:text-primary">
+                                class="text-[14px] lg:text-base text-[#717086]  font-normal hover:text-white">
                                 Lost & Found
                             </a>
                         </div>
@@ -293,10 +293,10 @@
                 </div>
             </div>
             <div class="flex flex-col gap-y-10 ">
-                <hr class="">
+                <hr class="bg-gray-200">
                 <div class="flex flex-col gap-y-5 text-center md:flex-row md:justify-between items-center">
-                    <p class="text-text_semiblack font-normal lg:text-base"> Terms & Conditions | Privacy Policy</p>
-                    <p class="text-text_semiblack font-normal lg:text-base"> Copyright © 2020. All right reserved </p>
+                    <p class="text-[#717086]  font-normal lg:text-base"> Terms & Conditions | Privacy Policy</p>
+                    <p class="text-[#717086]  font-normal lg:text-base"> Copyright © 2020. All right reserved </p>
                 </div>
             </div>
         </div>

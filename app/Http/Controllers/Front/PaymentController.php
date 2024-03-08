@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Transaction;
+use App\Models\User;
 use App\Models\Voucher;
 use App\Models\VoucherCategory;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class PaymentController extends Controller
 {
@@ -45,6 +47,11 @@ class PaymentController extends Controller
         // laod booking data
         $transaction = Transaction::findOrFail($transactionId);
 
+        // dd($transaction->exp_reward);
+        $user = User::findOrFail(Auth::user()->id);
+        $user->experience_point += $transaction->exp_reward;
+        $user->save();
+
         // dd($request->voucher_category_id);
 
 
@@ -68,10 +75,10 @@ class PaymentController extends Controller
 
 
         // set payment method
-        $transaction->payment_method = $request->payment_method;
+        $transaction->payment_method = 'midtrans';
 
         // handle midtrans payment_method
-        if ($request->payment_method == 'midtrans') {
+        if ($transaction->payment_method == 'midtrans') {
             // Set your Merchant Server Key
             \Midtrans\Config::$serverKey = config('services.midtrans.serverKey');
             // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
@@ -117,6 +124,10 @@ class PaymentController extends Controller
 
 
             //disable selected cars
+            if ($transaction->driver_id) {
+                $transaction->driver->status = 'unavailable';
+                $transaction->driver->save();
+            }
             $transaction->vehicle->status = 1;
             $transaction->vehicle->save();
 

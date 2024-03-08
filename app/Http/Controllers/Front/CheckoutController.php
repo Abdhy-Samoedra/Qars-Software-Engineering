@@ -74,6 +74,7 @@ class CheckoutController extends Controller
 
         if ($request->has('checkbox') === true || Auth::user()->driving_license_status === 'Unverified') {
             $transactionData['driver_id'] = $driver->id;
+            $transactionData['total_price'] = $total_price + (100000* $days);
         }
 
         $transaction = $vehicle->transactions()->create($transactionData);
