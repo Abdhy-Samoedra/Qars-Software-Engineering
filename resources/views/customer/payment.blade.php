@@ -6,7 +6,7 @@
                 <h2 class="font-bold text-dark text-[26px] mb-1">
                     Checkout & Drive Faster
                 </h2>
-                <p class="text-base text-secondary">We will help you get ready today</p>
+                <p class="text-base text-text_semiblack">We will help you get ready today</p>
             </header>
 
             <div class="flex items-center gap-5 lg:justify-between">

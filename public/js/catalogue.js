@@ -10,7 +10,7 @@ const ulOfCard = document.querySelector('.containCard')
 
 const containCatalog = document.querySelector('.containCatalog')
 
-console.log(containCatalog)
+// console.log(containCatalog)
 // console.log(ulOfCatalogue)
 
 
@@ -22,6 +22,9 @@ let elementNow = vehicleCard
 
 let maxShowItem = 6
 
+if(vehicleCard.length <= maxShowItem){
+    pagination.classList.add('hidden')
+}
 
 if(window.screen.width < 1024){
     maxShowItem = 4
