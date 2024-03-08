@@ -107,7 +107,7 @@
                         </div>
 
                         {{-- choose payment method --}}
-                        <div class="flex flex-col gap-4">
+                        {{-- <div class="flex flex-col gap-4">
                             <h5 class="text-lg font-semibold">
                                 Payment Method
                             </h5>
@@ -124,7 +124,7 @@
                                     </label>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- CTA Button -->
                         <div class="col-span-2 mt-5">
                             <!-- Button Primary -->
