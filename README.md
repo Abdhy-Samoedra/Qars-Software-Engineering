@@ -1,5 +1,6 @@
 
-![Logo](<img width="400" alt="Group 33923" src="https://github.com/Abdhy-Samoedra/Qars-Software-Engineering/assets/54672937/7bf1ddac-64de-4bc8-903f-d55fdfa00a6e">)
+<img width="400" alt="Group 33923" src="https://github.com/Abdhy-Samoedra/Qars-Software-Engineering/assets/54672937/8427655c-aa70-4665-afae-e703815cac7d">
+
 
 
 # QARS (Quick Auto-mobile Renting Service)
