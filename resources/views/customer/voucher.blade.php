@@ -53,7 +53,7 @@
                     </div>
                 </div>
             @endif
-            {{-- content --}}
+            {{-- Content --}}
             <div>
                 @foreach ($data as $voucherCategory)
                     <div class="bg-white rounded-lg flex flex-row p-4 my-4 relative"
