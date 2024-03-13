@@ -70,7 +70,7 @@ if(window.screen.width <= 490){
 if(window.screen.width <= 400){
     ulOfCatalogue.querySelectorAll('.btnct').forEach(x => {
         x.classList.remove('w-16')
-        x.classList.add('w-9')
+        x.classList.add('w-13')
 
         x.classList.add('text-sm')
     })

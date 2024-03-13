@@ -55,7 +55,7 @@
                         $temp = 0;
                         $count = 0;
                         $check = 0;
-                        // @dd($vehicle->transactions);
+                        
                         if(isset($vehicleRating)){
                             foreach ($vehicleRating->transactions as $transaction) {
                                 if (isset($transaction->rating->rating)) {
@@ -141,7 +141,8 @@
         </header>
         <div class="splide__track">
             <div class="splide__list flex items-center md:flex-row">
-                {{-- @dd($vehicleRating) --}}
+
+                {{-- Check if review is available in this vehicle --}}
                 @if (isset($vehicleRating->transactions[0]->rating->review))
                     @foreach ($vehicleRating->transactions as $rate)
                         <div class="splide__slide w-52 p-10 lg:max-w-[536px] bg-white rounded-xl">
@@ -212,28 +213,33 @@
                                     </p>
                                     <!-- Rating -->
                                     <p class="text-text_black text-xs font-semibold flex items-center gap-[2px]">
+                                      {{-- Making the the rating that shown is the average from all existing ratings --}}
                                         @php
                                             $temp = 0;
                                             $count = 0;
                                             $check = 0;
-                                            // @dd($vehicle->transactions);
+                                            // Check if similiar item is exist
                                             if(isset($similiarItem)){
+                                              // iterate all of the similiar items
                                                 foreach ($similiarItem->transactions as $transaction) {
+                                                  // check if rating exist in the similiar item
                                                     if (isset($transaction->rating->rating)) {
                                                         $check = 1;
                                                         $count += 1;
                                                         $temp = $temp + $transaction->rating->rating;
                                                     }
                                                 }
+                                                // with $check, we make sure $count can't be 0, so $temp can't be divided by zero
                                                 if($check == 1){
                                                     $temp = $temp / $count;
                                                     $temp = number_format($temp, 1);
                                                 }else{
+                                                  // if rating doesn't exist, assign $temp as null
                                                     $temp = null;
                                                 }
-                                            }
-                                            
+                                            } 
                                         @endphp
+                                        {{-- Check if $temp is null or not --}}
                                         ({{ $temp ?? 'No rating available' }}/5)
                                         <img src="/svgs/ic-star.svg" alt="">
                                     </p>
@@ -242,6 +248,7 @@
                         </a>
                     @endforeach
                 @else
+                {{-- Show if no similiar items exist in this vehicle --}}
                     <span class="font-bold text-text_black text-[20px] mb-1">No Similiar Vehicle Currently</span>
                 @endif
             </div>
